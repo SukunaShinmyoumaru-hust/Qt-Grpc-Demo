@@ -1,0 +1,68 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "QtGrpcDemo",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "QtGrpcDemo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QtGrpcDemo-Debug-918949b5b4da1d3e445d.json",
+					"name" : "QtGrpcDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QtGrpcDemo_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QtGrpcDemo_autogen-Debug-e7b77b1bbb7ee66af95f.json",
+					"name" : "QtGrpcDemo_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/m/QtGrpcDemo/build",
+		"source" : "/home/m/QtGrpcDemo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
