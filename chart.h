@@ -11,7 +11,7 @@
 /* 横纵坐标最大显示范围 */
 const int AXIS_MAX_Y = 10;
 const int MAX_VELOCITY = 3;
-const int MAX_BLOOD = 100;
+const int MAX_BLOOD = 1000;
 
 /* 光添加头文件QChartView还不够，还需要引入QChart的命名空间 */
 QT_CHARTS_USE_NAMESPACE

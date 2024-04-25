@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/mocs_compilation.cpp" "/home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o"
   "/home/m/QtGrpcDemo/bloodnewwindows.cpp" "/home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.o"
   "/home/m/QtGrpcDemo/chart.cpp" "/home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo.dir/chart.cpp.o"
+  "/home/m/QtGrpcDemo/loading.cpp" "/home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo.dir/loading.cpp.o"
   "/home/m/QtGrpcDemo/main.cpp" "/home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo.dir/main.cpp.o"
   "/home/m/QtGrpcDemo/map.cpp" "/home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo.dir/map.cpp.o"
   "/home/m/QtGrpcDemo/proto/communication.grpc.pb.cc" "/home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.o"
@@ -23,6 +24,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "QT_CHARTS_LIB"
   "QT_CORE_LIB"
   "QT_GUI_LIB"
+  "QT_NO_DEBUG"
   "QT_WIDGETS_LIB"
   )
 

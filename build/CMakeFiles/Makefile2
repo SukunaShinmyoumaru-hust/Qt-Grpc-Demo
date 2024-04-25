@@ -75,12 +75,12 @@ clean: CMakeFiles/QtGrpcDemo_autogen.dir/clean
 CMakeFiles/QtGrpcDemo.dir/all: CMakeFiles/QtGrpcDemo_autogen.dir/all
 	$(MAKE) -f CMakeFiles/QtGrpcDemo.dir/build.make CMakeFiles/QtGrpcDemo.dir/depend
 	$(MAKE) -f CMakeFiles/QtGrpcDemo.dir/build.make CMakeFiles/QtGrpcDemo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target QtGrpcDemo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target QtGrpcDemo"
 .PHONY : CMakeFiles/QtGrpcDemo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/QtGrpcDemo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/QtGrpcDemo/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/QtGrpcDemo/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/QtGrpcDemo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/m/QtGrpcDemo/build/CMakeFiles 0
 .PHONY : CMakeFiles/QtGrpcDemo.dir/rule
@@ -102,7 +102,7 @@ CMakeFiles/QtGrpcDemo.dir/clean:
 CMakeFiles/QtGrpcDemo_autogen.dir/all:
 	$(MAKE) -f CMakeFiles/QtGrpcDemo_autogen.dir/build.make CMakeFiles/QtGrpcDemo_autogen.dir/depend
 	$(MAKE) -f CMakeFiles/QtGrpcDemo_autogen.dir/build.make CMakeFiles/QtGrpcDemo_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=12 "Built target QtGrpcDemo_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=13 "Built target QtGrpcDemo_autogen"
 .PHONY : CMakeFiles/QtGrpcDemo_autogen.dir/all
 
 # Build rule for subdir invocation for target.

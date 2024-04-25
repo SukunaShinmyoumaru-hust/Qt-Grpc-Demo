@@ -8,7 +8,7 @@ velocityNewWindows::velocityNewWindows(int a,QWidget *parent) :
     velocity("速度","时间","小车速度",MAX_VELOCITY)
 {
     ui->setupUi(this);
-
+    v = 0;
     m_timer = new QTimer(this);
     m_timer->setSingleShot(false);
     QObject::connect(m_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
@@ -43,7 +43,7 @@ void velocityNewWindows::slotBtnStartAndStop()
     }else
     {
         pointCount = 0;
-        m_timer->start(200);
+        m_timer->start(1000);
         ui->btnStartAndStop->setText("停止定时器");
     }
 }
@@ -55,7 +55,7 @@ void velocityNewWindows::slotTimeout()
     {
         velocity.Erase(pointCount);
     }
-    velocity.Update(QPointF(pointCount, rand()%100));
+    velocity.Update(QPointF(pointCount, v));
     pointCount++;
 }
 

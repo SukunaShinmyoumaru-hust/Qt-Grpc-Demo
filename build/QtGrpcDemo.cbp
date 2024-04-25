@@ -11,30 +11,30 @@
 				<Option working_dir="/home/m/QtGrpcDemo/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/home/m/QtGrpcDemo/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/home/m/QtGrpcDemo/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QtGrpcDemo">
@@ -47,30 +47,26 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_NO_DEBUG"/>
 					<Add option="-DQT_CHARTS_LIB"/>
 					<Add option="-DCARES_STATICLIB"/>
 					<Add directory="/home/m/QtGrpcDemo/build"/>
 					<Add directory="/home/m/QtGrpcDemo"/>
 					<Add directory="/home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/include"/>
-					<Add directory="/usr/include"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
 					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCharts"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 QtGrpcDemo"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 QtGrpcDemo"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QtGrpcDemo/fast">
@@ -83,40 +79,36 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_NO_DEBUG"/>
 					<Add option="-DQT_CHARTS_LIB"/>
 					<Add option="-DCARES_STATICLIB"/>
 					<Add directory="/home/m/QtGrpcDemo/build"/>
 					<Add directory="/home/m/QtGrpcDemo"/>
 					<Add directory="/home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/include"/>
-					<Add directory="/usr/include"/>
+					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
 					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCharts"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 QtGrpcDemo/fast"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 QtGrpcDemo/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="QtGrpcDemo_autogen">
 				<Option working_dir="/home/m/QtGrpcDemo/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 QtGrpcDemo_autogen"/>
-					<CompileFile command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j16 -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 QtGrpcDemo_autogen"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/m/QtGrpcDemo/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -136,6 +128,18 @@
 			<Option target="QtGrpcDemo"/>
 		</Unit>
 		<Unit filename="/home/m/QtGrpcDemo/chart.h">
+			<Option target="QtGrpcDemo"/>
+		</Unit>
+		<Unit filename="/home/m/QtGrpcDemo/ip.txt">
+			<Option target="QtGrpcDemo"/>
+		</Unit>
+		<Unit filename="/home/m/QtGrpcDemo/loading.cpp">
+			<Option target="QtGrpcDemo"/>
+		</Unit>
+		<Unit filename="/home/m/QtGrpcDemo/loading.h">
+			<Option target="QtGrpcDemo"/>
+		</Unit>
+		<Unit filename="/home/m/QtGrpcDemo/loading.ui">
 			<Option target="QtGrpcDemo"/>
 		</Unit>
 		<Unit filename="/home/m/QtGrpcDemo/main.cpp">

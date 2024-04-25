@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.o"
   "CMakeFiles/QtGrpcDemo.dir/chart.cpp.o"
+  "CMakeFiles/QtGrpcDemo.dir/loading.cpp.o"
   "CMakeFiles/QtGrpcDemo.dir/main.cpp.o"
   "CMakeFiles/QtGrpcDemo.dir/map.cpp.o"
   "CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.o"

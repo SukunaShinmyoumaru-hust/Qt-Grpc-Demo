@@ -8,7 +8,7 @@ BloodNewWindows::BloodNewWindows(int a,QWidget *parent) :
     blood("血量","时间","小车血量",MAX_BLOOD)
 {
     ui->setupUi(this);
-
+    b = 0;
     m_timer = new QTimer(this);
     m_timer->setSingleShot(false);
     QObject::connect(m_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
@@ -43,7 +43,7 @@ void BloodNewWindows::slotBtnStartAndStop()
     }else
     {
         pointCount = 0;
-        m_timer->start(200);
+        m_timer->start(1000);
         ui->btnStartAndStop->setText("停止定时器");
     }
 }
@@ -55,7 +55,7 @@ void BloodNewWindows::slotTimeout()
     {
         blood.Erase(pointCount);
     }
-    blood.Update(QPointF(pointCount, rand()%100));
+    blood.Update(QPointF(pointCount, b));
     pointCount++;
 }
 

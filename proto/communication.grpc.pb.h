@@ -27,6 +27,7 @@
 
 namespace communication {
 
+// 机器人信息
 class RobotComm final {
  public:
   static constexpr char const* service_full_name() {
@@ -35,62 +36,64 @@ class RobotComm final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
+    // ! GET Method
     // 向服务器索取血量信息 传回血量信息
-    virtual ::grpc::Status GetBlood(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Blood* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>> AsyncGetBlood(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Blood* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>> AsyncGetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>>(AsyncGetBloodRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>> PrepareAsyncGetBlood(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>> PrepareAsyncGetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>>(PrepareAsyncGetBloodRaw(context, request, cq));
     }
     // 向服务器索取弹药量信息 传回弹药量信息
-    virtual ::grpc::Status GetAmmunition(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Ammunition* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Ammunition>> AsyncGetAmmunition(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Ammunition>>(AsyncGetAmmunitionRaw(context, request, cq));
+    virtual ::grpc::Status GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Bullet* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Bullet>> AsyncGetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Bullet>>(AsyncGetBulletRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Ammunition>> PrepareAsyncGetAmmunition(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Ammunition>>(PrepareAsyncGetAmmunitionRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Bullet>> PrepareAsyncGetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Bullet>>(PrepareAsyncGetBulletRaw(context, request, cq));
     }
     // 向服务器索取位姿信息 传回位姿信息
-    virtual ::grpc::Status GetPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Posture* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>> AsyncGetPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Posture* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>> AsyncGetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>>(AsyncGetPostureRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>> PrepareAsyncGetPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>> PrepareAsyncGetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>>(PrepareAsyncGetPostureRaw(context, request, cq));
     }
     // 向服务器索取枪口朝向信息 传回枪口朝向信息
-    virtual ::grpc::Status GetGunPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::GunPosture* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GunPosture>> AsyncGetGunPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GunPosture>>(AsyncGetGunPostureRaw(context, request, cq));
+    virtual ::grpc::Status GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::GimbalYaw* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GimbalYaw>> AsyncGetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GimbalYaw>>(AsyncGetGimbalYawRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GunPosture>> PrepareAsyncGetGunPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GunPosture>>(PrepareAsyncGetGunPostureRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GimbalYaw>> PrepareAsyncGetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::GimbalYaw>>(PrepareAsyncGetGimbalYawRaw(context, request, cq));
     }
     // 向服务器索取速度信息 传回速度信息
-    virtual ::grpc::Status GetVelocity(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Velocity* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>> AsyncGetVelocity(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Velocity* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>> AsyncGetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>>(AsyncGetVelocityRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>> PrepareAsyncGetVelocity(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>> PrepareAsyncGetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>>(PrepareAsyncGetVelocityRaw(context, request, cq));
     }
     // 向服务器索取受击信息 传回受击信息
-    virtual ::grpc::Status GetAffected(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Affected* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Affected>> AsyncGetAffected(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Affected>>(AsyncGetAffectedRaw(context, request, cq));
+    virtual ::grpc::Status GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Attacked* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Attacked>> AsyncGetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Attacked>>(AsyncGetAttackedRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Affected>> PrepareAsyncGetAffected(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Affected>>(PrepareAsyncGetAffectedRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Attacked>> PrepareAsyncGetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Attacked>>(PrepareAsyncGetAttackedRaw(context, request, cq));
     }
     // 向服务器索取位置信息 传回位置信息
-    virtual ::grpc::Status GetObjectDection(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::ObjectDection* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>> AsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::ObjectDection* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>> AsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>>(AsyncGetObjectDectionRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>> PrepareAsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>> PrepareAsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>>(PrepareAsyncGetObjectDectionRaw(context, request, cq));
     }
+    // ! POST Method
     // 向服务器传输血量信息 传回是否正确设置
     virtual ::grpc::Status PostBlood(::grpc::ClientContext* context, const ::communication::Blood& request, ::communication::Response* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostBlood(::grpc::ClientContext* context, const ::communication::Blood& request, ::grpc::CompletionQueue* cq) {
@@ -100,12 +103,12 @@ class RobotComm final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostBloodRaw(context, request, cq));
     }
     // 向服务器传输弹药量信息 传回是否正确设置
-    virtual ::grpc::Status PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::communication::Response* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostAmmunitionRaw(context, request, cq));
+    virtual ::grpc::Status PostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::communication::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostBulletRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostAmmunitionRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostBulletRaw(context, request, cq));
     }
     // 向服务器传输目的地信息 传回是否正确设置
     virtual ::grpc::Status PostDestination(::grpc::ClientContext* context, const ::communication::Destination& request, ::communication::Response* response) = 0;
@@ -116,153 +119,168 @@ class RobotComm final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostDestinationRaw(context, request, cq));
     }
     // 向服务器传输摩擦轮信息 传回是否正确设置
-    virtual ::grpc::Status PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::communication::Response* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostFrictionWheelRaw(context, request, cq));
+    virtual ::grpc::Status PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::communication::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostFricWheelRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostFrictionWheelRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostFricWheelRaw(context, request, cq));
     }
     // 向服务器传输停止信息 传回是否正确设置
-    virtual ::grpc::Status PostStop(::grpc::ClientContext* context, const ::communication::Stop& request, ::communication::Response* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostStop(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostStopRaw(context, request, cq));
+    virtual ::grpc::Status PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::communication::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostChassisStopRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostStop(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostStopRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostChassisStopRaw(context, request, cq));
     }
     // 向服务器传输子弹开关信息 传回是否正确设置
-    virtual ::grpc::Status PostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::communication::Response* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostBulletRaw(context, request, cq));
+    virtual ::grpc::Status PostShooter(::grpc::ClientContext* context, const ::communication::Shooter& request, ::communication::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostShooter(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostShooterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostBulletRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostShooter(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostShooterRaw(context, request, cq));
+    }
+    // 向服务器传递系统开启的指令
+    virtual ::grpc::Status PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> AsyncPostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(AsyncPostSystemRunRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>> PrepareAsyncPostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>>(PrepareAsyncPostSystemRunRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
+      // ! GET Method
       // 向服务器索取血量信息 传回血量信息
-      virtual void GetBlood(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Blood* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetBlood(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Blood* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器索取弹药量信息 传回弹药量信息
-      virtual void GetAmmunition(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Ammunition* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetAmmunition(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Ammunition* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器索取位姿信息 传回位姿信息
-      virtual void GetPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Posture* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Posture* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器索取枪口朝向信息 传回枪口朝向信息
-      virtual void GetGunPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::GunPosture* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetGunPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::GunPosture* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器索取速度信息 传回速度信息
-      virtual void GetVelocity(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Velocity* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetVelocity(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Velocity* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器索取受击信息 传回受击信息
-      virtual void GetAffected(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Affected* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetAffected(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Affected* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器索取位置信息 传回位置信息
-      virtual void GetObjectDection(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::ObjectDection* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetObjectDection(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::ObjectDection* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // ! POST Method
       // 向服务器传输血量信息 传回是否正确设置
       virtual void PostBlood(::grpc::ClientContext* context, const ::communication::Blood* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
       virtual void PostBlood(::grpc::ClientContext* context, const ::communication::Blood* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器传输弹药量信息 传回是否正确设置
-      virtual void PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器传输目的地信息 传回是否正确设置
       virtual void PostDestination(::grpc::ClientContext* context, const ::communication::Destination* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
       virtual void PostDestination(::grpc::ClientContext* context, const ::communication::Destination* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器传输摩擦轮信息 传回是否正确设置
-      virtual void PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器传输停止信息 传回是否正确设置
-      virtual void PostStop(::grpc::ClientContext* context, const ::communication::Stop* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void PostStop(::grpc::ClientContext* context, const ::communication::Stop* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // 向服务器传输子弹开关信息 传回是否正确设置
-      virtual void PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void PostShooter(::grpc::ClientContext* context, const ::communication::Shooter* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PostShooter(::grpc::ClientContext* context, const ::communication::Shooter* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // 向服务器传递系统开启的指令
+      virtual void PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>* AsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>* PrepareAsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Ammunition>* AsyncGetAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Ammunition>* PrepareAsyncGetAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>* AsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>* PrepareAsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::GunPosture>* AsyncGetGunPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::GunPosture>* PrepareAsyncGetGunPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>* AsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>* PrepareAsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Affected>* AsyncGetAffectedRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Affected>* PrepareAsyncGetAffectedRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>* AsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>* PrepareAsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>* AsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Blood>* PrepareAsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Bullet>* AsyncGetBulletRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Bullet>* PrepareAsyncGetBulletRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>* AsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Posture>* PrepareAsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::GimbalYaw>* AsyncGetGimbalYawRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::GimbalYaw>* PrepareAsyncGetGimbalYawRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>* AsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Velocity>* PrepareAsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Attacked>* AsyncGetAttackedRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Attacked>* PrepareAsyncGetAttackedRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>* AsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::ObjectDection>* PrepareAsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostBloodRaw(::grpc::ClientContext* context, const ::communication::Blood& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostBloodRaw(::grpc::ClientContext* context, const ::communication::Blood& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostFrictionWheelRaw(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostFrictionWheelRaw(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostStopRaw(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostStopRaw(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostFricWheelRaw(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostFricWheelRaw(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostChassisStopRaw(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostChassisStopRaw(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostShooterRaw(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostShooterRaw(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* AsyncPostSystemRunRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::communication::Response>* PrepareAsyncPostSystemRunRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status GetBlood(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Blood* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Blood>> AsyncGetBlood(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Blood* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Blood>> AsyncGetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Blood>>(AsyncGetBloodRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Blood>> PrepareAsyncGetBlood(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Blood>> PrepareAsyncGetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Blood>>(PrepareAsyncGetBloodRaw(context, request, cq));
     }
-    ::grpc::Status GetAmmunition(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Ammunition* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Ammunition>> AsyncGetAmmunition(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Ammunition>>(AsyncGetAmmunitionRaw(context, request, cq));
+    ::grpc::Status GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Bullet* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Bullet>> AsyncGetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Bullet>>(AsyncGetBulletRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Ammunition>> PrepareAsyncGetAmmunition(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Ammunition>>(PrepareAsyncGetAmmunitionRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Bullet>> PrepareAsyncGetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Bullet>>(PrepareAsyncGetBulletRaw(context, request, cq));
     }
-    ::grpc::Status GetPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Posture* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Posture>> AsyncGetPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Posture* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Posture>> AsyncGetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Posture>>(AsyncGetPostureRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Posture>> PrepareAsyncGetPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Posture>> PrepareAsyncGetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Posture>>(PrepareAsyncGetPostureRaw(context, request, cq));
     }
-    ::grpc::Status GetGunPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::GunPosture* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GunPosture>> AsyncGetGunPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GunPosture>>(AsyncGetGunPostureRaw(context, request, cq));
+    ::grpc::Status GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::GimbalYaw* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>> AsyncGetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>>(AsyncGetGimbalYawRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GunPosture>> PrepareAsyncGetGunPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GunPosture>>(PrepareAsyncGetGunPostureRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>> PrepareAsyncGetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>>(PrepareAsyncGetGimbalYawRaw(context, request, cq));
     }
-    ::grpc::Status GetVelocity(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Velocity* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Velocity>> AsyncGetVelocity(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Velocity* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Velocity>> AsyncGetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Velocity>>(AsyncGetVelocityRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Velocity>> PrepareAsyncGetVelocity(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Velocity>> PrepareAsyncGetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Velocity>>(PrepareAsyncGetVelocityRaw(context, request, cq));
     }
-    ::grpc::Status GetAffected(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Affected* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Affected>> AsyncGetAffected(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Affected>>(AsyncGetAffectedRaw(context, request, cq));
+    ::grpc::Status GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Attacked* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Attacked>> AsyncGetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Attacked>>(AsyncGetAttackedRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Affected>> PrepareAsyncGetAffected(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Affected>>(PrepareAsyncGetAffectedRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Attacked>> PrepareAsyncGetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Attacked>>(PrepareAsyncGetAttackedRaw(context, request, cq));
     }
-    ::grpc::Status GetObjectDection(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::ObjectDection* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>> AsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::ObjectDection* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>> AsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>>(AsyncGetObjectDectionRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>> PrepareAsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>> PrepareAsyncGetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>>(PrepareAsyncGetObjectDectionRaw(context, request, cq));
     }
     ::grpc::Status PostBlood(::grpc::ClientContext* context, const ::communication::Blood& request, ::communication::Response* response) override;
@@ -272,12 +290,12 @@ class RobotComm final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostBlood(::grpc::ClientContext* context, const ::communication::Blood& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostBloodRaw(context, request, cq));
     }
-    ::grpc::Status PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::communication::Response* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostAmmunitionRaw(context, request, cq));
+    ::grpc::Status PostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::communication::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostBulletRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostAmmunitionRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostBulletRaw(context, request, cq));
     }
     ::grpc::Status PostDestination(::grpc::ClientContext* context, const ::communication::Destination& request, ::communication::Response* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostDestination(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) {
@@ -286,56 +304,65 @@ class RobotComm final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostDestination(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostDestinationRaw(context, request, cq));
     }
-    ::grpc::Status PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::communication::Response* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostFrictionWheelRaw(context, request, cq));
+    ::grpc::Status PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::communication::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostFricWheelRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostFrictionWheelRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostFricWheelRaw(context, request, cq));
     }
-    ::grpc::Status PostStop(::grpc::ClientContext* context, const ::communication::Stop& request, ::communication::Response* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostStop(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostStopRaw(context, request, cq));
+    ::grpc::Status PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::communication::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostChassisStopRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostStop(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostStopRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostChassisStopRaw(context, request, cq));
     }
-    ::grpc::Status PostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::communication::Response* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostBulletRaw(context, request, cq));
+    ::grpc::Status PostShooter(::grpc::ClientContext* context, const ::communication::Shooter& request, ::communication::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostShooter(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostShooterRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostBulletRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostShooter(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostShooterRaw(context, request, cq));
+    }
+    ::grpc::Status PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> AsyncPostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(AsyncPostSystemRunRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>> PrepareAsyncPostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::communication::Response>>(PrepareAsyncPostSystemRunRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void GetBlood(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Blood* response, std::function<void(::grpc::Status)>) override;
-      void GetBlood(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Blood* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetAmmunition(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Ammunition* response, std::function<void(::grpc::Status)>) override;
-      void GetAmmunition(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Ammunition* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Posture* response, std::function<void(::grpc::Status)>) override;
-      void GetPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Posture* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetGunPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::GunPosture* response, std::function<void(::grpc::Status)>) override;
-      void GetGunPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::GunPosture* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetVelocity(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Velocity* response, std::function<void(::grpc::Status)>) override;
-      void GetVelocity(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Velocity* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetAffected(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Affected* response, std::function<void(::grpc::Status)>) override;
-      void GetAffected(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Affected* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetObjectDection(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::ObjectDection* response, std::function<void(::grpc::Status)>) override;
-      void GetObjectDection(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::ObjectDection* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response, std::function<void(::grpc::Status)>) override;
+      void GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response, std::function<void(::grpc::Status)>) override;
+      void GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response, std::function<void(::grpc::Status)>) override;
+      void GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response, std::function<void(::grpc::Status)>) override;
+      void GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response, std::function<void(::grpc::Status)>) override;
+      void GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response, std::function<void(::grpc::Status)>) override;
+      void GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response, std::function<void(::grpc::Status)>) override;
+      void GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response, ::grpc::ClientUnaryReactor* reactor) override;
       void PostBlood(::grpc::ClientContext* context, const ::communication::Blood* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
       void PostBlood(::grpc::ClientContext* context, const ::communication::Blood* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
-      void PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void PostDestination(::grpc::ClientContext* context, const ::communication::Destination* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
-      void PostDestination(::grpc::ClientContext* context, const ::communication::Destination* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
-      void PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void PostStop(::grpc::ClientContext* context, const ::communication::Stop* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
-      void PostStop(::grpc::ClientContext* context, const ::communication::Stop* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
       void PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
       void PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void PostDestination(::grpc::ClientContext* context, const ::communication::Destination* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
+      void PostDestination(::grpc::ClientContext* context, const ::communication::Destination* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
+      void PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
+      void PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void PostShooter(::grpc::ClientContext* context, const ::communication::Shooter* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
+      void PostShooter(::grpc::ClientContext* context, const ::communication::Shooter* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Response* response, std::function<void(::grpc::Status)>) override;
+      void PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -347,45 +374,48 @@ class RobotComm final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::communication::Blood>* AsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Blood>* PrepareAsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Ammunition>* AsyncGetAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Ammunition>* PrepareAsyncGetAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Posture>* AsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Posture>* PrepareAsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::GunPosture>* AsyncGetGunPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::GunPosture>* PrepareAsyncGetGunPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Velocity>* AsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Velocity>* PrepareAsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Affected>* AsyncGetAffectedRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Affected>* PrepareAsyncGetAffectedRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* AsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* PrepareAsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Blood>* AsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Blood>* PrepareAsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Bullet>* AsyncGetBulletRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Bullet>* PrepareAsyncGetBulletRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Posture>* AsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Posture>* PrepareAsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>* AsyncGetGimbalYawRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>* PrepareAsyncGetGimbalYawRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Velocity>* AsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Velocity>* PrepareAsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Attacked>* AsyncGetAttackedRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Attacked>* PrepareAsyncGetAttackedRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* AsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* PrepareAsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostBloodRaw(::grpc::ClientContext* context, const ::communication::Blood& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostBloodRaw(::grpc::ClientContext* context, const ::communication::Blood& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostFrictionWheelRaw(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostFrictionWheelRaw(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostStopRaw(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostStopRaw(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostDestinationRaw(::grpc::ClientContext* context, const ::communication::Destination& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostFricWheelRaw(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostFricWheelRaw(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostChassisStopRaw(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostChassisStopRaw(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostShooterRaw(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostShooterRaw(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* AsyncPostSystemRunRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::communication::Response>* PrepareAsyncPostSystemRunRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetBlood_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetAmmunition_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetBullet_;
     const ::grpc::internal::RpcMethod rpcmethod_GetPosture_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetGunPosture_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetGimbalYaw_;
     const ::grpc::internal::RpcMethod rpcmethod_GetVelocity_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetAffected_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetAttacked_;
     const ::grpc::internal::RpcMethod rpcmethod_GetObjectDection_;
     const ::grpc::internal::RpcMethod rpcmethod_PostBlood_;
-    const ::grpc::internal::RpcMethod rpcmethod_PostAmmunition_;
-    const ::grpc::internal::RpcMethod rpcmethod_PostDestination_;
-    const ::grpc::internal::RpcMethod rpcmethod_PostFrictionWheel_;
-    const ::grpc::internal::RpcMethod rpcmethod_PostStop_;
     const ::grpc::internal::RpcMethod rpcmethod_PostBullet_;
+    const ::grpc::internal::RpcMethod rpcmethod_PostDestination_;
+    const ::grpc::internal::RpcMethod rpcmethod_PostFricWheel_;
+    const ::grpc::internal::RpcMethod rpcmethod_PostChassisStop_;
+    const ::grpc::internal::RpcMethod rpcmethod_PostShooter_;
+    const ::grpc::internal::RpcMethod rpcmethod_PostSystemRun_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -393,32 +423,36 @@ class RobotComm final {
    public:
     Service();
     virtual ~Service();
+    // ! GET Method
     // 向服务器索取血量信息 传回血量信息
-    virtual ::grpc::Status GetBlood(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Blood* response);
+    virtual ::grpc::Status GetBlood(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response);
     // 向服务器索取弹药量信息 传回弹药量信息
-    virtual ::grpc::Status GetAmmunition(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Ammunition* response);
+    virtual ::grpc::Status GetBullet(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response);
     // 向服务器索取位姿信息 传回位姿信息
-    virtual ::grpc::Status GetPosture(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Posture* response);
+    virtual ::grpc::Status GetPosture(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response);
     // 向服务器索取枪口朝向信息 传回枪口朝向信息
-    virtual ::grpc::Status GetGunPosture(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::GunPosture* response);
+    virtual ::grpc::Status GetGimbalYaw(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response);
     // 向服务器索取速度信息 传回速度信息
-    virtual ::grpc::Status GetVelocity(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Velocity* response);
+    virtual ::grpc::Status GetVelocity(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response);
     // 向服务器索取受击信息 传回受击信息
-    virtual ::grpc::Status GetAffected(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Affected* response);
+    virtual ::grpc::Status GetAttacked(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response);
     // 向服务器索取位置信息 传回位置信息
-    virtual ::grpc::Status GetObjectDection(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::ObjectDection* response);
+    virtual ::grpc::Status GetObjectDection(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response);
+    // ! POST Method
     // 向服务器传输血量信息 传回是否正确设置
     virtual ::grpc::Status PostBlood(::grpc::ServerContext* context, const ::communication::Blood* request, ::communication::Response* response);
     // 向服务器传输弹药量信息 传回是否正确设置
-    virtual ::grpc::Status PostAmmunition(::grpc::ServerContext* context, const ::communication::Ammunition* request, ::communication::Response* response);
+    virtual ::grpc::Status PostBullet(::grpc::ServerContext* context, const ::communication::Bullet* request, ::communication::Response* response);
     // 向服务器传输目的地信息 传回是否正确设置
     virtual ::grpc::Status PostDestination(::grpc::ServerContext* context, const ::communication::Destination* request, ::communication::Response* response);
     // 向服务器传输摩擦轮信息 传回是否正确设置
-    virtual ::grpc::Status PostFrictionWheel(::grpc::ServerContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response);
+    virtual ::grpc::Status PostFricWheel(::grpc::ServerContext* context, const ::communication::FricWheel* request, ::communication::Response* response);
     // 向服务器传输停止信息 传回是否正确设置
-    virtual ::grpc::Status PostStop(::grpc::ServerContext* context, const ::communication::Stop* request, ::communication::Response* response);
+    virtual ::grpc::Status PostChassisStop(::grpc::ServerContext* context, const ::communication::ChassisStop* request, ::communication::Response* response);
     // 向服务器传输子弹开关信息 传回是否正确设置
-    virtual ::grpc::Status PostBullet(::grpc::ServerContext* context, const ::communication::Bullet* request, ::communication::Response* response);
+    virtual ::grpc::Status PostShooter(::grpc::ServerContext* context, const ::communication::Shooter* request, ::communication::Response* response);
+    // 向服务器传递系统开启的指令
+    virtual ::grpc::Status PostSystemRun(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Response* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetBlood : public BaseClass {
@@ -432,31 +466,31 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Blood* /*response*/) override {
+    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Blood* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetBlood(::grpc::ServerContext* context, ::communication::Request* request, ::grpc::ServerAsyncResponseWriter< ::communication::Blood>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetBlood(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::Blood>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetAmmunition : public BaseClass {
+  class WithAsyncMethod_GetBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetAmmunition() {
+    WithAsyncMethod_GetBullet() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_GetAmmunition() override {
+    ~WithAsyncMethod_GetBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Ammunition* /*response*/) override {
+    ::grpc::Status GetBullet(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Bullet* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetAmmunition(::grpc::ServerContext* context, ::communication::Request* request, ::grpc::ServerAsyncResponseWriter< ::communication::Ammunition>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetBullet(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::Bullet>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -472,31 +506,31 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Posture* /*response*/) override {
+    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Posture* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetPosture(::grpc::ServerContext* context, ::communication::Request* request, ::grpc::ServerAsyncResponseWriter< ::communication::Posture>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetPosture(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::Posture>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetGunPosture : public BaseClass {
+  class WithAsyncMethod_GetGimbalYaw : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetGunPosture() {
+    WithAsyncMethod_GetGimbalYaw() {
       ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithAsyncMethod_GetGunPosture() override {
+    ~WithAsyncMethod_GetGimbalYaw() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetGunPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::GunPosture* /*response*/) override {
+    ::grpc::Status GetGimbalYaw(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::GimbalYaw* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetGunPosture(::grpc::ServerContext* context, ::communication::Request* request, ::grpc::ServerAsyncResponseWriter< ::communication::GunPosture>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetGimbalYaw(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::GimbalYaw>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -512,31 +546,31 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Velocity* /*response*/) override {
+    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Velocity* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetVelocity(::grpc::ServerContext* context, ::communication::Request* request, ::grpc::ServerAsyncResponseWriter< ::communication::Velocity>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetVelocity(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::Velocity>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetAffected : public BaseClass {
+  class WithAsyncMethod_GetAttacked : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetAffected() {
+    WithAsyncMethod_GetAttacked() {
       ::grpc::Service::MarkMethodAsync(5);
     }
-    ~WithAsyncMethod_GetAffected() override {
+    ~WithAsyncMethod_GetAttacked() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAffected(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Affected* /*response*/) override {
+    ::grpc::Status GetAttacked(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Attacked* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetAffected(::grpc::ServerContext* context, ::communication::Request* request, ::grpc::ServerAsyncResponseWriter< ::communication::Affected>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetAttacked(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::Attacked>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -552,11 +586,11 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::ObjectDection* /*response*/) override {
+    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::ObjectDection* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetObjectDection(::grpc::ServerContext* context, ::communication::Request* request, ::grpc::ServerAsyncResponseWriter< ::communication::ObjectDection>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetObjectDection(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::ObjectDection>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -581,22 +615,22 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_PostAmmunition : public BaseClass {
+  class WithAsyncMethod_PostBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_PostAmmunition() {
+    WithAsyncMethod_PostBullet() {
       ::grpc::Service::MarkMethodAsync(8);
     }
-    ~WithAsyncMethod_PostAmmunition() override {
+    ~WithAsyncMethod_PostBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Ammunition* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostAmmunition(::grpc::ServerContext* context, ::communication::Ammunition* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostBullet(::grpc::ServerContext* context, ::communication::Bullet* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -621,66 +655,86 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_PostFrictionWheel : public BaseClass {
+  class WithAsyncMethod_PostFricWheel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_PostFrictionWheel() {
+    WithAsyncMethod_PostFricWheel() {
       ::grpc::Service::MarkMethodAsync(10);
     }
-    ~WithAsyncMethod_PostFrictionWheel() override {
+    ~WithAsyncMethod_PostFricWheel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostFrictionWheel(::grpc::ServerContext* /*context*/, const ::communication::FrictionWheel* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostFricWheel(::grpc::ServerContext* /*context*/, const ::communication::FricWheel* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostFrictionWheel(::grpc::ServerContext* context, ::communication::FrictionWheel* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostFricWheel(::grpc::ServerContext* context, ::communication::FricWheel* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_PostStop : public BaseClass {
+  class WithAsyncMethod_PostChassisStop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_PostStop() {
+    WithAsyncMethod_PostChassisStop() {
       ::grpc::Service::MarkMethodAsync(11);
     }
-    ~WithAsyncMethod_PostStop() override {
+    ~WithAsyncMethod_PostChassisStop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostStop(::grpc::ServerContext* /*context*/, const ::communication::Stop* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostChassisStop(::grpc::ServerContext* /*context*/, const ::communication::ChassisStop* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostStop(::grpc::ServerContext* context, ::communication::Stop* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostChassisStop(::grpc::ServerContext* context, ::communication::ChassisStop* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_PostBullet : public BaseClass {
+  class WithAsyncMethod_PostShooter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_PostBullet() {
+    WithAsyncMethod_PostShooter() {
       ::grpc::Service::MarkMethodAsync(12);
     }
-    ~WithAsyncMethod_PostBullet() override {
+    ~WithAsyncMethod_PostShooter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostShooter(::grpc::ServerContext* /*context*/, const ::communication::Shooter* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostBullet(::grpc::ServerContext* context, ::communication::Bullet* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostShooter(::grpc::ServerContext* context, ::communication::Shooter* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetBlood<WithAsyncMethod_GetAmmunition<WithAsyncMethod_GetPosture<WithAsyncMethod_GetGunPosture<WithAsyncMethod_GetVelocity<WithAsyncMethod_GetAffected<WithAsyncMethod_GetObjectDection<WithAsyncMethod_PostBlood<WithAsyncMethod_PostAmmunition<WithAsyncMethod_PostDestination<WithAsyncMethod_PostFrictionWheel<WithAsyncMethod_PostStop<WithAsyncMethod_PostBullet<Service > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_PostSystemRun : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_PostSystemRun() {
+      ::grpc::Service::MarkMethodAsync(13);
+    }
+    ~WithAsyncMethod_PostSystemRun() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PostSystemRun(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPostSystemRun(::grpc::ServerContext* context, ::communication::CommonRequest* request, ::grpc::ServerAsyncResponseWriter< ::communication::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetBlood<WithAsyncMethod_GetBullet<WithAsyncMethod_GetPosture<WithAsyncMethod_GetGimbalYaw<WithAsyncMethod_GetVelocity<WithAsyncMethod_GetAttacked<WithAsyncMethod_GetObjectDection<WithAsyncMethod_PostBlood<WithAsyncMethod_PostBullet<WithAsyncMethod_PostDestination<WithAsyncMethod_PostFricWheel<WithAsyncMethod_PostChassisStop<WithAsyncMethod_PostShooter<WithAsyncMethod_PostSystemRun<Service > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_GetBlood : public BaseClass {
    private:
@@ -688,52 +742,52 @@ class RobotComm final {
    public:
     WithCallbackMethod_GetBlood() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Blood>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Blood>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Request* request, ::communication::Blood* response) { return this->GetBlood(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response) { return this->GetBlood(context, request, response); }));}
     void SetMessageAllocatorFor_GetBlood(
-        ::grpc::MessageAllocator< ::communication::Request, ::communication::Blood>* allocator) {
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::Blood>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Blood>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Blood>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetBlood() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Blood* /*response*/) override {
+    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Blood* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetBlood(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Blood* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Blood* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetAmmunition : public BaseClass {
+  class WithCallbackMethod_GetBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetAmmunition() {
+    WithCallbackMethod_GetBullet() {
       ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Ammunition>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Bullet>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Request* request, ::communication::Ammunition* response) { return this->GetAmmunition(context, request, response); }));}
-    void SetMessageAllocatorFor_GetAmmunition(
-        ::grpc::MessageAllocator< ::communication::Request, ::communication::Ammunition>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response) { return this->GetBullet(context, request, response); }));}
+    void SetMessageAllocatorFor_GetBullet(
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::Bullet>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Ammunition>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Bullet>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetAmmunition() override {
+    ~WithCallbackMethod_GetBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Ammunition* /*response*/) override {
+    ::grpc::Status GetBullet(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Bullet* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetAmmunition(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Ammunition* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* GetBullet(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Bullet* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetPosture : public BaseClass {
@@ -742,52 +796,52 @@ class RobotComm final {
    public:
     WithCallbackMethod_GetPosture() {
       ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Posture>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Posture>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Request* request, ::communication::Posture* response) { return this->GetPosture(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response) { return this->GetPosture(context, request, response); }));}
     void SetMessageAllocatorFor_GetPosture(
-        ::grpc::MessageAllocator< ::communication::Request, ::communication::Posture>* allocator) {
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::Posture>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Posture>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Posture>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetPosture() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Posture* /*response*/) override {
+    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Posture* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetPosture(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Posture* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Posture* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetGunPosture : public BaseClass {
+  class WithCallbackMethod_GetGimbalYaw : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetGunPosture() {
+    WithCallbackMethod_GetGimbalYaw() {
       ::grpc::Service::MarkMethodCallback(3,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::GunPosture>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::GimbalYaw>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Request* request, ::communication::GunPosture* response) { return this->GetGunPosture(context, request, response); }));}
-    void SetMessageAllocatorFor_GetGunPosture(
-        ::grpc::MessageAllocator< ::communication::Request, ::communication::GunPosture>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response) { return this->GetGimbalYaw(context, request, response); }));}
+    void SetMessageAllocatorFor_GetGimbalYaw(
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::GimbalYaw>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::GunPosture>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::GimbalYaw>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetGunPosture() override {
+    ~WithCallbackMethod_GetGimbalYaw() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetGunPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::GunPosture* /*response*/) override {
+    ::grpc::Status GetGimbalYaw(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::GimbalYaw* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetGunPosture(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::GunPosture* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* GetGimbalYaw(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::GimbalYaw* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetVelocity : public BaseClass {
@@ -796,52 +850,52 @@ class RobotComm final {
    public:
     WithCallbackMethod_GetVelocity() {
       ::grpc::Service::MarkMethodCallback(4,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Velocity>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Velocity>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Request* request, ::communication::Velocity* response) { return this->GetVelocity(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response) { return this->GetVelocity(context, request, response); }));}
     void SetMessageAllocatorFor_GetVelocity(
-        ::grpc::MessageAllocator< ::communication::Request, ::communication::Velocity>* allocator) {
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::Velocity>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Velocity>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Velocity>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetVelocity() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Velocity* /*response*/) override {
+    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Velocity* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetVelocity(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Velocity* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Velocity* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetAffected : public BaseClass {
+  class WithCallbackMethod_GetAttacked : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetAffected() {
+    WithCallbackMethod_GetAttacked() {
       ::grpc::Service::MarkMethodCallback(5,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Affected>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Attacked>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Request* request, ::communication::Affected* response) { return this->GetAffected(context, request, response); }));}
-    void SetMessageAllocatorFor_GetAffected(
-        ::grpc::MessageAllocator< ::communication::Request, ::communication::Affected>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response) { return this->GetAttacked(context, request, response); }));}
+    void SetMessageAllocatorFor_GetAttacked(
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::Attacked>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::Affected>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Attacked>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetAffected() override {
+    ~WithCallbackMethod_GetAttacked() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAffected(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Affected* /*response*/) override {
+    ::grpc::Status GetAttacked(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Attacked* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetAffected(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Affected* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* GetAttacked(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Attacked* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetObjectDection : public BaseClass {
@@ -850,25 +904,25 @@ class RobotComm final {
    public:
     WithCallbackMethod_GetObjectDection() {
       ::grpc::Service::MarkMethodCallback(6,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::ObjectDection>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::ObjectDection>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Request* request, ::communication::ObjectDection* response) { return this->GetObjectDection(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response) { return this->GetObjectDection(context, request, response); }));}
     void SetMessageAllocatorFor_GetObjectDection(
-        ::grpc::MessageAllocator< ::communication::Request, ::communication::ObjectDection>* allocator) {
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::ObjectDection>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Request, ::communication::ObjectDection>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::ObjectDection>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetObjectDection() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::ObjectDection* /*response*/) override {
+    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::ObjectDection* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetObjectDection(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::ObjectDection* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::ObjectDection* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_PostBlood : public BaseClass {
@@ -898,31 +952,31 @@ class RobotComm final {
       ::grpc::CallbackServerContext* /*context*/, const ::communication::Blood* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_PostAmmunition : public BaseClass {
+  class WithCallbackMethod_PostBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_PostAmmunition() {
+    WithCallbackMethod_PostBullet() {
       ::grpc::Service::MarkMethodCallback(8,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Ammunition, ::communication::Response>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::Bullet, ::communication::Response>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Ammunition* request, ::communication::Response* response) { return this->PostAmmunition(context, request, response); }));}
-    void SetMessageAllocatorFor_PostAmmunition(
-        ::grpc::MessageAllocator< ::communication::Ammunition, ::communication::Response>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::communication::Bullet* request, ::communication::Response* response) { return this->PostBullet(context, request, response); }));}
+    void SetMessageAllocatorFor_PostBullet(
+        ::grpc::MessageAllocator< ::communication::Bullet, ::communication::Response>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Ammunition, ::communication::Response>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Bullet, ::communication::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_PostAmmunition() override {
+    ~WithCallbackMethod_PostBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Ammunition* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostAmmunition(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Ammunition* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* PostBullet(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_PostDestination : public BaseClass {
@@ -952,87 +1006,114 @@ class RobotComm final {
       ::grpc::CallbackServerContext* /*context*/, const ::communication::Destination* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_PostFrictionWheel : public BaseClass {
+  class WithCallbackMethod_PostFricWheel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_PostFrictionWheel() {
+    WithCallbackMethod_PostFricWheel() {
       ::grpc::Service::MarkMethodCallback(10,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::FrictionWheel, ::communication::Response>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::FricWheel, ::communication::Response>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response) { return this->PostFrictionWheel(context, request, response); }));}
-    void SetMessageAllocatorFor_PostFrictionWheel(
-        ::grpc::MessageAllocator< ::communication::FrictionWheel, ::communication::Response>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::communication::FricWheel* request, ::communication::Response* response) { return this->PostFricWheel(context, request, response); }));}
+    void SetMessageAllocatorFor_PostFricWheel(
+        ::grpc::MessageAllocator< ::communication::FricWheel, ::communication::Response>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::FrictionWheel, ::communication::Response>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::FricWheel, ::communication::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_PostFrictionWheel() override {
+    ~WithCallbackMethod_PostFricWheel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostFrictionWheel(::grpc::ServerContext* /*context*/, const ::communication::FrictionWheel* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostFricWheel(::grpc::ServerContext* /*context*/, const ::communication::FricWheel* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostFrictionWheel(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::FrictionWheel* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* PostFricWheel(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::FricWheel* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_PostStop : public BaseClass {
+  class WithCallbackMethod_PostChassisStop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_PostStop() {
+    WithCallbackMethod_PostChassisStop() {
       ::grpc::Service::MarkMethodCallback(11,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Stop, ::communication::Response>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::ChassisStop, ::communication::Response>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Stop* request, ::communication::Response* response) { return this->PostStop(context, request, response); }));}
-    void SetMessageAllocatorFor_PostStop(
-        ::grpc::MessageAllocator< ::communication::Stop, ::communication::Response>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::communication::ChassisStop* request, ::communication::Response* response) { return this->PostChassisStop(context, request, response); }));}
+    void SetMessageAllocatorFor_PostChassisStop(
+        ::grpc::MessageAllocator< ::communication::ChassisStop, ::communication::Response>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Stop, ::communication::Response>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::ChassisStop, ::communication::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_PostStop() override {
+    ~WithCallbackMethod_PostChassisStop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostStop(::grpc::ServerContext* /*context*/, const ::communication::Stop* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostChassisStop(::grpc::ServerContext* /*context*/, const ::communication::ChassisStop* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostStop(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Stop* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* PostChassisStop(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::ChassisStop* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_PostBullet : public BaseClass {
+  class WithCallbackMethod_PostShooter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_PostBullet() {
+    WithCallbackMethod_PostShooter() {
       ::grpc::Service::MarkMethodCallback(12,
-          new ::grpc::internal::CallbackUnaryHandler< ::communication::Bullet, ::communication::Response>(
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::Shooter, ::communication::Response>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::communication::Bullet* request, ::communication::Response* response) { return this->PostBullet(context, request, response); }));}
-    void SetMessageAllocatorFor_PostBullet(
-        ::grpc::MessageAllocator< ::communication::Bullet, ::communication::Response>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::communication::Shooter* request, ::communication::Response* response) { return this->PostShooter(context, request, response); }));}
+    void SetMessageAllocatorFor_PostShooter(
+        ::grpc::MessageAllocator< ::communication::Shooter, ::communication::Response>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Bullet, ::communication::Response>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::Shooter, ::communication::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_PostBullet() override {
+    ~WithCallbackMethod_PostShooter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostShooter(::grpc::ServerContext* /*context*/, const ::communication::Shooter* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostBullet(
-      ::grpc::CallbackServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* PostShooter(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::Shooter* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_GetBlood<WithCallbackMethod_GetAmmunition<WithCallbackMethod_GetPosture<WithCallbackMethod_GetGunPosture<WithCallbackMethod_GetVelocity<WithCallbackMethod_GetAffected<WithCallbackMethod_GetObjectDection<WithCallbackMethod_PostBlood<WithCallbackMethod_PostAmmunition<WithCallbackMethod_PostDestination<WithCallbackMethod_PostFrictionWheel<WithCallbackMethod_PostStop<WithCallbackMethod_PostBullet<Service > > > > > > > > > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_PostSystemRun : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_PostSystemRun() {
+      ::grpc::Service::MarkMethodCallback(13,
+          new ::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Response>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::communication::CommonRequest* request, ::communication::Response* response) { return this->PostSystemRun(context, request, response); }));}
+    void SetMessageAllocatorFor_PostSystemRun(
+        ::grpc::MessageAllocator< ::communication::CommonRequest, ::communication::Response>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::communication::CommonRequest, ::communication::Response>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_PostSystemRun() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PostSystemRun(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* PostSystemRun(
+      ::grpc::CallbackServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Response* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_GetBlood<WithCallbackMethod_GetBullet<WithCallbackMethod_GetPosture<WithCallbackMethod_GetGimbalYaw<WithCallbackMethod_GetVelocity<WithCallbackMethod_GetAttacked<WithCallbackMethod_GetObjectDection<WithCallbackMethod_PostBlood<WithCallbackMethod_PostBullet<WithCallbackMethod_PostDestination<WithCallbackMethod_PostFricWheel<WithCallbackMethod_PostChassisStop<WithCallbackMethod_PostShooter<WithCallbackMethod_PostSystemRun<Service > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetBlood : public BaseClass {
@@ -1046,24 +1127,24 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Blood* /*response*/) override {
+    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Blood* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetAmmunition : public BaseClass {
+  class WithGenericMethod_GetBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetAmmunition() {
+    WithGenericMethod_GetBullet() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_GetAmmunition() override {
+    ~WithGenericMethod_GetBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Ammunition* /*response*/) override {
+    ::grpc::Status GetBullet(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Bullet* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1080,24 +1161,24 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Posture* /*response*/) override {
+    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Posture* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetGunPosture : public BaseClass {
+  class WithGenericMethod_GetGimbalYaw : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetGunPosture() {
+    WithGenericMethod_GetGimbalYaw() {
       ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithGenericMethod_GetGunPosture() override {
+    ~WithGenericMethod_GetGimbalYaw() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetGunPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::GunPosture* /*response*/) override {
+    ::grpc::Status GetGimbalYaw(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::GimbalYaw* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1114,24 +1195,24 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Velocity* /*response*/) override {
+    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Velocity* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetAffected : public BaseClass {
+  class WithGenericMethod_GetAttacked : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetAffected() {
+    WithGenericMethod_GetAttacked() {
       ::grpc::Service::MarkMethodGeneric(5);
     }
-    ~WithGenericMethod_GetAffected() override {
+    ~WithGenericMethod_GetAttacked() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAffected(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Affected* /*response*/) override {
+    ::grpc::Status GetAttacked(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Attacked* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1148,7 +1229,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::ObjectDection* /*response*/) override {
+    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::ObjectDection* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1171,18 +1252,18 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_PostAmmunition : public BaseClass {
+  class WithGenericMethod_PostBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_PostAmmunition() {
+    WithGenericMethod_PostBullet() {
       ::grpc::Service::MarkMethodGeneric(8);
     }
-    ~WithGenericMethod_PostAmmunition() override {
+    ~WithGenericMethod_PostBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Ammunition* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1205,52 +1286,69 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_PostFrictionWheel : public BaseClass {
+  class WithGenericMethod_PostFricWheel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_PostFrictionWheel() {
+    WithGenericMethod_PostFricWheel() {
       ::grpc::Service::MarkMethodGeneric(10);
     }
-    ~WithGenericMethod_PostFrictionWheel() override {
+    ~WithGenericMethod_PostFricWheel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostFrictionWheel(::grpc::ServerContext* /*context*/, const ::communication::FrictionWheel* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostFricWheel(::grpc::ServerContext* /*context*/, const ::communication::FricWheel* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_PostStop : public BaseClass {
+  class WithGenericMethod_PostChassisStop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_PostStop() {
+    WithGenericMethod_PostChassisStop() {
       ::grpc::Service::MarkMethodGeneric(11);
     }
-    ~WithGenericMethod_PostStop() override {
+    ~WithGenericMethod_PostChassisStop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostStop(::grpc::ServerContext* /*context*/, const ::communication::Stop* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostChassisStop(::grpc::ServerContext* /*context*/, const ::communication::ChassisStop* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_PostBullet : public BaseClass {
+  class WithGenericMethod_PostShooter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_PostBullet() {
+    WithGenericMethod_PostShooter() {
       ::grpc::Service::MarkMethodGeneric(12);
     }
-    ~WithGenericMethod_PostBullet() override {
+    ~WithGenericMethod_PostShooter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostShooter(::grpc::ServerContext* /*context*/, const ::communication::Shooter* /*request*/, ::communication::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_PostSystemRun : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_PostSystemRun() {
+      ::grpc::Service::MarkMethodGeneric(13);
+    }
+    ~WithGenericMethod_PostSystemRun() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PostSystemRun(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1267,7 +1365,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Blood* /*response*/) override {
+    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Blood* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1276,22 +1374,22 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetAmmunition : public BaseClass {
+  class WithRawMethod_GetBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetAmmunition() {
+    WithRawMethod_GetBullet() {
       ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_GetAmmunition() override {
+    ~WithRawMethod_GetBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Ammunition* /*response*/) override {
+    ::grpc::Status GetBullet(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Bullet* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetAmmunition(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetBullet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1307,7 +1405,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Posture* /*response*/) override {
+    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Posture* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1316,22 +1414,22 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetGunPosture : public BaseClass {
+  class WithRawMethod_GetGimbalYaw : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetGunPosture() {
+    WithRawMethod_GetGimbalYaw() {
       ::grpc::Service::MarkMethodRaw(3);
     }
-    ~WithRawMethod_GetGunPosture() override {
+    ~WithRawMethod_GetGimbalYaw() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetGunPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::GunPosture* /*response*/) override {
+    ::grpc::Status GetGimbalYaw(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::GimbalYaw* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetGunPosture(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetGimbalYaw(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1347,7 +1445,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Velocity* /*response*/) override {
+    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Velocity* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1356,22 +1454,22 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetAffected : public BaseClass {
+  class WithRawMethod_GetAttacked : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetAffected() {
+    WithRawMethod_GetAttacked() {
       ::grpc::Service::MarkMethodRaw(5);
     }
-    ~WithRawMethod_GetAffected() override {
+    ~WithRawMethod_GetAttacked() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAffected(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Affected* /*response*/) override {
+    ::grpc::Status GetAttacked(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Attacked* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetAffected(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetAttacked(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1387,7 +1485,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::ObjectDection* /*response*/) override {
+    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::ObjectDection* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1416,22 +1514,22 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_PostAmmunition : public BaseClass {
+  class WithRawMethod_PostBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_PostAmmunition() {
+    WithRawMethod_PostBullet() {
       ::grpc::Service::MarkMethodRaw(8);
     }
-    ~WithRawMethod_PostAmmunition() override {
+    ~WithRawMethod_PostBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Ammunition* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostAmmunition(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostBullet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1456,63 +1554,83 @@ class RobotComm final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_PostFrictionWheel : public BaseClass {
+  class WithRawMethod_PostFricWheel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_PostFrictionWheel() {
+    WithRawMethod_PostFricWheel() {
       ::grpc::Service::MarkMethodRaw(10);
     }
-    ~WithRawMethod_PostFrictionWheel() override {
+    ~WithRawMethod_PostFricWheel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostFrictionWheel(::grpc::ServerContext* /*context*/, const ::communication::FrictionWheel* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostFricWheel(::grpc::ServerContext* /*context*/, const ::communication::FricWheel* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostFrictionWheel(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostFricWheel(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_PostStop : public BaseClass {
+  class WithRawMethod_PostChassisStop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_PostStop() {
+    WithRawMethod_PostChassisStop() {
       ::grpc::Service::MarkMethodRaw(11);
     }
-    ~WithRawMethod_PostStop() override {
+    ~WithRawMethod_PostChassisStop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostStop(::grpc::ServerContext* /*context*/, const ::communication::Stop* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostChassisStop(::grpc::ServerContext* /*context*/, const ::communication::ChassisStop* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostStop(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostChassisStop(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_PostBullet : public BaseClass {
+  class WithRawMethod_PostShooter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_PostBullet() {
+    WithRawMethod_PostShooter() {
       ::grpc::Service::MarkMethodRaw(12);
     }
-    ~WithRawMethod_PostBullet() override {
+    ~WithRawMethod_PostShooter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostShooter(::grpc::ServerContext* /*context*/, const ::communication::Shooter* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPostBullet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPostShooter(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_PostSystemRun : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_PostSystemRun() {
+      ::grpc::Service::MarkMethodRaw(13);
+    }
+    ~WithRawMethod_PostSystemRun() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PostSystemRun(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPostSystemRun(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1530,7 +1648,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Blood* /*response*/) override {
+    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Blood* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1538,25 +1656,25 @@ class RobotComm final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetAmmunition : public BaseClass {
+  class WithRawCallbackMethod_GetBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetAmmunition() {
+    WithRawCallbackMethod_GetBullet() {
       ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetAmmunition(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetBullet(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetAmmunition() override {
+    ~WithRawCallbackMethod_GetBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Ammunition* /*response*/) override {
+    ::grpc::Status GetBullet(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Bullet* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetAmmunition(
+    virtual ::grpc::ServerUnaryReactor* GetBullet(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1574,7 +1692,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Posture* /*response*/) override {
+    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Posture* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1582,25 +1700,25 @@ class RobotComm final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetGunPosture : public BaseClass {
+  class WithRawCallbackMethod_GetGimbalYaw : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetGunPosture() {
+    WithRawCallbackMethod_GetGimbalYaw() {
       ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetGunPosture(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetGimbalYaw(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetGunPosture() override {
+    ~WithRawCallbackMethod_GetGimbalYaw() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetGunPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::GunPosture* /*response*/) override {
+    ::grpc::Status GetGimbalYaw(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::GimbalYaw* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetGunPosture(
+    virtual ::grpc::ServerUnaryReactor* GetGimbalYaw(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1618,7 +1736,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Velocity* /*response*/) override {
+    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Velocity* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1626,25 +1744,25 @@ class RobotComm final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetAffected : public BaseClass {
+  class WithRawCallbackMethod_GetAttacked : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetAffected() {
+    WithRawCallbackMethod_GetAttacked() {
       ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetAffected(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetAttacked(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetAffected() override {
+    ~WithRawCallbackMethod_GetAttacked() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAffected(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Affected* /*response*/) override {
+    ::grpc::Status GetAttacked(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Attacked* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetAffected(
+    virtual ::grpc::ServerUnaryReactor* GetAttacked(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1662,7 +1780,7 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::ObjectDection* /*response*/) override {
+    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::ObjectDection* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1692,25 +1810,25 @@ class RobotComm final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_PostAmmunition : public BaseClass {
+  class WithRawCallbackMethod_PostBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_PostAmmunition() {
+    WithRawCallbackMethod_PostBullet() {
       ::grpc::Service::MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostAmmunition(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostBullet(context, request, response); }));
     }
-    ~WithRawCallbackMethod_PostAmmunition() override {
+    ~WithRawCallbackMethod_PostBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Ammunition* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostAmmunition(
+    virtual ::grpc::ServerUnaryReactor* PostBullet(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1736,69 +1854,91 @@ class RobotComm final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_PostFrictionWheel : public BaseClass {
+  class WithRawCallbackMethod_PostFricWheel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_PostFrictionWheel() {
+    WithRawCallbackMethod_PostFricWheel() {
       ::grpc::Service::MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostFrictionWheel(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostFricWheel(context, request, response); }));
     }
-    ~WithRawCallbackMethod_PostFrictionWheel() override {
+    ~WithRawCallbackMethod_PostFricWheel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostFrictionWheel(::grpc::ServerContext* /*context*/, const ::communication::FrictionWheel* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostFricWheel(::grpc::ServerContext* /*context*/, const ::communication::FricWheel* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostFrictionWheel(
+    virtual ::grpc::ServerUnaryReactor* PostFricWheel(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_PostStop : public BaseClass {
+  class WithRawCallbackMethod_PostChassisStop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_PostStop() {
+    WithRawCallbackMethod_PostChassisStop() {
       ::grpc::Service::MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostStop(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostChassisStop(context, request, response); }));
     }
-    ~WithRawCallbackMethod_PostStop() override {
+    ~WithRawCallbackMethod_PostChassisStop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostStop(::grpc::ServerContext* /*context*/, const ::communication::Stop* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostChassisStop(::grpc::ServerContext* /*context*/, const ::communication::ChassisStop* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostStop(
+    virtual ::grpc::ServerUnaryReactor* PostChassisStop(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_PostBullet : public BaseClass {
+  class WithRawCallbackMethod_PostShooter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_PostBullet() {
+    WithRawCallbackMethod_PostShooter() {
       ::grpc::Service::MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostBullet(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostShooter(context, request, response); }));
     }
-    ~WithRawCallbackMethod_PostBullet() override {
+    ~WithRawCallbackMethod_PostShooter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostShooter(::grpc::ServerContext* /*context*/, const ::communication::Shooter* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PostBullet(
+    virtual ::grpc::ServerUnaryReactor* PostShooter(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_PostSystemRun : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_PostSystemRun() {
+      ::grpc::Service::MarkMethodRawCallback(13,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PostSystemRun(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_PostSystemRun() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PostSystemRun(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* PostSystemRun(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1809,10 +1949,10 @@ class RobotComm final {
     WithStreamedUnaryMethod_GetBlood() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Request, ::communication::Blood>(
+          ::communication::CommonRequest, ::communication::Blood>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Request, ::communication::Blood>* streamer) {
+                     ::communication::CommonRequest, ::communication::Blood>* streamer) {
                        return this->StreamedGetBlood(context,
                          streamer);
                   }));
@@ -1821,39 +1961,39 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Blood* /*response*/) override {
+    ::grpc::Status GetBlood(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Blood* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetBlood(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Request,::communication::Blood>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetBlood(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::Blood>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetAmmunition : public BaseClass {
+  class WithStreamedUnaryMethod_GetBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetAmmunition() {
+    WithStreamedUnaryMethod_GetBullet() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Request, ::communication::Ammunition>(
+          ::communication::CommonRequest, ::communication::Bullet>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Request, ::communication::Ammunition>* streamer) {
-                       return this->StreamedGetAmmunition(context,
+                     ::communication::CommonRequest, ::communication::Bullet>* streamer) {
+                       return this->StreamedGetBullet(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetAmmunition() override {
+    ~WithStreamedUnaryMethod_GetBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Ammunition* /*response*/) override {
+    ::grpc::Status GetBullet(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Bullet* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetAmmunition(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Request,::communication::Ammunition>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetBullet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::Bullet>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetPosture : public BaseClass {
@@ -1863,10 +2003,10 @@ class RobotComm final {
     WithStreamedUnaryMethod_GetPosture() {
       ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Request, ::communication::Posture>(
+          ::communication::CommonRequest, ::communication::Posture>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Request, ::communication::Posture>* streamer) {
+                     ::communication::CommonRequest, ::communication::Posture>* streamer) {
                        return this->StreamedGetPosture(context,
                          streamer);
                   }));
@@ -1875,39 +2015,39 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Posture* /*response*/) override {
+    ::grpc::Status GetPosture(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Posture* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetPosture(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Request,::communication::Posture>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetPosture(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::Posture>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetGunPosture : public BaseClass {
+  class WithStreamedUnaryMethod_GetGimbalYaw : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetGunPosture() {
+    WithStreamedUnaryMethod_GetGimbalYaw() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Request, ::communication::GunPosture>(
+          ::communication::CommonRequest, ::communication::GimbalYaw>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Request, ::communication::GunPosture>* streamer) {
-                       return this->StreamedGetGunPosture(context,
+                     ::communication::CommonRequest, ::communication::GimbalYaw>* streamer) {
+                       return this->StreamedGetGimbalYaw(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetGunPosture() override {
+    ~WithStreamedUnaryMethod_GetGimbalYaw() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetGunPosture(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::GunPosture* /*response*/) override {
+    ::grpc::Status GetGimbalYaw(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::GimbalYaw* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetGunPosture(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Request,::communication::GunPosture>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetGimbalYaw(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::GimbalYaw>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetVelocity : public BaseClass {
@@ -1917,10 +2057,10 @@ class RobotComm final {
     WithStreamedUnaryMethod_GetVelocity() {
       ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Request, ::communication::Velocity>(
+          ::communication::CommonRequest, ::communication::Velocity>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Request, ::communication::Velocity>* streamer) {
+                     ::communication::CommonRequest, ::communication::Velocity>* streamer) {
                        return this->StreamedGetVelocity(context,
                          streamer);
                   }));
@@ -1929,39 +2069,39 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Velocity* /*response*/) override {
+    ::grpc::Status GetVelocity(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Velocity* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetVelocity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Request,::communication::Velocity>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetVelocity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::Velocity>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetAffected : public BaseClass {
+  class WithStreamedUnaryMethod_GetAttacked : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetAffected() {
+    WithStreamedUnaryMethod_GetAttacked() {
       ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Request, ::communication::Affected>(
+          ::communication::CommonRequest, ::communication::Attacked>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Request, ::communication::Affected>* streamer) {
-                       return this->StreamedGetAffected(context,
+                     ::communication::CommonRequest, ::communication::Attacked>* streamer) {
+                       return this->StreamedGetAttacked(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetAffected() override {
+    ~WithStreamedUnaryMethod_GetAttacked() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetAffected(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::Affected* /*response*/) override {
+    ::grpc::Status GetAttacked(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Attacked* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetAffected(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Request,::communication::Affected>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetAttacked(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::Attacked>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetObjectDection : public BaseClass {
@@ -1971,10 +2111,10 @@ class RobotComm final {
     WithStreamedUnaryMethod_GetObjectDection() {
       ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Request, ::communication::ObjectDection>(
+          ::communication::CommonRequest, ::communication::ObjectDection>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Request, ::communication::ObjectDection>* streamer) {
+                     ::communication::CommonRequest, ::communication::ObjectDection>* streamer) {
                        return this->StreamedGetObjectDection(context,
                          streamer);
                   }));
@@ -1983,12 +2123,12 @@ class RobotComm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::Request* /*request*/, ::communication::ObjectDection* /*response*/) override {
+    ::grpc::Status GetObjectDection(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::ObjectDection* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetObjectDection(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Request,::communication::ObjectDection>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetObjectDection(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::ObjectDection>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_PostBlood : public BaseClass {
@@ -2018,31 +2158,31 @@ class RobotComm final {
     virtual ::grpc::Status StreamedPostBlood(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Blood,::communication::Response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_PostAmmunition : public BaseClass {
+  class WithStreamedUnaryMethod_PostBullet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_PostAmmunition() {
+    WithStreamedUnaryMethod_PostBullet() {
       ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Ammunition, ::communication::Response>(
+          ::communication::Bullet, ::communication::Response>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Ammunition, ::communication::Response>* streamer) {
-                       return this->StreamedPostAmmunition(context,
+                     ::communication::Bullet, ::communication::Response>* streamer) {
+                       return this->StreamedPostBullet(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_PostAmmunition() override {
+    ~WithStreamedUnaryMethod_PostBullet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status PostAmmunition(::grpc::ServerContext* /*context*/, const ::communication::Ammunition* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedPostAmmunition(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Ammunition,::communication::Response>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedPostBullet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Bullet,::communication::Response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_PostDestination : public BaseClass {
@@ -2072,89 +2212,116 @@ class RobotComm final {
     virtual ::grpc::Status StreamedPostDestination(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Destination,::communication::Response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_PostFrictionWheel : public BaseClass {
+  class WithStreamedUnaryMethod_PostFricWheel : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_PostFrictionWheel() {
+    WithStreamedUnaryMethod_PostFricWheel() {
       ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::FrictionWheel, ::communication::Response>(
+          ::communication::FricWheel, ::communication::Response>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::FrictionWheel, ::communication::Response>* streamer) {
-                       return this->StreamedPostFrictionWheel(context,
+                     ::communication::FricWheel, ::communication::Response>* streamer) {
+                       return this->StreamedPostFricWheel(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_PostFrictionWheel() override {
+    ~WithStreamedUnaryMethod_PostFricWheel() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status PostFrictionWheel(::grpc::ServerContext* /*context*/, const ::communication::FrictionWheel* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostFricWheel(::grpc::ServerContext* /*context*/, const ::communication::FricWheel* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedPostFrictionWheel(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::FrictionWheel,::communication::Response>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedPostFricWheel(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::FricWheel,::communication::Response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_PostStop : public BaseClass {
+  class WithStreamedUnaryMethod_PostChassisStop : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_PostStop() {
+    WithStreamedUnaryMethod_PostChassisStop() {
       ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Stop, ::communication::Response>(
+          ::communication::ChassisStop, ::communication::Response>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Stop, ::communication::Response>* streamer) {
-                       return this->StreamedPostStop(context,
+                     ::communication::ChassisStop, ::communication::Response>* streamer) {
+                       return this->StreamedPostChassisStop(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_PostStop() override {
+    ~WithStreamedUnaryMethod_PostChassisStop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status PostStop(::grpc::ServerContext* /*context*/, const ::communication::Stop* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostChassisStop(::grpc::ServerContext* /*context*/, const ::communication::ChassisStop* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedPostStop(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Stop,::communication::Response>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedPostChassisStop(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::ChassisStop,::communication::Response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_PostBullet : public BaseClass {
+  class WithStreamedUnaryMethod_PostShooter : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_PostBullet() {
+    WithStreamedUnaryMethod_PostShooter() {
       ::grpc::Service::MarkMethodStreamed(12,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::communication::Bullet, ::communication::Response>(
+          ::communication::Shooter, ::communication::Response>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::communication::Bullet, ::communication::Response>* streamer) {
-                       return this->StreamedPostBullet(context,
+                     ::communication::Shooter, ::communication::Response>* streamer) {
+                       return this->StreamedPostShooter(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_PostBullet() override {
+    ~WithStreamedUnaryMethod_PostShooter() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status PostBullet(::grpc::ServerContext* /*context*/, const ::communication::Bullet* /*request*/, ::communication::Response* /*response*/) override {
+    ::grpc::Status PostShooter(::grpc::ServerContext* /*context*/, const ::communication::Shooter* /*request*/, ::communication::Response* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedPostBullet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Bullet,::communication::Response>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedPostShooter(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::Shooter,::communication::Response>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetBlood<WithStreamedUnaryMethod_GetAmmunition<WithStreamedUnaryMethod_GetPosture<WithStreamedUnaryMethod_GetGunPosture<WithStreamedUnaryMethod_GetVelocity<WithStreamedUnaryMethod_GetAffected<WithStreamedUnaryMethod_GetObjectDection<WithStreamedUnaryMethod_PostBlood<WithStreamedUnaryMethod_PostAmmunition<WithStreamedUnaryMethod_PostDestination<WithStreamedUnaryMethod_PostFrictionWheel<WithStreamedUnaryMethod_PostStop<WithStreamedUnaryMethod_PostBullet<Service > > > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_PostSystemRun : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_PostSystemRun() {
+      ::grpc::Service::MarkMethodStreamed(13,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::communication::CommonRequest, ::communication::Response>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::communication::CommonRequest, ::communication::Response>* streamer) {
+                       return this->StreamedPostSystemRun(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_PostSystemRun() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status PostSystemRun(::grpc::ServerContext* /*context*/, const ::communication::CommonRequest* /*request*/, ::communication::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedPostSystemRun(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::communication::CommonRequest,::communication::Response>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GetBlood<WithStreamedUnaryMethod_GetBullet<WithStreamedUnaryMethod_GetPosture<WithStreamedUnaryMethod_GetGimbalYaw<WithStreamedUnaryMethod_GetVelocity<WithStreamedUnaryMethod_GetAttacked<WithStreamedUnaryMethod_GetObjectDection<WithStreamedUnaryMethod_PostBlood<WithStreamedUnaryMethod_PostBullet<WithStreamedUnaryMethod_PostDestination<WithStreamedUnaryMethod_PostFricWheel<WithStreamedUnaryMethod_PostChassisStop<WithStreamedUnaryMethod_PostShooter<WithStreamedUnaryMethod_PostSystemRun<Service > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetBlood<WithStreamedUnaryMethod_GetAmmunition<WithStreamedUnaryMethod_GetPosture<WithStreamedUnaryMethod_GetGunPosture<WithStreamedUnaryMethod_GetVelocity<WithStreamedUnaryMethod_GetAffected<WithStreamedUnaryMethod_GetObjectDection<WithStreamedUnaryMethod_PostBlood<WithStreamedUnaryMethod_PostAmmunition<WithStreamedUnaryMethod_PostDestination<WithStreamedUnaryMethod_PostFrictionWheel<WithStreamedUnaryMethod_PostStop<WithStreamedUnaryMethod_PostBullet<Service > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetBlood<WithStreamedUnaryMethod_GetBullet<WithStreamedUnaryMethod_GetPosture<WithStreamedUnaryMethod_GetGimbalYaw<WithStreamedUnaryMethod_GetVelocity<WithStreamedUnaryMethod_GetAttacked<WithStreamedUnaryMethod_GetObjectDection<WithStreamedUnaryMethod_PostBlood<WithStreamedUnaryMethod_PostBullet<WithStreamedUnaryMethod_PostDestination<WithStreamedUnaryMethod_PostFricWheel<WithStreamedUnaryMethod_PostChassisStop<WithStreamedUnaryMethod_PostShooter<WithStreamedUnaryMethod_PostSystemRun<Service > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace communication

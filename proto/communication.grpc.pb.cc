@@ -23,18 +23,19 @@ namespace communication {
 
 static const char* RobotComm_method_names[] = {
   "/communication.RobotComm/GetBlood",
-  "/communication.RobotComm/GetAmmunition",
+  "/communication.RobotComm/GetBullet",
   "/communication.RobotComm/GetPosture",
-  "/communication.RobotComm/GetGunPosture",
+  "/communication.RobotComm/GetGimbalYaw",
   "/communication.RobotComm/GetVelocity",
-  "/communication.RobotComm/GetAffected",
+  "/communication.RobotComm/GetAttacked",
   "/communication.RobotComm/GetObjectDection",
   "/communication.RobotComm/PostBlood",
-  "/communication.RobotComm/PostAmmunition",
-  "/communication.RobotComm/PostDestination",
-  "/communication.RobotComm/PostFrictionWheel",
-  "/communication.RobotComm/PostStop",
   "/communication.RobotComm/PostBullet",
+  "/communication.RobotComm/PostDestination",
+  "/communication.RobotComm/PostFricWheel",
+  "/communication.RobotComm/PostChassisStop",
+  "/communication.RobotComm/PostShooter",
+  "/communication.RobotComm/PostSystemRun",
 };
 
 std::unique_ptr< RobotComm::Stub> RobotComm::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -45,175 +46,176 @@ std::unique_ptr< RobotComm::Stub> RobotComm::NewStub(const std::shared_ptr< ::gr
 
 RobotComm::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_GetBlood_(RobotComm_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetAmmunition_(RobotComm_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetBullet_(RobotComm_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetPosture_(RobotComm_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetGunPosture_(RobotComm_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetGimbalYaw_(RobotComm_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetVelocity_(RobotComm_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetAffected_(RobotComm_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetAttacked_(RobotComm_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetObjectDection_(RobotComm_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_PostBlood_(RobotComm_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_PostAmmunition_(RobotComm_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_PostBullet_(RobotComm_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_PostDestination_(RobotComm_method_names[9], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_PostFrictionWheel_(RobotComm_method_names[10], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_PostStop_(RobotComm_method_names[11], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_PostBullet_(RobotComm_method_names[12], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_PostFricWheel_(RobotComm_method_names[10], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_PostChassisStop_(RobotComm_method_names[11], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_PostShooter_(RobotComm_method_names[12], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_PostSystemRun_(RobotComm_method_names[13], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status RobotComm::Stub::GetBlood(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Blood* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Request, ::communication::Blood, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetBlood_, context, request, response);
+::grpc::Status RobotComm::Stub::GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Blood* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::Blood, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetBlood_, context, request, response);
 }
 
-void RobotComm::Stub::async::GetBlood(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Blood* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Request, ::communication::Blood, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBlood_, context, request, response, std::move(f));
+void RobotComm::Stub::async::GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::Blood, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBlood_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::GetBlood(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Blood* response, ::grpc::ClientUnaryReactor* reactor) {
+void RobotComm::Stub::async::GetBlood(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBlood_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Blood>* RobotComm::Stub::PrepareAsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Blood, ::communication::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetBlood_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Blood>* RobotComm::Stub::PrepareAsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Blood, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetBlood_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Blood>* RobotComm::Stub::AsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Blood>* RobotComm::Stub::AsyncGetBloodRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetBloodRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::GetAmmunition(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Ammunition* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Request, ::communication::Ammunition, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetAmmunition_, context, request, response);
+::grpc::Status RobotComm::Stub::GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Bullet* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::Bullet, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetBullet_, context, request, response);
 }
 
-void RobotComm::Stub::async::GetAmmunition(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Ammunition* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Request, ::communication::Ammunition, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetAmmunition_, context, request, response, std::move(f));
+void RobotComm::Stub::async::GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::Bullet, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBullet_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::GetAmmunition(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Ammunition* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetAmmunition_, context, request, response, reactor);
+void RobotComm::Stub::async::GetBullet(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetBullet_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Ammunition>* RobotComm::Stub::PrepareAsyncGetAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Ammunition, ::communication::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetAmmunition_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Bullet>* RobotComm::Stub::PrepareAsyncGetBulletRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Bullet, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetBullet_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Ammunition>* RobotComm::Stub::AsyncGetAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Bullet>* RobotComm::Stub::AsyncGetBulletRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncGetAmmunitionRaw(context, request, cq);
+    this->PrepareAsyncGetBulletRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::GetPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Posture* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Request, ::communication::Posture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetPosture_, context, request, response);
+::grpc::Status RobotComm::Stub::GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Posture* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::Posture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetPosture_, context, request, response);
 }
 
-void RobotComm::Stub::async::GetPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Posture* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Request, ::communication::Posture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetPosture_, context, request, response, std::move(f));
+void RobotComm::Stub::async::GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::Posture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetPosture_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::GetPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Posture* response, ::grpc::ClientUnaryReactor* reactor) {
+void RobotComm::Stub::async::GetPosture(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetPosture_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Posture>* RobotComm::Stub::PrepareAsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Posture, ::communication::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetPosture_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Posture>* RobotComm::Stub::PrepareAsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Posture, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetPosture_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Posture>* RobotComm::Stub::AsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Posture>* RobotComm::Stub::AsyncGetPostureRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetPostureRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::GetGunPosture(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::GunPosture* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Request, ::communication::GunPosture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetGunPosture_, context, request, response);
+::grpc::Status RobotComm::Stub::GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::GimbalYaw* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::GimbalYaw, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetGimbalYaw_, context, request, response);
 }
 
-void RobotComm::Stub::async::GetGunPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::GunPosture* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Request, ::communication::GunPosture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetGunPosture_, context, request, response, std::move(f));
+void RobotComm::Stub::async::GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::GimbalYaw, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetGimbalYaw_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::GetGunPosture(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::GunPosture* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetGunPosture_, context, request, response, reactor);
+void RobotComm::Stub::async::GetGimbalYaw(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetGimbalYaw_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::GunPosture>* RobotComm::Stub::PrepareAsyncGetGunPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::GunPosture, ::communication::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetGunPosture_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>* RobotComm::Stub::PrepareAsyncGetGimbalYawRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::GimbalYaw, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetGimbalYaw_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::GunPosture>* RobotComm::Stub::AsyncGetGunPostureRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::GimbalYaw>* RobotComm::Stub::AsyncGetGimbalYawRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncGetGunPostureRaw(context, request, cq);
+    this->PrepareAsyncGetGimbalYawRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::GetVelocity(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Velocity* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Request, ::communication::Velocity, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetVelocity_, context, request, response);
+::grpc::Status RobotComm::Stub::GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Velocity* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::Velocity, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetVelocity_, context, request, response);
 }
 
-void RobotComm::Stub::async::GetVelocity(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Velocity* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Request, ::communication::Velocity, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetVelocity_, context, request, response, std::move(f));
+void RobotComm::Stub::async::GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::Velocity, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetVelocity_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::GetVelocity(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Velocity* response, ::grpc::ClientUnaryReactor* reactor) {
+void RobotComm::Stub::async::GetVelocity(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetVelocity_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Velocity>* RobotComm::Stub::PrepareAsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Velocity, ::communication::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetVelocity_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Velocity>* RobotComm::Stub::PrepareAsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Velocity, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetVelocity_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Velocity>* RobotComm::Stub::AsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Velocity>* RobotComm::Stub::AsyncGetVelocityRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetVelocityRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::GetAffected(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::Affected* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Request, ::communication::Affected, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetAffected_, context, request, response);
+::grpc::Status RobotComm::Stub::GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Attacked* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::Attacked, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetAttacked_, context, request, response);
 }
 
-void RobotComm::Stub::async::GetAffected(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Affected* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Request, ::communication::Affected, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetAffected_, context, request, response, std::move(f));
+void RobotComm::Stub::async::GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::Attacked, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetAttacked_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::GetAffected(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::Affected* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetAffected_, context, request, response, reactor);
+void RobotComm::Stub::async::GetAttacked(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetAttacked_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Affected>* RobotComm::Stub::PrepareAsyncGetAffectedRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Affected, ::communication::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetAffected_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Attacked>* RobotComm::Stub::PrepareAsyncGetAttackedRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Attacked, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetAttacked_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Affected>* RobotComm::Stub::AsyncGetAffectedRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Attacked>* RobotComm::Stub::AsyncGetAttackedRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncGetAffectedRaw(context, request, cq);
+    this->PrepareAsyncGetAttackedRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::GetObjectDection(::grpc::ClientContext* context, const ::communication::Request& request, ::communication::ObjectDection* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Request, ::communication::ObjectDection, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetObjectDection_, context, request, response);
+::grpc::Status RobotComm::Stub::GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::ObjectDection* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::ObjectDection, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetObjectDection_, context, request, response);
 }
 
-void RobotComm::Stub::async::GetObjectDection(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::ObjectDection* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Request, ::communication::ObjectDection, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetObjectDection_, context, request, response, std::move(f));
+void RobotComm::Stub::async::GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::ObjectDection, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetObjectDection_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::GetObjectDection(::grpc::ClientContext* context, const ::communication::Request* request, ::communication::ObjectDection* response, ::grpc::ClientUnaryReactor* reactor) {
+void RobotComm::Stub::async::GetObjectDection(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetObjectDection_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* RobotComm::Stub::PrepareAsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::ObjectDection, ::communication::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetObjectDection_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* RobotComm::Stub::PrepareAsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::ObjectDection, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetObjectDection_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* RobotComm::Stub::AsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::ObjectDection>* RobotComm::Stub::AsyncGetObjectDectionRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetObjectDectionRaw(context, request, cq);
   result->StartCall();
@@ -243,25 +245,25 @@ void RobotComm::Stub::async::PostBlood(::grpc::ClientContext* context, const ::c
   return result;
 }
 
-::grpc::Status RobotComm::Stub::PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::communication::Response* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Ammunition, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostAmmunition_, context, request, response);
+::grpc::Status RobotComm::Stub::PostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::communication::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::Bullet, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostBullet_, context, request, response);
 }
 
-void RobotComm::Stub::async::PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Ammunition, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostAmmunition_, context, request, response, std::move(f));
+void RobotComm::Stub::async::PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::Bullet, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostBullet_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::PostAmmunition(::grpc::ClientContext* context, const ::communication::Ammunition* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostAmmunition_, context, request, response, reactor);
+void RobotComm::Stub::async::PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostBullet_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::Ammunition, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostAmmunition_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::Bullet, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostBullet_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostAmmunitionRaw(::grpc::ClientContext* context, const ::communication::Ammunition& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncPostAmmunitionRaw(context, request, cq);
+    this->PrepareAsyncPostBulletRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -289,71 +291,94 @@ void RobotComm::Stub::async::PostDestination(::grpc::ClientContext* context, con
   return result;
 }
 
-::grpc::Status RobotComm::Stub::PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::communication::Response* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::FrictionWheel, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostFrictionWheel_, context, request, response);
+::grpc::Status RobotComm::Stub::PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::communication::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::FricWheel, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostFricWheel_, context, request, response);
 }
 
-void RobotComm::Stub::async::PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::FrictionWheel, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostFrictionWheel_, context, request, response, std::move(f));
+void RobotComm::Stub::async::PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::FricWheel, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostFricWheel_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::PostFrictionWheel(::grpc::ClientContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostFrictionWheel_, context, request, response, reactor);
+void RobotComm::Stub::async::PostFricWheel(::grpc::ClientContext* context, const ::communication::FricWheel* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostFricWheel_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostFrictionWheelRaw(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::FrictionWheel, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostFrictionWheel_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostFricWheelRaw(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::FricWheel, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostFricWheel_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostFrictionWheelRaw(::grpc::ClientContext* context, const ::communication::FrictionWheel& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostFricWheelRaw(::grpc::ClientContext* context, const ::communication::FricWheel& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncPostFrictionWheelRaw(context, request, cq);
+    this->PrepareAsyncPostFricWheelRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::PostStop(::grpc::ClientContext* context, const ::communication::Stop& request, ::communication::Response* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Stop, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostStop_, context, request, response);
+::grpc::Status RobotComm::Stub::PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::communication::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::ChassisStop, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostChassisStop_, context, request, response);
 }
 
-void RobotComm::Stub::async::PostStop(::grpc::ClientContext* context, const ::communication::Stop* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Stop, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostStop_, context, request, response, std::move(f));
+void RobotComm::Stub::async::PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::ChassisStop, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostChassisStop_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::PostStop(::grpc::ClientContext* context, const ::communication::Stop* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostStop_, context, request, response, reactor);
+void RobotComm::Stub::async::PostChassisStop(::grpc::ClientContext* context, const ::communication::ChassisStop* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostChassisStop_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostStopRaw(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::Stop, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostStop_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostChassisStopRaw(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::ChassisStop, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostChassisStop_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostStopRaw(::grpc::ClientContext* context, const ::communication::Stop& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostChassisStopRaw(::grpc::ClientContext* context, const ::communication::ChassisStop& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncPostStopRaw(context, request, cq);
+    this->PrepareAsyncPostChassisStopRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status RobotComm::Stub::PostBullet(::grpc::ClientContext* context, const ::communication::Bullet& request, ::communication::Response* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::communication::Bullet, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostBullet_, context, request, response);
+::grpc::Status RobotComm::Stub::PostShooter(::grpc::ClientContext* context, const ::communication::Shooter& request, ::communication::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::Shooter, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostShooter_, context, request, response);
 }
 
-void RobotComm::Stub::async::PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::communication::Bullet, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostBullet_, context, request, response, std::move(f));
+void RobotComm::Stub::async::PostShooter(::grpc::ClientContext* context, const ::communication::Shooter* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::Shooter, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostShooter_, context, request, response, std::move(f));
 }
 
-void RobotComm::Stub::async::PostBullet(::grpc::ClientContext* context, const ::communication::Bullet* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostBullet_, context, request, response, reactor);
+void RobotComm::Stub::async::PostShooter(::grpc::ClientContext* context, const ::communication::Shooter* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostShooter_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::Bullet, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostBullet_, context, request);
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostShooterRaw(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::Shooter, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostShooter_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostBulletRaw(::grpc::ClientContext* context, const ::communication::Bullet& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostShooterRaw(::grpc::ClientContext* context, const ::communication::Shooter& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncPostBulletRaw(context, request, cq);
+    this->PrepareAsyncPostShooterRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status RobotComm::Stub::PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::communication::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::communication::CommonRequest, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PostSystemRun_, context, request, response);
+}
+
+void RobotComm::Stub::async::PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::communication::CommonRequest, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostSystemRun_, context, request, response, std::move(f));
+}
+
+void RobotComm::Stub::async::PostSystemRun(::grpc::ClientContext* context, const ::communication::CommonRequest* request, ::communication::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PostSystemRun_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::PrepareAsyncPostSystemRunRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::communication::Response, ::communication::CommonRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PostSystemRun_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::communication::Response>* RobotComm::Stub::AsyncPostSystemRunRaw(::grpc::ClientContext* context, const ::communication::CommonRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncPostSystemRunRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -362,70 +387,70 @@ RobotComm::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Request, ::communication::Blood, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::Blood, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Request* req,
+             const ::communication::CommonRequest* req,
              ::communication::Blood* resp) {
                return service->GetBlood(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Request, ::communication::Ammunition, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::Bullet, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Request* req,
-             ::communication::Ammunition* resp) {
-               return service->GetAmmunition(ctx, req, resp);
+             const ::communication::CommonRequest* req,
+             ::communication::Bullet* resp) {
+               return service->GetBullet(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Request, ::communication::Posture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::Posture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Request* req,
+             const ::communication::CommonRequest* req,
              ::communication::Posture* resp) {
                return service->GetPosture(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Request, ::communication::GunPosture, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::GimbalYaw, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Request* req,
-             ::communication::GunPosture* resp) {
-               return service->GetGunPosture(ctx, req, resp);
+             const ::communication::CommonRequest* req,
+             ::communication::GimbalYaw* resp) {
+               return service->GetGimbalYaw(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Request, ::communication::Velocity, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::Velocity, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Request* req,
+             const ::communication::CommonRequest* req,
              ::communication::Velocity* resp) {
                return service->GetVelocity(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Request, ::communication::Affected, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::Attacked, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Request* req,
-             ::communication::Affected* resp) {
-               return service->GetAffected(ctx, req, resp);
+             const ::communication::CommonRequest* req,
+             ::communication::Attacked* resp) {
+               return service->GetAttacked(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Request, ::communication::ObjectDection, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::ObjectDection, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Request* req,
+             const ::communication::CommonRequest* req,
              ::communication::ObjectDection* resp) {
                return service->GetObjectDection(ctx, req, resp);
              }, this)));
@@ -442,12 +467,12 @@ RobotComm::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Ammunition, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Bullet, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Ammunition* req,
+             const ::communication::Bullet* req,
              ::communication::Response* resp) {
-               return service->PostAmmunition(ctx, req, resp);
+               return service->PostBullet(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[9],
@@ -462,81 +487,91 @@ RobotComm::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[10],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::FrictionWheel, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::FricWheel, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::FrictionWheel* req,
+             const ::communication::FricWheel* req,
              ::communication::Response* resp) {
-               return service->PostFrictionWheel(ctx, req, resp);
+               return service->PostFricWheel(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[11],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Stop, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::ChassisStop, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Stop* req,
+             const ::communication::ChassisStop* req,
              ::communication::Response* resp) {
-               return service->PostStop(ctx, req, resp);
+               return service->PostChassisStop(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RobotComm_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Bullet, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::Shooter, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](RobotComm::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::communication::Bullet* req,
+             const ::communication::Shooter* req,
              ::communication::Response* resp) {
-               return service->PostBullet(ctx, req, resp);
+               return service->PostShooter(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RobotComm_method_names[13],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RobotComm::Service, ::communication::CommonRequest, ::communication::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RobotComm::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::communication::CommonRequest* req,
+             ::communication::Response* resp) {
+               return service->PostSystemRun(ctx, req, resp);
              }, this)));
 }
 
 RobotComm::Service::~Service() {
 }
 
-::grpc::Status RobotComm::Service::GetBlood(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Blood* response) {
+::grpc::Status RobotComm::Service::GetBlood(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Blood* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::GetAmmunition(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Ammunition* response) {
+::grpc::Status RobotComm::Service::GetBullet(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Bullet* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::GetPosture(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Posture* response) {
+::grpc::Status RobotComm::Service::GetPosture(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Posture* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::GetGunPosture(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::GunPosture* response) {
+::grpc::Status RobotComm::Service::GetGimbalYaw(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::GimbalYaw* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::GetVelocity(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Velocity* response) {
+::grpc::Status RobotComm::Service::GetVelocity(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Velocity* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::GetAffected(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::Affected* response) {
+::grpc::Status RobotComm::Service::GetAttacked(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Attacked* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::GetObjectDection(::grpc::ServerContext* context, const ::communication::Request* request, ::communication::ObjectDection* response) {
+::grpc::Status RobotComm::Service::GetObjectDection(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::ObjectDection* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -550,7 +585,7 @@ RobotComm::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::PostAmmunition(::grpc::ServerContext* context, const ::communication::Ammunition* request, ::communication::Response* response) {
+::grpc::Status RobotComm::Service::PostBullet(::grpc::ServerContext* context, const ::communication::Bullet* request, ::communication::Response* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -564,21 +599,28 @@ RobotComm::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::PostFrictionWheel(::grpc::ServerContext* context, const ::communication::FrictionWheel* request, ::communication::Response* response) {
+::grpc::Status RobotComm::Service::PostFricWheel(::grpc::ServerContext* context, const ::communication::FricWheel* request, ::communication::Response* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::PostStop(::grpc::ServerContext* context, const ::communication::Stop* request, ::communication::Response* response) {
+::grpc::Status RobotComm::Service::PostChassisStop(::grpc::ServerContext* context, const ::communication::ChassisStop* request, ::communication::Response* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RobotComm::Service::PostBullet(::grpc::ServerContext* context, const ::communication::Bullet* request, ::communication::Response* response) {
+::grpc::Status RobotComm::Service::PostShooter(::grpc::ServerContext* context, const ::communication::Shooter* request, ::communication::Response* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RobotComm::Service::PostSystemRun(::grpc::ServerContext* context, const ::communication::CommonRequest* request, ::communication::Response* response) {
   (void) context;
   (void) request;
   (void) response;

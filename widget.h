@@ -21,8 +21,8 @@
 
 #include "chart.h"
 #include "map.h"
-#include "communication.grpc.pb.h"
-#include "communication.pb.h"
+#include "proto/communication.grpc.pb.h"
+#include "proto/communication.pb.h"
 #include "bloodnewwindows.h"
 #include "velocitynewwindows.h"
 #include "map.h"
@@ -52,11 +52,14 @@ private:
     QTextBrowser* radar_list[4];
     BloodNewWindows* b_list[4];
     velocityNewWindows* v_list[4];
+    QPushButton* button[4];
+    QLabel* states[4];
     int count[16];
     int bul[4];
     int wheel[4];
     int shoot[4];
     int move[4];
+    int start[4];
     double rfid_data[4][20];
     QTimer* m_timer;
     QSignalMapper* buttonMapper;
@@ -65,21 +68,21 @@ private:
     std::unique_ptr<communication::RobotComm::Stub> stub_[4];
     grpc::Status status;
     /* Get */
-    communication::Request r_;
     communication::Blood b_[4];
-    communication::Ammunition a_[4];
+    communication::CommonRequest r_;
+    communication::Bullet a_[4];
     communication::Posture p_[4];
-    communication::GunPosture g_[4];
+    communication::GimbalYaw g_[4];
     communication::Velocity v_[4];
-    communication::Affected aff_[4];
+    communication::Attacked aff_[4];
     communication::ObjectDection obj_[4];
     /* Post */
     communication::Blood b_set_[4];
-    communication::Ammunition a_set_[4];
+    communication::Bullet a_set_[4];
     communication::Destination d_set_[4];
-    communication::FrictionWheel f_set_[4];
-    communication::Stop s_set_[4];
-    communication::Bullet bu_set_[4];
+    communication::FricWheel f_set_[4];
+    communication::ChassisStop s_set_[4];
+    communication::Shooter bu_set_[4];
 private:
     void hitAction(int hit,int t);
     void rfidInterface(int id,int l);
@@ -98,6 +101,14 @@ private:
     void setwheelStatus(int id);
     void setshootStatus(int id);
     void setmoveStatus(int id);
+    void getBlood();
+    void getBullet();
+    void getPosture();
+    void getGunposture();
+    void getVelocity();
+    void getAffected();
+    void getObjectDection();
+    void allControl(int id);
 
 private slots:
     void slotTimeout();

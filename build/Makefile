@@ -217,6 +217,33 @@ chart.cpp.s:
 	$(MAKE) -f CMakeFiles/QtGrpcDemo.dir/build.make CMakeFiles/QtGrpcDemo.dir/chart.cpp.s
 .PHONY : chart.cpp.s
 
+loading.o: loading.cpp.o
+
+.PHONY : loading.o
+
+# target to build an object file
+loading.cpp.o:
+	$(MAKE) -f CMakeFiles/QtGrpcDemo.dir/build.make CMakeFiles/QtGrpcDemo.dir/loading.cpp.o
+.PHONY : loading.cpp.o
+
+loading.i: loading.cpp.i
+
+.PHONY : loading.i
+
+# target to preprocess a source file
+loading.cpp.i:
+	$(MAKE) -f CMakeFiles/QtGrpcDemo.dir/build.make CMakeFiles/QtGrpcDemo.dir/loading.cpp.i
+.PHONY : loading.cpp.i
+
+loading.s: loading.cpp.s
+
+.PHONY : loading.s
+
+# target to generate assembly for a file
+loading.cpp.s:
+	$(MAKE) -f CMakeFiles/QtGrpcDemo.dir/build.make CMakeFiles/QtGrpcDemo.dir/loading.cpp.s
+.PHONY : loading.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -425,6 +452,9 @@ help:
 	@echo "... chart.o"
 	@echo "... chart.i"
 	@echo "... chart.s"
+	@echo "... loading.o"
+	@echo "... loading.i"
+	@echo "... loading.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

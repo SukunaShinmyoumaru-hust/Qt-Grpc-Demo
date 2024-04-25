@@ -55,201 +55,64 @@ struct TableStruct_communication_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_communication_2eproto;
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_communication_2eproto_metadata_getter(int index);
 namespace communication {
-class Affected;
-struct AffectedDefaultTypeInternal;
-extern AffectedDefaultTypeInternal _Affected_default_instance_;
-class Ammunition;
-struct AmmunitionDefaultTypeInternal;
-extern AmmunitionDefaultTypeInternal _Ammunition_default_instance_;
+class Attacked;
+struct AttackedDefaultTypeInternal;
+extern AttackedDefaultTypeInternal _Attacked_default_instance_;
 class Blood;
 struct BloodDefaultTypeInternal;
 extern BloodDefaultTypeInternal _Blood_default_instance_;
 class Bullet;
 struct BulletDefaultTypeInternal;
 extern BulletDefaultTypeInternal _Bullet_default_instance_;
+class ChassisStop;
+struct ChassisStopDefaultTypeInternal;
+extern ChassisStopDefaultTypeInternal _ChassisStop_default_instance_;
+class CommonRequest;
+struct CommonRequestDefaultTypeInternal;
+extern CommonRequestDefaultTypeInternal _CommonRequest_default_instance_;
 class Destination;
 struct DestinationDefaultTypeInternal;
 extern DestinationDefaultTypeInternal _Destination_default_instance_;
-class FrictionWheel;
-struct FrictionWheelDefaultTypeInternal;
-extern FrictionWheelDefaultTypeInternal _FrictionWheel_default_instance_;
-class GunPosture;
-struct GunPostureDefaultTypeInternal;
-extern GunPostureDefaultTypeInternal _GunPosture_default_instance_;
+class FricWheel;
+struct FricWheelDefaultTypeInternal;
+extern FricWheelDefaultTypeInternal _FricWheel_default_instance_;
+class GimbalYaw;
+struct GimbalYawDefaultTypeInternal;
+extern GimbalYawDefaultTypeInternal _GimbalYaw_default_instance_;
 class ObjectDection;
 struct ObjectDectionDefaultTypeInternal;
 extern ObjectDectionDefaultTypeInternal _ObjectDection_default_instance_;
 class Posture;
 struct PostureDefaultTypeInternal;
 extern PostureDefaultTypeInternal _Posture_default_instance_;
-class Request;
-struct RequestDefaultTypeInternal;
-extern RequestDefaultTypeInternal _Request_default_instance_;
 class Response;
 struct ResponseDefaultTypeInternal;
 extern ResponseDefaultTypeInternal _Response_default_instance_;
-class Stop;
-struct StopDefaultTypeInternal;
-extern StopDefaultTypeInternal _Stop_default_instance_;
+class Shooter;
+struct ShooterDefaultTypeInternal;
+extern ShooterDefaultTypeInternal _Shooter_default_instance_;
 class Velocity;
 struct VelocityDefaultTypeInternal;
 extern VelocityDefaultTypeInternal _Velocity_default_instance_;
 }  // namespace communication
 PROTOBUF_NAMESPACE_OPEN
-template<> ::communication::Affected* Arena::CreateMaybeMessage<::communication::Affected>(Arena*);
-template<> ::communication::Ammunition* Arena::CreateMaybeMessage<::communication::Ammunition>(Arena*);
+template<> ::communication::Attacked* Arena::CreateMaybeMessage<::communication::Attacked>(Arena*);
 template<> ::communication::Blood* Arena::CreateMaybeMessage<::communication::Blood>(Arena*);
 template<> ::communication::Bullet* Arena::CreateMaybeMessage<::communication::Bullet>(Arena*);
+template<> ::communication::ChassisStop* Arena::CreateMaybeMessage<::communication::ChassisStop>(Arena*);
+template<> ::communication::CommonRequest* Arena::CreateMaybeMessage<::communication::CommonRequest>(Arena*);
 template<> ::communication::Destination* Arena::CreateMaybeMessage<::communication::Destination>(Arena*);
-template<> ::communication::FrictionWheel* Arena::CreateMaybeMessage<::communication::FrictionWheel>(Arena*);
-template<> ::communication::GunPosture* Arena::CreateMaybeMessage<::communication::GunPosture>(Arena*);
+template<> ::communication::FricWheel* Arena::CreateMaybeMessage<::communication::FricWheel>(Arena*);
+template<> ::communication::GimbalYaw* Arena::CreateMaybeMessage<::communication::GimbalYaw>(Arena*);
 template<> ::communication::ObjectDection* Arena::CreateMaybeMessage<::communication::ObjectDection>(Arena*);
 template<> ::communication::Posture* Arena::CreateMaybeMessage<::communication::Posture>(Arena*);
-template<> ::communication::Request* Arena::CreateMaybeMessage<::communication::Request>(Arena*);
 template<> ::communication::Response* Arena::CreateMaybeMessage<::communication::Response>(Arena*);
-template<> ::communication::Stop* Arena::CreateMaybeMessage<::communication::Stop>(Arena*);
+template<> ::communication::Shooter* Arena::CreateMaybeMessage<::communication::Shooter>(Arena*);
 template<> ::communication::Velocity* Arena::CreateMaybeMessage<::communication::Velocity>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace communication {
 
 // ===================================================================
-
-class Request PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Request) */ {
- public:
-  inline Request() : Request(nullptr) {}
-  virtual ~Request();
-  explicit constexpr Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  Request(const Request& from);
-  Request(Request&& from) noexcept
-    : Request() {
-    *this = ::std::move(from);
-  }
-
-  inline Request& operator=(const Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Request& operator=(Request&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Request* internal_default_instance() {
-    return reinterpret_cast<const Request*>(
-               &_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(Request& a, Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Request* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Request* New() const final {
-    return CreateMaybeMessage<Request>(nullptr);
-  }
-
-  Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Request>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Request& from);
-  void MergeFrom(const Request& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Request* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "communication.Request";
-  }
-  protected:
-  explicit Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    return ::descriptor_table_communication_2eproto_metadata_getter(kIndexInFileMessages);
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTimeFieldNumber = 1,
-  };
-  // float time = 1;
-  void clear_time();
-  float time() const;
-  void set_time(float value);
-  private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:communication.Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  float time_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_communication_2eproto;
-};
-// -------------------------------------------------------------------
 
 class Blood PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Blood) */ {
@@ -294,7 +157,7 @@ class Blood PROTOBUF_FINAL :
                &_Blood_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   friend void swap(Blood& a, Blood& b) {
     a.Swap(&b);
@@ -364,9 +227,18 @@ class Blood PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kBloodFieldNumber = 1,
     kTimeFieldNumber = 2,
+    kBloodFieldNumber = 1,
   };
+  // double time = 2;
+  void clear_time();
+  double time() const;
+  void set_time(double value);
+  private:
+  double _internal_time() const;
+  void _internal_set_time(double value);
+  public:
+
   // int32 blood = 1;
   void clear_blood();
   ::PROTOBUF_NAMESPACE_ID::int32 blood() const;
@@ -376,15 +248,6 @@ class Blood PROTOBUF_FINAL :
   void _internal_set_blood(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // float time = 2;
-  void clear_time();
-  float time() const;
-  void set_time(float value);
-  private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
-  public:
-
   // @@protoc_insertion_point(class_scope:communication.Blood)
  private:
   class _Internal;
@@ -392,31 +255,31 @@ class Blood PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  double time_;
   ::PROTOBUF_NAMESPACE_ID::int32 blood_;
-  float time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Ammunition PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Ammunition) */ {
+class CommonRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.CommonRequest) */ {
  public:
-  inline Ammunition() : Ammunition(nullptr) {}
-  virtual ~Ammunition();
-  explicit constexpr Ammunition(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CommonRequest() : CommonRequest(nullptr) {}
+  virtual ~CommonRequest();
+  explicit constexpr CommonRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Ammunition(const Ammunition& from);
-  Ammunition(Ammunition&& from) noexcept
-    : Ammunition() {
+  CommonRequest(const CommonRequest& from);
+  CommonRequest(CommonRequest&& from) noexcept
+    : CommonRequest() {
     *this = ::std::move(from);
   }
 
-  inline Ammunition& operator=(const Ammunition& from) {
+  inline CommonRequest& operator=(const CommonRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Ammunition& operator=(Ammunition&& from) noexcept {
+  inline CommonRequest& operator=(CommonRequest&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -434,20 +297,20 @@ class Ammunition PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Ammunition& default_instance() {
+  static const CommonRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Ammunition* internal_default_instance() {
-    return reinterpret_cast<const Ammunition*>(
-               &_Ammunition_default_instance_);
+  static inline const CommonRequest* internal_default_instance() {
+    return reinterpret_cast<const CommonRequest*>(
+               &_CommonRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
-  friend void swap(Ammunition& a, Ammunition& b) {
+  friend void swap(CommonRequest& a, CommonRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(Ammunition* other) {
+  inline void Swap(CommonRequest* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -455,7 +318,7 @@ class Ammunition PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Ammunition* other) {
+  void UnsafeArenaSwap(CommonRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -463,17 +326,17 @@ class Ammunition PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Ammunition* New() const final {
-    return CreateMaybeMessage<Ammunition>(nullptr);
+  inline CommonRequest* New() const final {
+    return CreateMaybeMessage<CommonRequest>(nullptr);
   }
 
-  Ammunition* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Ammunition>(arena);
+  CommonRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CommonRequest>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Ammunition& from);
-  void MergeFrom(const Ammunition& from);
+  void CopyFrom(const CommonRequest& from);
+  void MergeFrom(const CommonRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -487,13 +350,13 @@ class Ammunition PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Ammunition* other);
+  void InternalSwap(CommonRequest* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "communication.Ammunition";
+    return "communication.CommonRequest";
   }
   protected:
-  explicit Ammunition(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CommonRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -512,17 +375,154 @@ class Ammunition PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAmmunitionFieldNumber = 1,
+    kTimeFieldNumber = 1,
+  };
+  // double time = 1;
+  void clear_time();
+  double time() const;
+  void set_time(double value);
+  private:
+  double _internal_time() const;
+  void _internal_set_time(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:communication.CommonRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  double time_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_communication_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Bullet PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Bullet) */ {
+ public:
+  inline Bullet() : Bullet(nullptr) {}
+  virtual ~Bullet();
+  explicit constexpr Bullet(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Bullet(const Bullet& from);
+  Bullet(Bullet&& from) noexcept
+    : Bullet() {
+    *this = ::std::move(from);
+  }
+
+  inline Bullet& operator=(const Bullet& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Bullet& operator=(Bullet&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Bullet& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Bullet* internal_default_instance() {
+    return reinterpret_cast<const Bullet*>(
+               &_Bullet_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Bullet& a, Bullet& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Bullet* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Bullet* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Bullet* New() const final {
+    return CreateMaybeMessage<Bullet>(nullptr);
+  }
+
+  Bullet* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Bullet>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Bullet& from);
+  void MergeFrom(const Bullet& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Bullet* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "communication.Bullet";
+  }
+  protected:
+  explicit Bullet(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_communication_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBulletsFieldNumber = 1,
     kTypeFieldNumber = 2,
     kTimeFieldNumber = 3,
   };
-  // int32 ammunition = 1;
-  void clear_ammunition();
-  ::PROTOBUF_NAMESPACE_ID::int32 ammunition() const;
-  void set_ammunition(::PROTOBUF_NAMESPACE_ID::int32 value);
+  // int32 bullets = 1;
+  void clear_bullets();
+  ::PROTOBUF_NAMESPACE_ID::int32 bullets() const;
+  void set_bullets(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_ammunition() const;
-  void _internal_set_ammunition(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_bullets() const;
+  void _internal_set_bullets(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // int32 type = 2;
@@ -534,25 +534,25 @@ class Ammunition PROTOBUF_FINAL :
   void _internal_set_type(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // float time = 3;
+  // double time = 3;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:communication.Ammunition)
+  // @@protoc_insertion_point(class_scope:communication.Bullet)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 ammunition_;
+  ::PROTOBUF_NAMESPACE_ID::int32 bullets_;
   ::PROTOBUF_NAMESPACE_ID::int32 type_;
-  float time_;
+  double time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
@@ -673,8 +673,8 @@ class Posture PROTOBUF_FINAL :
   enum : int {
     kXFieldNumber = 1,
     kYFieldNumber = 2,
-    kRadianFieldNumber = 3,
     kTimeFieldNumber = 4,
+    kRadianFieldNumber = 3,
   };
   // float x = 1;
   void clear_x();
@@ -694,6 +694,15 @@ class Posture PROTOBUF_FINAL :
   void _internal_set_y(float value);
   public:
 
+  // double time = 4;
+  void clear_time();
+  double time() const;
+  void set_time(double value);
+  private:
+  double _internal_time() const;
+  void _internal_set_time(double value);
+  public:
+
   // float radian = 3;
   void clear_radian();
   float radian() const;
@@ -701,15 +710,6 @@ class Posture PROTOBUF_FINAL :
   private:
   float _internal_radian() const;
   void _internal_set_radian(float value);
-  public:
-
-  // float time = 4;
-  void clear_time();
-  float time() const;
-  void set_time(float value);
-  private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
   public:
 
   // @@protoc_insertion_point(class_scope:communication.Posture)
@@ -721,31 +721,31 @@ class Posture PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   float x_;
   float y_;
+  double time_;
   float radian_;
-  float time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
 // -------------------------------------------------------------------
 
-class GunPosture PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.GunPosture) */ {
+class GimbalYaw PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.GimbalYaw) */ {
  public:
-  inline GunPosture() : GunPosture(nullptr) {}
-  virtual ~GunPosture();
-  explicit constexpr GunPosture(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline GimbalYaw() : GimbalYaw(nullptr) {}
+  virtual ~GimbalYaw();
+  explicit constexpr GimbalYaw(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  GunPosture(const GunPosture& from);
-  GunPosture(GunPosture&& from) noexcept
-    : GunPosture() {
+  GimbalYaw(const GimbalYaw& from);
+  GimbalYaw(GimbalYaw&& from) noexcept
+    : GimbalYaw() {
     *this = ::std::move(from);
   }
 
-  inline GunPosture& operator=(const GunPosture& from) {
+  inline GimbalYaw& operator=(const GimbalYaw& from) {
     CopyFrom(from);
     return *this;
   }
-  inline GunPosture& operator=(GunPosture&& from) noexcept {
+  inline GimbalYaw& operator=(GimbalYaw&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -763,20 +763,20 @@ class GunPosture PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const GunPosture& default_instance() {
+  static const GimbalYaw& default_instance() {
     return *internal_default_instance();
   }
-  static inline const GunPosture* internal_default_instance() {
-    return reinterpret_cast<const GunPosture*>(
-               &_GunPosture_default_instance_);
+  static inline const GimbalYaw* internal_default_instance() {
+    return reinterpret_cast<const GimbalYaw*>(
+               &_GimbalYaw_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     4;
 
-  friend void swap(GunPosture& a, GunPosture& b) {
+  friend void swap(GimbalYaw& a, GimbalYaw& b) {
     a.Swap(&b);
   }
-  inline void Swap(GunPosture* other) {
+  inline void Swap(GimbalYaw* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -784,7 +784,7 @@ class GunPosture PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(GunPosture* other) {
+  void UnsafeArenaSwap(GimbalYaw* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -792,17 +792,17 @@ class GunPosture PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline GunPosture* New() const final {
-    return CreateMaybeMessage<GunPosture>(nullptr);
+  inline GimbalYaw* New() const final {
+    return CreateMaybeMessage<GimbalYaw>(nullptr);
   }
 
-  GunPosture* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GunPosture>(arena);
+  GimbalYaw* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GimbalYaw>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GunPosture& from);
-  void MergeFrom(const GunPosture& from);
+  void CopyFrom(const GimbalYaw& from);
+  void MergeFrom(const GimbalYaw& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -816,13 +816,13 @@ class GunPosture PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(GunPosture* other);
+  void InternalSwap(GimbalYaw* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "communication.GunPosture";
+    return "communication.GimbalYaw";
   }
   protected:
-  explicit GunPosture(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit GimbalYaw(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -841,36 +841,47 @@ class GunPosture PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRadianFieldNumber = 1,
-    kTimeFieldNumber = 2,
+    kYawFieldNumber = 1,
+    kPitchFieldNumber = 2,
+    kTimeFieldNumber = 3,
   };
-  // float radian = 1;
-  void clear_radian();
-  float radian() const;
-  void set_radian(float value);
+  // float yaw = 1;
+  void clear_yaw();
+  float yaw() const;
+  void set_yaw(float value);
   private:
-  float _internal_radian() const;
-  void _internal_set_radian(float value);
+  float _internal_yaw() const;
+  void _internal_set_yaw(float value);
   public:
 
-  // float time = 2;
+  // float pitch = 2;
+  void clear_pitch();
+  float pitch() const;
+  void set_pitch(float value);
+  private:
+  float _internal_pitch() const;
+  void _internal_set_pitch(float value);
+  public:
+
+  // double time = 3;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:communication.GunPosture)
+  // @@protoc_insertion_point(class_scope:communication.GimbalYaw)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  float radian_;
-  float time_;
+  float yaw_;
+  float pitch_;
+  double time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
@@ -989,25 +1000,45 @@ class Velocity PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kVelocityFieldNumber = 1,
-    kTimeFieldNumber = 2,
+    kVelocityLinearXFieldNumber = 1,
+    kVelocityLinearYFieldNumber = 2,
+    kTimeFieldNumber = 4,
+    kVelocityAngularZFieldNumber = 3,
   };
-  // float velocity = 1;
-  void clear_velocity();
-  float velocity() const;
-  void set_velocity(float value);
+  // float velocity_linear_x = 1;
+  void clear_velocity_linear_x();
+  float velocity_linear_x() const;
+  void set_velocity_linear_x(float value);
   private:
-  float _internal_velocity() const;
-  void _internal_set_velocity(float value);
+  float _internal_velocity_linear_x() const;
+  void _internal_set_velocity_linear_x(float value);
   public:
 
-  // float time = 2;
-  void clear_time();
-  float time() const;
-  void set_time(float value);
+  // float velocity_linear_y = 2;
+  void clear_velocity_linear_y();
+  float velocity_linear_y() const;
+  void set_velocity_linear_y(float value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  float _internal_velocity_linear_y() const;
+  void _internal_set_velocity_linear_y(float value);
+  public:
+
+  // double time = 4;
+  void clear_time();
+  double time() const;
+  void set_time(double value);
+  private:
+  double _internal_time() const;
+  void _internal_set_time(double value);
+  public:
+
+  // float velocity_angular_z = 3;
+  void clear_velocity_angular_z();
+  float velocity_angular_z() const;
+  void set_velocity_angular_z(float value);
+  private:
+  float _internal_velocity_angular_z() const;
+  void _internal_set_velocity_angular_z(float value);
   public:
 
   // @@protoc_insertion_point(class_scope:communication.Velocity)
@@ -1017,31 +1048,33 @@ class Velocity PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  float velocity_;
-  float time_;
+  float velocity_linear_x_;
+  float velocity_linear_y_;
+  double time_;
+  float velocity_angular_z_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Affected PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Affected) */ {
+class Attacked PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Attacked) */ {
  public:
-  inline Affected() : Affected(nullptr) {}
-  virtual ~Affected();
-  explicit constexpr Affected(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Attacked() : Attacked(nullptr) {}
+  virtual ~Attacked();
+  explicit constexpr Attacked(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Affected(const Affected& from);
-  Affected(Affected&& from) noexcept
-    : Affected() {
+  Attacked(const Attacked& from);
+  Attacked(Attacked&& from) noexcept
+    : Attacked() {
     *this = ::std::move(from);
   }
 
-  inline Affected& operator=(const Affected& from) {
+  inline Attacked& operator=(const Attacked& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Affected& operator=(Affected&& from) noexcept {
+  inline Attacked& operator=(Attacked&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1059,20 +1092,20 @@ class Affected PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Affected& default_instance() {
+  static const Attacked& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Affected* internal_default_instance() {
-    return reinterpret_cast<const Affected*>(
-               &_Affected_default_instance_);
+  static inline const Attacked* internal_default_instance() {
+    return reinterpret_cast<const Attacked*>(
+               &_Attacked_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     6;
 
-  friend void swap(Affected& a, Affected& b) {
+  friend void swap(Attacked& a, Attacked& b) {
     a.Swap(&b);
   }
-  inline void Swap(Affected* other) {
+  inline void Swap(Attacked* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1080,7 +1113,7 @@ class Affected PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Affected* other) {
+  void UnsafeArenaSwap(Attacked* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1088,17 +1121,17 @@ class Affected PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Affected* New() const final {
-    return CreateMaybeMessage<Affected>(nullptr);
+  inline Attacked* New() const final {
+    return CreateMaybeMessage<Attacked>(nullptr);
   }
 
-  Affected* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Affected>(arena);
+  Attacked* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Attacked>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Affected& from);
-  void MergeFrom(const Affected& from);
+  void CopyFrom(const Attacked& from);
+  void MergeFrom(const Attacked& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1112,13 +1145,13 @@ class Affected PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Affected* other);
+  void InternalSwap(Attacked* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "communication.Affected";
+    return "communication.Attacked";
   }
   protected:
-  explicit Affected(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Attacked(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1179,16 +1212,16 @@ class Affected PROTOBUF_FINAL :
   void _internal_set_right(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // float time = 5;
+  // double time = 5;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:communication.Affected)
+  // @@protoc_insertion_point(class_scope:communication.Attacked)
  private:
   class _Internal;
 
@@ -1199,7 +1232,7 @@ class Affected PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 down_;
   ::PROTOBUF_NAMESPACE_ID::int32 left_;
   ::PROTOBUF_NAMESPACE_ID::int32 right_;
-  float time_;
+  double time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
@@ -1412,13 +1445,13 @@ class ObjectDection PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_y2();
 
-  // float time = 5;
+  // double time = 5;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
   public:
 
   // @@protoc_insertion_point(class_scope:communication.ObjectDection)
@@ -1436,7 +1469,7 @@ class ObjectDection PROTOBUF_FINAL :
   mutable std::atomic<int> _x2_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > y2_;
   mutable std::atomic<int> _y2_cached_byte_size_;
-  float time_;
+  double time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
@@ -1557,13 +1590,13 @@ class Response PROTOBUF_FINAL :
   enum : int {
     kTimeFieldNumber = 1,
   };
-  // float time = 1;
+  // double time = 1;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
   public:
 
   // @@protoc_insertion_point(class_scope:communication.Response)
@@ -1573,7 +1606,7 @@ class Response PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  float time_;
+  double time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
@@ -1694,7 +1727,8 @@ class Destination PROTOBUF_FINAL :
   enum : int {
     kXFieldNumber = 1,
     kYFieldNumber = 2,
-    kTimeFieldNumber = 3,
+    kTimeFieldNumber = 4,
+    kYawFieldNumber = 3,
   };
   // float x = 1;
   void clear_x();
@@ -1714,13 +1748,22 @@ class Destination PROTOBUF_FINAL :
   void _internal_set_y(float value);
   public:
 
-  // float time = 3;
+  // double time = 4;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
+  public:
+
+  // float yaw = 3;
+  void clear_yaw();
+  float yaw() const;
+  void set_yaw(float value);
+  private:
+  float _internal_yaw() const;
+  void _internal_set_yaw(float value);
   public:
 
   // @@protoc_insertion_point(class_scope:communication.Destination)
@@ -1732,30 +1775,31 @@ class Destination PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   float x_;
   float y_;
-  float time_;
+  double time_;
+  float yaw_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
 // -------------------------------------------------------------------
 
-class FrictionWheel PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.FrictionWheel) */ {
+class FricWheel PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.FricWheel) */ {
  public:
-  inline FrictionWheel() : FrictionWheel(nullptr) {}
-  virtual ~FrictionWheel();
-  explicit constexpr FrictionWheel(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline FricWheel() : FricWheel(nullptr) {}
+  virtual ~FricWheel();
+  explicit constexpr FricWheel(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  FrictionWheel(const FrictionWheel& from);
-  FrictionWheel(FrictionWheel&& from) noexcept
-    : FrictionWheel() {
+  FricWheel(const FricWheel& from);
+  FricWheel(FricWheel&& from) noexcept
+    : FricWheel() {
     *this = ::std::move(from);
   }
 
-  inline FrictionWheel& operator=(const FrictionWheel& from) {
+  inline FricWheel& operator=(const FricWheel& from) {
     CopyFrom(from);
     return *this;
   }
-  inline FrictionWheel& operator=(FrictionWheel&& from) noexcept {
+  inline FricWheel& operator=(FricWheel&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1773,20 +1817,20 @@ class FrictionWheel PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const FrictionWheel& default_instance() {
+  static const FricWheel& default_instance() {
     return *internal_default_instance();
   }
-  static inline const FrictionWheel* internal_default_instance() {
-    return reinterpret_cast<const FrictionWheel*>(
-               &_FrictionWheel_default_instance_);
+  static inline const FricWheel* internal_default_instance() {
+    return reinterpret_cast<const FricWheel*>(
+               &_FricWheel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     10;
 
-  friend void swap(FrictionWheel& a, FrictionWheel& b) {
+  friend void swap(FricWheel& a, FricWheel& b) {
     a.Swap(&b);
   }
-  inline void Swap(FrictionWheel* other) {
+  inline void Swap(FricWheel* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1794,7 +1838,7 @@ class FrictionWheel PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(FrictionWheel* other) {
+  void UnsafeArenaSwap(FricWheel* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1802,17 +1846,17 @@ class FrictionWheel PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline FrictionWheel* New() const final {
-    return CreateMaybeMessage<FrictionWheel>(nullptr);
+  inline FricWheel* New() const final {
+    return CreateMaybeMessage<FricWheel>(nullptr);
   }
 
-  FrictionWheel* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<FrictionWheel>(arena);
+  FricWheel* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<FricWheel>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const FrictionWheel& from);
-  void MergeFrom(const FrictionWheel& from);
+  void CopyFrom(const FricWheel& from);
+  void MergeFrom(const FricWheel& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1826,13 +1870,13 @@ class FrictionWheel PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(FrictionWheel* other);
+  void InternalSwap(FricWheel* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "communication.FrictionWheel";
+    return "communication.FricWheel";
   }
   protected:
-  explicit FrictionWheel(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit FricWheel(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1851,59 +1895,59 @@ class FrictionWheel PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFlagFieldNumber = 1,
     kTimeFieldNumber = 2,
+    kOpenFieldNumber = 1,
   };
-  // bool flag = 1;
-  void clear_flag();
-  bool flag() const;
-  void set_flag(bool value);
-  private:
-  bool _internal_flag() const;
-  void _internal_set_flag(bool value);
-  public:
-
-  // float time = 2;
+  // double time = 2;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:communication.FrictionWheel)
+  // bool open = 1;
+  void clear_open();
+  bool open() const;
+  void set_open(bool value);
+  private:
+  bool _internal_open() const;
+  void _internal_set_open(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:communication.FricWheel)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  bool flag_;
-  float time_;
+  double time_;
+  bool open_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Stop PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Stop) */ {
+class ChassisStop PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.ChassisStop) */ {
  public:
-  inline Stop() : Stop(nullptr) {}
-  virtual ~Stop();
-  explicit constexpr Stop(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline ChassisStop() : ChassisStop(nullptr) {}
+  virtual ~ChassisStop();
+  explicit constexpr ChassisStop(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Stop(const Stop& from);
-  Stop(Stop&& from) noexcept
-    : Stop() {
+  ChassisStop(const ChassisStop& from);
+  ChassisStop(ChassisStop&& from) noexcept
+    : ChassisStop() {
     *this = ::std::move(from);
   }
 
-  inline Stop& operator=(const Stop& from) {
+  inline ChassisStop& operator=(const ChassisStop& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Stop& operator=(Stop&& from) noexcept {
+  inline ChassisStop& operator=(ChassisStop&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1921,20 +1965,20 @@ class Stop PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Stop& default_instance() {
+  static const ChassisStop& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Stop* internal_default_instance() {
-    return reinterpret_cast<const Stop*>(
-               &_Stop_default_instance_);
+  static inline const ChassisStop* internal_default_instance() {
+    return reinterpret_cast<const ChassisStop*>(
+               &_ChassisStop_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     11;
 
-  friend void swap(Stop& a, Stop& b) {
+  friend void swap(ChassisStop& a, ChassisStop& b) {
     a.Swap(&b);
   }
-  inline void Swap(Stop* other) {
+  inline void Swap(ChassisStop* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1942,7 +1986,7 @@ class Stop PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Stop* other) {
+  void UnsafeArenaSwap(ChassisStop* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1950,17 +1994,17 @@ class Stop PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Stop* New() const final {
-    return CreateMaybeMessage<Stop>(nullptr);
+  inline ChassisStop* New() const final {
+    return CreateMaybeMessage<ChassisStop>(nullptr);
   }
 
-  Stop* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Stop>(arena);
+  ChassisStop* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ChassisStop>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Stop& from);
-  void MergeFrom(const Stop& from);
+  void CopyFrom(const ChassisStop& from);
+  void MergeFrom(const ChassisStop& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1974,13 +2018,13 @@ class Stop PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Stop* other);
+  void InternalSwap(ChassisStop* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "communication.Stop";
+    return "communication.ChassisStop";
   }
   protected:
-  explicit Stop(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit ChassisStop(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1999,9 +2043,18 @@ class Stop PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFlagFieldNumber = 1,
     kTimeFieldNumber = 2,
+    kFlagFieldNumber = 1,
   };
+  // double time = 2;
+  void clear_time();
+  double time() const;
+  void set_time(double value);
+  private:
+  double _internal_time() const;
+  void _internal_set_time(double value);
+  public:
+
   // bool flag = 1;
   void clear_flag();
   bool flag() const;
@@ -2011,47 +2064,38 @@ class Stop PROTOBUF_FINAL :
   void _internal_set_flag(bool value);
   public:
 
-  // float time = 2;
-  void clear_time();
-  float time() const;
-  void set_time(float value);
-  private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:communication.Stop)
+  // @@protoc_insertion_point(class_scope:communication.ChassisStop)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  double time_;
   bool flag_;
-  float time_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Bullet PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Bullet) */ {
+class Shooter PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:communication.Shooter) */ {
  public:
-  inline Bullet() : Bullet(nullptr) {}
-  virtual ~Bullet();
-  explicit constexpr Bullet(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Shooter() : Shooter(nullptr) {}
+  virtual ~Shooter();
+  explicit constexpr Shooter(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Bullet(const Bullet& from);
-  Bullet(Bullet&& from) noexcept
-    : Bullet() {
+  Shooter(const Shooter& from);
+  Shooter(Shooter&& from) noexcept
+    : Shooter() {
     *this = ::std::move(from);
   }
 
-  inline Bullet& operator=(const Bullet& from) {
+  inline Shooter& operator=(const Shooter& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Bullet& operator=(Bullet&& from) noexcept {
+  inline Shooter& operator=(Shooter&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2069,20 +2113,20 @@ class Bullet PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Bullet& default_instance() {
+  static const Shooter& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Bullet* internal_default_instance() {
-    return reinterpret_cast<const Bullet*>(
-               &_Bullet_default_instance_);
+  static inline const Shooter* internal_default_instance() {
+    return reinterpret_cast<const Shooter*>(
+               &_Shooter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     12;
 
-  friend void swap(Bullet& a, Bullet& b) {
+  friend void swap(Shooter& a, Shooter& b) {
     a.Swap(&b);
   }
-  inline void Swap(Bullet* other) {
+  inline void Swap(Shooter* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2090,7 +2134,7 @@ class Bullet PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Bullet* other) {
+  void UnsafeArenaSwap(Shooter* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2098,17 +2142,17 @@ class Bullet PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Bullet* New() const final {
-    return CreateMaybeMessage<Bullet>(nullptr);
+  inline Shooter* New() const final {
+    return CreateMaybeMessage<Shooter>(nullptr);
   }
 
-  Bullet* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Bullet>(arena);
+  Shooter* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Shooter>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Bullet& from);
-  void MergeFrom(const Bullet& from);
+  void CopyFrom(const Shooter& from);
+  void MergeFrom(const Shooter& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2122,13 +2166,13 @@ class Bullet PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Bullet* other);
+  void InternalSwap(Shooter* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "communication.Bullet";
+    return "communication.Shooter";
   }
   protected:
-  explicit Bullet(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Shooter(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2147,36 +2191,36 @@ class Bullet PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFlagFieldNumber = 1,
     kTimeFieldNumber = 2,
+    kOpenFieldNumber = 1,
   };
-  // bool flag = 1;
-  void clear_flag();
-  bool flag() const;
-  void set_flag(bool value);
-  private:
-  bool _internal_flag() const;
-  void _internal_set_flag(bool value);
-  public:
-
-  // float time = 2;
+  // double time = 2;
   void clear_time();
-  float time() const;
-  void set_time(float value);
+  double time() const;
+  void set_time(double value);
   private:
-  float _internal_time() const;
-  void _internal_set_time(float value);
+  double _internal_time() const;
+  void _internal_set_time(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:communication.Bullet)
+  // bool open = 1;
+  void clear_open();
+  bool open() const;
+  void set_open(bool value);
+  private:
+  bool _internal_open() const;
+  void _internal_set_open(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:communication.Shooter)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  bool flag_;
-  float time_;
+  double time_;
+  bool open_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
 };
@@ -2189,30 +2233,6 @@ class Bullet PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Request
-
-// float time = 1;
-inline void Request::clear_time() {
-  time_ = 0;
-}
-inline float Request::_internal_time() const {
-  return time_;
-}
-inline float Request::time() const {
-  // @@protoc_insertion_point(field_get:communication.Request.time)
-  return _internal_time();
-}
-inline void Request::_internal_set_time(float value) {
-  
-  time_ = value;
-}
-inline void Request::set_time(float value) {
-  _internal_set_time(value);
-  // @@protoc_insertion_point(field_set:communication.Request.time)
-}
-
-// -------------------------------------------------------------------
-
 // Blood
 
 // int32 blood = 1;
@@ -2235,88 +2255,112 @@ inline void Blood::set_blood(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:communication.Blood.blood)
 }
 
-// float time = 2;
+// double time = 2;
 inline void Blood::clear_time() {
   time_ = 0;
 }
-inline float Blood::_internal_time() const {
+inline double Blood::_internal_time() const {
   return time_;
 }
-inline float Blood::time() const {
+inline double Blood::time() const {
   // @@protoc_insertion_point(field_get:communication.Blood.time)
   return _internal_time();
 }
-inline void Blood::_internal_set_time(float value) {
+inline void Blood::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Blood::set_time(float value) {
+inline void Blood::set_time(double value) {
   _internal_set_time(value);
   // @@protoc_insertion_point(field_set:communication.Blood.time)
 }
 
 // -------------------------------------------------------------------
 
-// Ammunition
+// CommonRequest
 
-// int32 ammunition = 1;
-inline void Ammunition::clear_ammunition() {
-  ammunition_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Ammunition::_internal_ammunition() const {
-  return ammunition_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Ammunition::ammunition() const {
-  // @@protoc_insertion_point(field_get:communication.Ammunition.ammunition)
-  return _internal_ammunition();
-}
-inline void Ammunition::_internal_set_ammunition(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  ammunition_ = value;
-}
-inline void Ammunition::set_ammunition(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_ammunition(value);
-  // @@protoc_insertion_point(field_set:communication.Ammunition.ammunition)
-}
-
-// int32 type = 2;
-inline void Ammunition::clear_type() {
-  type_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Ammunition::_internal_type() const {
-  return type_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Ammunition::type() const {
-  // @@protoc_insertion_point(field_get:communication.Ammunition.type)
-  return _internal_type();
-}
-inline void Ammunition::_internal_set_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  type_ = value;
-}
-inline void Ammunition::set_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:communication.Ammunition.type)
-}
-
-// float time = 3;
-inline void Ammunition::clear_time() {
+// double time = 1;
+inline void CommonRequest::clear_time() {
   time_ = 0;
 }
-inline float Ammunition::_internal_time() const {
+inline double CommonRequest::_internal_time() const {
   return time_;
 }
-inline float Ammunition::time() const {
-  // @@protoc_insertion_point(field_get:communication.Ammunition.time)
+inline double CommonRequest::time() const {
+  // @@protoc_insertion_point(field_get:communication.CommonRequest.time)
   return _internal_time();
 }
-inline void Ammunition::_internal_set_time(float value) {
+inline void CommonRequest::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Ammunition::set_time(float value) {
+inline void CommonRequest::set_time(double value) {
   _internal_set_time(value);
-  // @@protoc_insertion_point(field_set:communication.Ammunition.time)
+  // @@protoc_insertion_point(field_set:communication.CommonRequest.time)
+}
+
+// -------------------------------------------------------------------
+
+// Bullet
+
+// int32 bullets = 1;
+inline void Bullet::clear_bullets() {
+  bullets_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Bullet::_internal_bullets() const {
+  return bullets_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Bullet::bullets() const {
+  // @@protoc_insertion_point(field_get:communication.Bullet.bullets)
+  return _internal_bullets();
+}
+inline void Bullet::_internal_set_bullets(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  bullets_ = value;
+}
+inline void Bullet::set_bullets(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_bullets(value);
+  // @@protoc_insertion_point(field_set:communication.Bullet.bullets)
+}
+
+// int32 type = 2;
+inline void Bullet::clear_type() {
+  type_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Bullet::_internal_type() const {
+  return type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Bullet::type() const {
+  // @@protoc_insertion_point(field_get:communication.Bullet.type)
+  return _internal_type();
+}
+inline void Bullet::_internal_set_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  type_ = value;
+}
+inline void Bullet::set_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:communication.Bullet.type)
+}
+
+// double time = 3;
+inline void Bullet::clear_time() {
+  time_ = 0;
+}
+inline double Bullet::_internal_time() const {
+  return time_;
+}
+inline double Bullet::time() const {
+  // @@protoc_insertion_point(field_get:communication.Bullet.time)
+  return _internal_time();
+}
+inline void Bullet::_internal_set_time(double value) {
+  
+  time_ = value;
+}
+inline void Bullet::set_time(double value) {
+  _internal_set_time(value);
+  // @@protoc_insertion_point(field_set:communication.Bullet.time)
 }
 
 // -------------------------------------------------------------------
@@ -2383,216 +2427,276 @@ inline void Posture::set_radian(float value) {
   // @@protoc_insertion_point(field_set:communication.Posture.radian)
 }
 
-// float time = 4;
+// double time = 4;
 inline void Posture::clear_time() {
   time_ = 0;
 }
-inline float Posture::_internal_time() const {
+inline double Posture::_internal_time() const {
   return time_;
 }
-inline float Posture::time() const {
+inline double Posture::time() const {
   // @@protoc_insertion_point(field_get:communication.Posture.time)
   return _internal_time();
 }
-inline void Posture::_internal_set_time(float value) {
+inline void Posture::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Posture::set_time(float value) {
+inline void Posture::set_time(double value) {
   _internal_set_time(value);
   // @@protoc_insertion_point(field_set:communication.Posture.time)
 }
 
 // -------------------------------------------------------------------
 
-// GunPosture
+// GimbalYaw
 
-// float radian = 1;
-inline void GunPosture::clear_radian() {
-  radian_ = 0;
+// float yaw = 1;
+inline void GimbalYaw::clear_yaw() {
+  yaw_ = 0;
 }
-inline float GunPosture::_internal_radian() const {
-  return radian_;
+inline float GimbalYaw::_internal_yaw() const {
+  return yaw_;
 }
-inline float GunPosture::radian() const {
-  // @@protoc_insertion_point(field_get:communication.GunPosture.radian)
-  return _internal_radian();
+inline float GimbalYaw::yaw() const {
+  // @@protoc_insertion_point(field_get:communication.GimbalYaw.yaw)
+  return _internal_yaw();
 }
-inline void GunPosture::_internal_set_radian(float value) {
+inline void GimbalYaw::_internal_set_yaw(float value) {
   
-  radian_ = value;
+  yaw_ = value;
 }
-inline void GunPosture::set_radian(float value) {
-  _internal_set_radian(value);
-  // @@protoc_insertion_point(field_set:communication.GunPosture.radian)
+inline void GimbalYaw::set_yaw(float value) {
+  _internal_set_yaw(value);
+  // @@protoc_insertion_point(field_set:communication.GimbalYaw.yaw)
 }
 
-// float time = 2;
-inline void GunPosture::clear_time() {
+// float pitch = 2;
+inline void GimbalYaw::clear_pitch() {
+  pitch_ = 0;
+}
+inline float GimbalYaw::_internal_pitch() const {
+  return pitch_;
+}
+inline float GimbalYaw::pitch() const {
+  // @@protoc_insertion_point(field_get:communication.GimbalYaw.pitch)
+  return _internal_pitch();
+}
+inline void GimbalYaw::_internal_set_pitch(float value) {
+  
+  pitch_ = value;
+}
+inline void GimbalYaw::set_pitch(float value) {
+  _internal_set_pitch(value);
+  // @@protoc_insertion_point(field_set:communication.GimbalYaw.pitch)
+}
+
+// double time = 3;
+inline void GimbalYaw::clear_time() {
   time_ = 0;
 }
-inline float GunPosture::_internal_time() const {
+inline double GimbalYaw::_internal_time() const {
   return time_;
 }
-inline float GunPosture::time() const {
-  // @@protoc_insertion_point(field_get:communication.GunPosture.time)
+inline double GimbalYaw::time() const {
+  // @@protoc_insertion_point(field_get:communication.GimbalYaw.time)
   return _internal_time();
 }
-inline void GunPosture::_internal_set_time(float value) {
+inline void GimbalYaw::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void GunPosture::set_time(float value) {
+inline void GimbalYaw::set_time(double value) {
   _internal_set_time(value);
-  // @@protoc_insertion_point(field_set:communication.GunPosture.time)
+  // @@protoc_insertion_point(field_set:communication.GimbalYaw.time)
 }
 
 // -------------------------------------------------------------------
 
 // Velocity
 
-// float velocity = 1;
-inline void Velocity::clear_velocity() {
-  velocity_ = 0;
+// float velocity_linear_x = 1;
+inline void Velocity::clear_velocity_linear_x() {
+  velocity_linear_x_ = 0;
 }
-inline float Velocity::_internal_velocity() const {
-  return velocity_;
+inline float Velocity::_internal_velocity_linear_x() const {
+  return velocity_linear_x_;
 }
-inline float Velocity::velocity() const {
-  // @@protoc_insertion_point(field_get:communication.Velocity.velocity)
-  return _internal_velocity();
+inline float Velocity::velocity_linear_x() const {
+  // @@protoc_insertion_point(field_get:communication.Velocity.velocity_linear_x)
+  return _internal_velocity_linear_x();
 }
-inline void Velocity::_internal_set_velocity(float value) {
+inline void Velocity::_internal_set_velocity_linear_x(float value) {
   
-  velocity_ = value;
+  velocity_linear_x_ = value;
 }
-inline void Velocity::set_velocity(float value) {
-  _internal_set_velocity(value);
-  // @@protoc_insertion_point(field_set:communication.Velocity.velocity)
+inline void Velocity::set_velocity_linear_x(float value) {
+  _internal_set_velocity_linear_x(value);
+  // @@protoc_insertion_point(field_set:communication.Velocity.velocity_linear_x)
 }
 
-// float time = 2;
+// float velocity_linear_y = 2;
+inline void Velocity::clear_velocity_linear_y() {
+  velocity_linear_y_ = 0;
+}
+inline float Velocity::_internal_velocity_linear_y() const {
+  return velocity_linear_y_;
+}
+inline float Velocity::velocity_linear_y() const {
+  // @@protoc_insertion_point(field_get:communication.Velocity.velocity_linear_y)
+  return _internal_velocity_linear_y();
+}
+inline void Velocity::_internal_set_velocity_linear_y(float value) {
+  
+  velocity_linear_y_ = value;
+}
+inline void Velocity::set_velocity_linear_y(float value) {
+  _internal_set_velocity_linear_y(value);
+  // @@protoc_insertion_point(field_set:communication.Velocity.velocity_linear_y)
+}
+
+// float velocity_angular_z = 3;
+inline void Velocity::clear_velocity_angular_z() {
+  velocity_angular_z_ = 0;
+}
+inline float Velocity::_internal_velocity_angular_z() const {
+  return velocity_angular_z_;
+}
+inline float Velocity::velocity_angular_z() const {
+  // @@protoc_insertion_point(field_get:communication.Velocity.velocity_angular_z)
+  return _internal_velocity_angular_z();
+}
+inline void Velocity::_internal_set_velocity_angular_z(float value) {
+  
+  velocity_angular_z_ = value;
+}
+inline void Velocity::set_velocity_angular_z(float value) {
+  _internal_set_velocity_angular_z(value);
+  // @@protoc_insertion_point(field_set:communication.Velocity.velocity_angular_z)
+}
+
+// double time = 4;
 inline void Velocity::clear_time() {
   time_ = 0;
 }
-inline float Velocity::_internal_time() const {
+inline double Velocity::_internal_time() const {
   return time_;
 }
-inline float Velocity::time() const {
+inline double Velocity::time() const {
   // @@protoc_insertion_point(field_get:communication.Velocity.time)
   return _internal_time();
 }
-inline void Velocity::_internal_set_time(float value) {
+inline void Velocity::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Velocity::set_time(float value) {
+inline void Velocity::set_time(double value) {
   _internal_set_time(value);
   // @@protoc_insertion_point(field_set:communication.Velocity.time)
 }
 
 // -------------------------------------------------------------------
 
-// Affected
+// Attacked
 
 // int32 up = 1;
-inline void Affected::clear_up() {
+inline void Attacked::clear_up() {
   up_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::_internal_up() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::_internal_up() const {
   return up_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::up() const {
-  // @@protoc_insertion_point(field_get:communication.Affected.up)
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::up() const {
+  // @@protoc_insertion_point(field_get:communication.Attacked.up)
   return _internal_up();
 }
-inline void Affected::_internal_set_up(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::_internal_set_up(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   up_ = value;
 }
-inline void Affected::set_up(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::set_up(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_up(value);
-  // @@protoc_insertion_point(field_set:communication.Affected.up)
+  // @@protoc_insertion_point(field_set:communication.Attacked.up)
 }
 
 // int32 down = 2;
-inline void Affected::clear_down() {
+inline void Attacked::clear_down() {
   down_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::_internal_down() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::_internal_down() const {
   return down_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::down() const {
-  // @@protoc_insertion_point(field_get:communication.Affected.down)
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::down() const {
+  // @@protoc_insertion_point(field_get:communication.Attacked.down)
   return _internal_down();
 }
-inline void Affected::_internal_set_down(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::_internal_set_down(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   down_ = value;
 }
-inline void Affected::set_down(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::set_down(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_down(value);
-  // @@protoc_insertion_point(field_set:communication.Affected.down)
+  // @@protoc_insertion_point(field_set:communication.Attacked.down)
 }
 
 // int32 left = 3;
-inline void Affected::clear_left() {
+inline void Attacked::clear_left() {
   left_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::_internal_left() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::_internal_left() const {
   return left_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::left() const {
-  // @@protoc_insertion_point(field_get:communication.Affected.left)
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::left() const {
+  // @@protoc_insertion_point(field_get:communication.Attacked.left)
   return _internal_left();
 }
-inline void Affected::_internal_set_left(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::_internal_set_left(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   left_ = value;
 }
-inline void Affected::set_left(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::set_left(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_left(value);
-  // @@protoc_insertion_point(field_set:communication.Affected.left)
+  // @@protoc_insertion_point(field_set:communication.Attacked.left)
 }
 
 // int32 right = 4;
-inline void Affected::clear_right() {
+inline void Attacked::clear_right() {
   right_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::_internal_right() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::_internal_right() const {
   return right_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Affected::right() const {
-  // @@protoc_insertion_point(field_get:communication.Affected.right)
+inline ::PROTOBUF_NAMESPACE_ID::int32 Attacked::right() const {
+  // @@protoc_insertion_point(field_get:communication.Attacked.right)
   return _internal_right();
 }
-inline void Affected::_internal_set_right(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::_internal_set_right(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   right_ = value;
 }
-inline void Affected::set_right(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Attacked::set_right(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_right(value);
-  // @@protoc_insertion_point(field_set:communication.Affected.right)
+  // @@protoc_insertion_point(field_set:communication.Attacked.right)
 }
 
-// float time = 5;
-inline void Affected::clear_time() {
+// double time = 5;
+inline void Attacked::clear_time() {
   time_ = 0;
 }
-inline float Affected::_internal_time() const {
+inline double Attacked::_internal_time() const {
   return time_;
 }
-inline float Affected::time() const {
-  // @@protoc_insertion_point(field_get:communication.Affected.time)
+inline double Attacked::time() const {
+  // @@protoc_insertion_point(field_get:communication.Attacked.time)
   return _internal_time();
 }
-inline void Affected::_internal_set_time(float value) {
+inline void Attacked::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Affected::set_time(float value) {
+inline void Attacked::set_time(double value) {
   _internal_set_time(value);
-  // @@protoc_insertion_point(field_set:communication.Affected.time)
+  // @@protoc_insertion_point(field_set:communication.Attacked.time)
 }
 
 // -------------------------------------------------------------------
@@ -2787,22 +2891,22 @@ ObjectDection::mutable_y2() {
   return _internal_mutable_y2();
 }
 
-// float time = 5;
+// double time = 5;
 inline void ObjectDection::clear_time() {
   time_ = 0;
 }
-inline float ObjectDection::_internal_time() const {
+inline double ObjectDection::_internal_time() const {
   return time_;
 }
-inline float ObjectDection::time() const {
+inline double ObjectDection::time() const {
   // @@protoc_insertion_point(field_get:communication.ObjectDection.time)
   return _internal_time();
 }
-inline void ObjectDection::_internal_set_time(float value) {
+inline void ObjectDection::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void ObjectDection::set_time(float value) {
+inline void ObjectDection::set_time(double value) {
   _internal_set_time(value);
   // @@protoc_insertion_point(field_set:communication.ObjectDection.time)
 }
@@ -2811,22 +2915,22 @@ inline void ObjectDection::set_time(float value) {
 
 // Response
 
-// float time = 1;
+// double time = 1;
 inline void Response::clear_time() {
   time_ = 0;
 }
-inline float Response::_internal_time() const {
+inline double Response::_internal_time() const {
   return time_;
 }
-inline float Response::time() const {
+inline double Response::time() const {
   // @@protoc_insertion_point(field_get:communication.Response.time)
   return _internal_time();
 }
-inline void Response::_internal_set_time(float value) {
+inline void Response::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Response::set_time(float value) {
+inline void Response::set_time(double value) {
   _internal_set_time(value);
   // @@protoc_insertion_point(field_set:communication.Response.time)
 }
@@ -2875,156 +2979,176 @@ inline void Destination::set_y(float value) {
   // @@protoc_insertion_point(field_set:communication.Destination.y)
 }
 
-// float time = 3;
+// float yaw = 3;
+inline void Destination::clear_yaw() {
+  yaw_ = 0;
+}
+inline float Destination::_internal_yaw() const {
+  return yaw_;
+}
+inline float Destination::yaw() const {
+  // @@protoc_insertion_point(field_get:communication.Destination.yaw)
+  return _internal_yaw();
+}
+inline void Destination::_internal_set_yaw(float value) {
+  
+  yaw_ = value;
+}
+inline void Destination::set_yaw(float value) {
+  _internal_set_yaw(value);
+  // @@protoc_insertion_point(field_set:communication.Destination.yaw)
+}
+
+// double time = 4;
 inline void Destination::clear_time() {
   time_ = 0;
 }
-inline float Destination::_internal_time() const {
+inline double Destination::_internal_time() const {
   return time_;
 }
-inline float Destination::time() const {
+inline double Destination::time() const {
   // @@protoc_insertion_point(field_get:communication.Destination.time)
   return _internal_time();
 }
-inline void Destination::_internal_set_time(float value) {
+inline void Destination::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Destination::set_time(float value) {
+inline void Destination::set_time(double value) {
   _internal_set_time(value);
   // @@protoc_insertion_point(field_set:communication.Destination.time)
 }
 
 // -------------------------------------------------------------------
 
-// FrictionWheel
+// FricWheel
 
-// bool flag = 1;
-inline void FrictionWheel::clear_flag() {
-  flag_ = false;
+// bool open = 1;
+inline void FricWheel::clear_open() {
+  open_ = false;
 }
-inline bool FrictionWheel::_internal_flag() const {
-  return flag_;
+inline bool FricWheel::_internal_open() const {
+  return open_;
 }
-inline bool FrictionWheel::flag() const {
-  // @@protoc_insertion_point(field_get:communication.FrictionWheel.flag)
-  return _internal_flag();
+inline bool FricWheel::open() const {
+  // @@protoc_insertion_point(field_get:communication.FricWheel.open)
+  return _internal_open();
 }
-inline void FrictionWheel::_internal_set_flag(bool value) {
+inline void FricWheel::_internal_set_open(bool value) {
   
-  flag_ = value;
+  open_ = value;
 }
-inline void FrictionWheel::set_flag(bool value) {
-  _internal_set_flag(value);
-  // @@protoc_insertion_point(field_set:communication.FrictionWheel.flag)
+inline void FricWheel::set_open(bool value) {
+  _internal_set_open(value);
+  // @@protoc_insertion_point(field_set:communication.FricWheel.open)
 }
 
-// float time = 2;
-inline void FrictionWheel::clear_time() {
+// double time = 2;
+inline void FricWheel::clear_time() {
   time_ = 0;
 }
-inline float FrictionWheel::_internal_time() const {
+inline double FricWheel::_internal_time() const {
   return time_;
 }
-inline float FrictionWheel::time() const {
-  // @@protoc_insertion_point(field_get:communication.FrictionWheel.time)
+inline double FricWheel::time() const {
+  // @@protoc_insertion_point(field_get:communication.FricWheel.time)
   return _internal_time();
 }
-inline void FrictionWheel::_internal_set_time(float value) {
+inline void FricWheel::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void FrictionWheel::set_time(float value) {
+inline void FricWheel::set_time(double value) {
   _internal_set_time(value);
-  // @@protoc_insertion_point(field_set:communication.FrictionWheel.time)
+  // @@protoc_insertion_point(field_set:communication.FricWheel.time)
 }
 
 // -------------------------------------------------------------------
 
-// Stop
+// ChassisStop
 
 // bool flag = 1;
-inline void Stop::clear_flag() {
+inline void ChassisStop::clear_flag() {
   flag_ = false;
 }
-inline bool Stop::_internal_flag() const {
+inline bool ChassisStop::_internal_flag() const {
   return flag_;
 }
-inline bool Stop::flag() const {
-  // @@protoc_insertion_point(field_get:communication.Stop.flag)
+inline bool ChassisStop::flag() const {
+  // @@protoc_insertion_point(field_get:communication.ChassisStop.flag)
   return _internal_flag();
 }
-inline void Stop::_internal_set_flag(bool value) {
+inline void ChassisStop::_internal_set_flag(bool value) {
   
   flag_ = value;
 }
-inline void Stop::set_flag(bool value) {
+inline void ChassisStop::set_flag(bool value) {
   _internal_set_flag(value);
-  // @@protoc_insertion_point(field_set:communication.Stop.flag)
+  // @@protoc_insertion_point(field_set:communication.ChassisStop.flag)
 }
 
-// float time = 2;
-inline void Stop::clear_time() {
+// double time = 2;
+inline void ChassisStop::clear_time() {
   time_ = 0;
 }
-inline float Stop::_internal_time() const {
+inline double ChassisStop::_internal_time() const {
   return time_;
 }
-inline float Stop::time() const {
-  // @@protoc_insertion_point(field_get:communication.Stop.time)
+inline double ChassisStop::time() const {
+  // @@protoc_insertion_point(field_get:communication.ChassisStop.time)
   return _internal_time();
 }
-inline void Stop::_internal_set_time(float value) {
+inline void ChassisStop::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Stop::set_time(float value) {
+inline void ChassisStop::set_time(double value) {
   _internal_set_time(value);
-  // @@protoc_insertion_point(field_set:communication.Stop.time)
+  // @@protoc_insertion_point(field_set:communication.ChassisStop.time)
 }
 
 // -------------------------------------------------------------------
 
-// Bullet
+// Shooter
 
-// bool flag = 1;
-inline void Bullet::clear_flag() {
-  flag_ = false;
+// bool open = 1;
+inline void Shooter::clear_open() {
+  open_ = false;
 }
-inline bool Bullet::_internal_flag() const {
-  return flag_;
+inline bool Shooter::_internal_open() const {
+  return open_;
 }
-inline bool Bullet::flag() const {
-  // @@protoc_insertion_point(field_get:communication.Bullet.flag)
-  return _internal_flag();
+inline bool Shooter::open() const {
+  // @@protoc_insertion_point(field_get:communication.Shooter.open)
+  return _internal_open();
 }
-inline void Bullet::_internal_set_flag(bool value) {
+inline void Shooter::_internal_set_open(bool value) {
   
-  flag_ = value;
+  open_ = value;
 }
-inline void Bullet::set_flag(bool value) {
-  _internal_set_flag(value);
-  // @@protoc_insertion_point(field_set:communication.Bullet.flag)
+inline void Shooter::set_open(bool value) {
+  _internal_set_open(value);
+  // @@protoc_insertion_point(field_set:communication.Shooter.open)
 }
 
-// float time = 2;
-inline void Bullet::clear_time() {
+// double time = 2;
+inline void Shooter::clear_time() {
   time_ = 0;
 }
-inline float Bullet::_internal_time() const {
+inline double Shooter::_internal_time() const {
   return time_;
 }
-inline float Bullet::time() const {
-  // @@protoc_insertion_point(field_get:communication.Bullet.time)
+inline double Shooter::time() const {
+  // @@protoc_insertion_point(field_get:communication.Shooter.time)
   return _internal_time();
 }
-inline void Bullet::_internal_set_time(float value) {
+inline void Shooter::_internal_set_time(double value) {
   
   time_ = value;
 }
-inline void Bullet::set_time(float value) {
+inline void Shooter::set_time(double value) {
   _internal_set_time(value);
-  // @@protoc_insertion_point(field_set:communication.Bullet.time)
+  // @@protoc_insertion_point(field_set:communication.Shooter.time)
 }
 
 #ifdef __GNUC__

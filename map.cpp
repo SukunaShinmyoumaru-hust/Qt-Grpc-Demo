@@ -18,8 +18,9 @@ Map::~Map()
 }
 
 void Map::updatePosition(int id,double x1,double y1){
-    x[id * 2 + 0] = x1 / 4.0 * this->width();
-    x[id * 2 + 1] = y1 / 4.0 * this->height();
+    x[id * 2 + 1] = x1 / 8.08 * this->height();
+    x[id * 2 + 0] = y1 / 4.48 * this->width();
+    // printf("Draw a point at %d %d\n",x[id*2+0],x[id*2+1]);
     this->update();
 }
 

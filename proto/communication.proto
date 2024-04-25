@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package communication;
+
+// 机器人信息
+service RobotComm{
+    //! GET Method
+    //向服务器索取血量信息 传回血量信息
+    rpc GetBlood(CommonRequest) returns (Blood) {}
+    //向服务器索取弹药量信息 传回弹药量信息
+    rpc GetBullet(CommonRequest) returns (Bullet) {}
+    //向服务器索取位姿信息 传回位姿信息
+    rpc GetPosture(CommonRequest) returns (Posture) {}
+    //向服务器索取枪口朝向信息 传回枪口朝向信息
+    rpc GetGimbalYaw(CommonRequest) returns (GimbalYaw) {}
+    //向服务器索取速度信息 传回速度信息
+    rpc GetVelocity(CommonRequest) returns (Velocity) {}
+    //向服务器索取受击信息 传回受击信息
+    rpc GetAttacked(CommonRequest) returns (Attacked) {}
+    //向服务器索取位置信息 传回位置信息
+    rpc GetObjectDection(CommonRequest) returns (ObjectDection) {}
+
+    //! POST Method
+    //向服务器传输血量信息 传回是否正确设置
+    rpc PostBlood(Blood) returns(Response) {}
+    //向服务器传输弹药量信息 传回是否正确设置
+    rpc PostBullet(Bullet) returns(Response) {}
+    //向服务器传输目的地信息 传回是否正确设置
+    rpc PostDestination(Destination) returns(Response) {}
+    //向服务器传输摩擦轮信息 传回是否正确设置
+    rpc PostFricWheel(FricWheel) returns(Response) {}
+    //向服务器传输停止信息 传回是否正确设置
+    rpc PostChassisStop(ChassisStop) returns(Response) {}
+    //向服务器传输子弹开关信息 传回是否正确设置
+    rpc PostShooter(Shooter) returns(Response) {}
+    //向服务器传递系统开启的指令
+    rpc PostSystemRun(CommonRequest) returns(Response) {}
+}
+
+
+message Blood{
+    int32 blood = 1;//记录血量
+    double time = 2;
+}
+
+message CommonRequest{
+    double time = 1;//都是为了记录时间戳，下同
+}
+
+message Bullet{
+    int32 bullets = 1;//记录弹药信息
+    int32 type = 2;//当用于GetAmmunition函数时可忽略，当用于PostAmmunition函数时，1是+，2是-，3是设置为某个值
+    double time = 3;
+}
+
+message Posture{
+    float x = 1;//位置的x坐标
+    float y = 2;//位置的Y坐标
+    float radian = 3;//底盘的朝向，弧度制
+    double time = 4;
+}
+
+message GimbalYaw{
+    float yaw = 1;//枪口的朝向，弧度制
+    float pitch=2;
+    double time = 3;
+}
+
+message Velocity{
+    float velocity_linear_x = 1;//速度的值
+    float velocity_linear_y = 2;//速度的值
+    float velocity_angular_z = 3;//速度的值
+    double time = 4;
+}
+
+message Attacked{
+    int32 up = 1;//上方装甲板受击次数
+    int32 down = 2;
+    int32 left = 3;
+    int32 right = 4;
+    double time = 5;
+}
+
+message ObjectDection{
+    repeated float x1 = 1;//摄像头目标检测的框，左上角的点的x坐标
+    repeated float y1 = 2;//左上角的点的y坐标
+    repeated float x2 = 3;//右下
+    repeated float y2 = 4;
+    double time = 5;
+}
+
+message Response{
+    double time = 1;
+}
+
+message Destination{
+    float x = 1;//目的地的x坐标
+    float y = 2;
+    float yaw = 3;
+    double time = 4;
+}
+
+message FricWheel{
+    bool open = 1;//true为打开摩擦轮
+    double time = 2;
+}
+
+message ChassisStop{
+    bool flag = 1;//true为不停止
+    double time = 2;
+}
+
+message Shooter{
+    bool open = 1;//true为打开子弹开关
+    double time = 2;
+}

@@ -10,12 +10,13 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    ui->state->setText("初始化");
 
     m_timer = new QTimer(this);
     m_timer->setSingleShot(false);
 
     buttonMapper = new QSignalMapper;
-
+    ui->state->setText("按钮初始化");
     setButtonMap();
     setShowMap();
     QObject::connect(buttonMapper, SIGNAL(mapped(int)), this, SLOT(handleButton(int)));
@@ -27,11 +28,11 @@ Widget::Widget(QWidget *parent) :
     QObject::connect(ui->eraseButton_2, SIGNAL(clicked(bool)), this, SLOT(eraseRFID()));
     QObject::connect(ui->eraseButton_3, SIGNAL(clicked(bool)), this, SLOT(eraseradar()));
     QObject::connect(m_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
-
+    ui->state->setText("地图初始化");
     m = new Map();
     ui->horizontalLayout->addWidget(m);
 
-
+    ui->state->setText("连接机器人中");
     std::ifstream file("../ip.txt");
     std::string line;
 
@@ -39,15 +40,18 @@ Widget::Widget(QWidget *parent) :
         for(int i = 0;i < 4;i++){
             std::getline(file, line);
             std::cout << "Initial " << i << " " << line << std::endl;
+
             std::shared_ptr<grpc::Channel> channel = grpc::CreateChannel(line, grpc::InsecureChannelCredentials());
             stub_[i] = communication::RobotComm::NewStub(channel);
+
             if(!stub_[i]) std::cout << "Network connection failed" << std::endl;
         }
         file.close();
     } else {
         std::cout << "无法打开文件" << std::endl;
     }
-    // m_timer->start(200);
+    ui->state->setText("等待命令");
+    m_timer->start(1000);
 }
 
 Widget::~Widget()
@@ -69,6 +73,7 @@ void Widget::showInformation(int a){
         case 2: name = QString("Blue1"); break;
         case 3: name = QString("Blue2"); break;
     }
+
     QMessageBox::about(NULL, name, "Message Box");
 }
 
@@ -85,7 +90,8 @@ void Widget::showBulletInformation(int a){
         case 2: name = QString("Blue1"); break;
         case 3: name = QString("Blue2"); break;
     }
-    QMessageBox::about(NULL, name, "Message Box");
+    QString info = "bullet number is " + QString::number(bul[a]);
+    QMessageBox::about(NULL, name, info);
 }
 
 /*
@@ -206,9 +212,42 @@ void Widget::handleButton(int r){
         case 6: sendBulletMessage(k,1);        break;
         case 7: setwheelStatus(k);             break;
         case 8: setshootStatus(k);             break;
-        case 9: setmoveStatus(k);               break;
+        case 9: setmoveStatus(k);              break;
         case 10: sendBulletMessage(k,2);       break;
+        case 11: allControl(k);                break;
     }
+}
+
+void Widget::allControl(int id){
+    ui->state->setText("发送控制信息");
+    QString name;
+    grpc::ClientContext context;
+    switch(id){
+        case 0: name = QString("Red1");  break;
+        case 1: name = QString("Red2");  break;
+        case 2: name = QString("Blue1"); break;
+        case 3: name = QString("Blue2"); break;
+    }
+    communication::CommonRequest a;
+    a.set_time(0);
+    QString info;
+    communication::Response re;
+    grpc::Status s_ = stub_[id]->PostSystemRun(&context,a,&re);
+    if(s_.ok()){
+        if(start[id] == 0){
+            button[id]->setText("总控关闭");
+        }
+        else{
+            button[id]->setText("总控开启");
+        }
+        info = QString("OK");
+        start[id] = start[id] ^ 1;
+    }
+    else{
+        info = QString("There's sth Wrong");
+    }
+    QMessageBox::information(this,name,info);
+    ui->state->setText("等待命令");
 }
 
 void Widget::sendBulletMessage(int id,int way){
@@ -235,11 +274,11 @@ void Widget::sendBulletMessage(int id,int way){
             bl = ui->bulletBox_blue_2->value();
             break;
     }
-    a_set_[id].set_ammunition(bl);
+    a_set_[id].set_bullets(bl);
     a_set_[id].set_type(way);
     QString info;
     communication::Response re;
-    grpc::Status s_ = stub_[id]->PostAmmunition(&context,a_set_[id],&re);
+    grpc::Status s_ = stub_[id]->PostBullet(&context,a_set_[id],&re);
     if(s_.ok()) info = QString("Get the information ") + QString::number(bl);
     else info = QString("There's sth Wrong");
     QMessageBox::information(this,name,info);
@@ -255,10 +294,10 @@ void Widget::setwheelStatus(int id){
         case 3: name = QString("Blue2"); break;
     }
     wheel[id] = wheel[id] ^ 1;
-    f_set_[id].set_flag(wheel[id]);
+    f_set_[id].set_open(wheel[id]);
     QString info;
     communication::Response re;
-    grpc::Status s_ = stub_[id]->PostFrictionWheel(&context,f_set_[id],&re);
+    grpc::Status s_ = stub_[id]->PostFricWheel(&context,f_set_[id],&re);
     if(s_.ok()) info = QString("Get the information ");
     else info = QString("There's sth Wrong");
     QMessageBox::information(this,name,info);
@@ -274,10 +313,10 @@ void Widget::setshootStatus(int id){
         case 3: name = QString("Blue2"); break;
     }
     shoot[id] = shoot[id] ^ 1;
-    bu_set_[id].set_flag(shoot[id]);
+    bu_set_[id].set_open(shoot[id]);
     QString info;
     communication::Response re;
-    grpc::Status s_ = stub_[id]->PostBullet(&context,bu_set_[id],&re);
+    grpc::Status s_ = stub_[id]->PostShooter(&context,bu_set_[id],&re);
     if(s_.ok()) info = QString("Get the information ");
     else info = QString("There's sth Wrong");
     QMessageBox::information(this,name,info);
@@ -296,7 +335,7 @@ void Widget::setmoveStatus(int id){
     s_set_[id].set_flag(move[id]);
     QString info;
     communication::Response re;
-    grpc::Status s_ = stub_[id]->PostStop(&context,s_set_[id],&re);
+    grpc::Status s_ = stub_[id]->PostChassisStop(&context,s_set_[id],&re);
     if(s_.ok()) info = QString("Get the information ");
     else info = QString("There's sth Wrong");
     QMessageBox::information(this,name,info);
@@ -489,6 +528,15 @@ void Widget::setButtonMap(){
     QObject::connect(ui->modifyButton_red_2, SIGNAL(clicked()), buttonMapper, SLOT(map()));
     QObject::connect(ui->modifyButton_blue_1, SIGNAL(clicked()), buttonMapper, SLOT(map()));
     QObject::connect(ui->modifyButton_blue_2, SIGNAL(clicked()), buttonMapper, SLOT(map()));
+
+    buttonMapper->setMapping(ui->allButton_red_1,44);
+    buttonMapper->setMapping(ui->allButton_red_2,45);
+    buttonMapper->setMapping(ui->allButton_blue_1,46);
+    buttonMapper->setMapping(ui->allButton_blue_2,47);
+    QObject::connect(ui->allButton_red_1, SIGNAL(clicked()), buttonMapper, SLOT(map()));
+    QObject::connect(ui->allButton_red_2, SIGNAL(clicked()), buttonMapper, SLOT(map()));
+    QObject::connect(ui->allButton_blue_1, SIGNAL(clicked()), buttonMapper, SLOT(map()));
+    QObject::connect(ui->allButton_blue_2, SIGNAL(clicked()), buttonMapper, SLOT(map()));
 }
 
 void Widget::setShowMap(){
@@ -552,6 +600,16 @@ void Widget::setShowMap(){
     radar_list[2] = ui->radar_blue_1;
     radar_list[3] = ui->radar_blue_2;
 
+    button[0] = ui->allButton_red_1;
+    button[1] = ui->allButton_red_2;
+    button[2] = ui->allButton_blue_1;
+    button[3] = ui->allButton_blue_2;
+
+    states[0] = ui->stateLabel_red_1;
+    states[1] = ui->stateLabel_red_2;
+    states[2] = ui->stateLabel_blue_1;
+    states[3] = ui->stateLabel_blue_2;
+
     eraseradar();
 
     for(int i = 0;i < 4;i++){
@@ -561,84 +619,133 @@ void Widget::setShowMap(){
         wheel[i] = 0;
         shoot[i] = 0;
         move[i] = 0;
+        start[i] = 0;
     }
 }
 
-void Widget::slotTimeout(){
-    grpc::ClientContext context;
+void Widget::getBlood(){
+    grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     // blood
     for(int i = 0;i < 4;i++){
-        status = stub_[i]->GetBlood(&context, r_, &b_[i]);
+        status = stub_[i]->GetBlood(&(context[i]), r_, &(b_[i]));
         if (status.ok()) {
             b_list[i]->b = b_[i].blood();
+            states[i]->setText("在线");
         }else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            states[i]->setText("离线");
         }
     }
+}
+void Widget::getBullet(){
     // bullet
+    grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     for(int i = 0;i < 4;i++){
-        status = stub_[i]->GetAmmunition(&context, r_, &a_[i]);
+        status = stub_[i]->GetBullet(&context[i], r_, &a_[i]);
         if (status.ok()) {
-            bul[i] = a_[i].ammunition();
+            bul[i] = a_[i].bullets();
         }else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+}
+void Widget::getPosture(){
+    // printf("Try to get posture\n");
     // posture
+    grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     for(int i = 0;i < 4;i++){
-        status = stub_[i]->GetPosture(&context, r_, &p_[i]);
+        status = stub_[i]->GetPosture(&context[i], r_, &p_[i]);
         if (status.ok()) {
             double x = p_[i].x();
             double y = p_[i].y();
+            // printf("get %f %f\n",x,y);
             m->updatePosition(i,x,y);
             mapInterface();
         }else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+}
+void Widget::getGunposture(){
     // gunposture
+    grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     for(int i = 0;i < 4;i++){
-        status = stub_[i]->GetGunPosture(&context, r_, &g_[i]);
+        status = stub_[i]->GetGimbalYaw(&context[i], r_, &g_[i]);
         if (status.ok()) {
             // unfinished
         }else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+}
+void Widget::getVelocity(){
     // velocity
+    grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     for(int i = 0;i < 4;i++){
-        status = stub_[i]->GetVelocity(&context, r_, &v_[i]);
+        status = stub_[i]->GetVelocity(&context[i], r_, &v_[i]);
         if (status.ok()) {
-            v_list[i]->v = v_[i].velocity();
+            v_list[i]->v = sqrt(v_[i].velocity_linear_x() * v_[i].velocity_linear_x() + v_[i].velocity_linear_y() * v_[i].velocity_linear_y());
         }else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+}
+void Widget::getAffected(){
     // affected
+    grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     for(int i = 0;i < 4;i++){
-        status = stub_[i]->GetAffected(&context, r_, &aff_[i]);
+        status = stub_[i]->GetAttacked(&context[i], r_, &aff_[i]);
         if (status.ok()) {
             hitAction(i*4+0,aff_[i].up());
             hitAction(i*4+1,aff_[i].left());
             hitAction(i*4+2,aff_[i].down());
             hitAction(i*4+3,aff_[i].right());
         }else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+}
+void Widget::getObjectDection(){
     // object
+    grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     for(int i = 0;i < 4;i++){
-        status = stub_[i]->GetObjectDection(&context, r_, &obj_[i]);
+        status = stub_[i]->GetObjectDection(&context[i], r_, &obj_[i]);
         if (status.ok()) {
             // TODO:这里需要一个数据：整个摄像机的大小，我这里假设是100了
             // 暂时没搞清楚repeat的意思
+
+            auto x1_list = obj_[i].x1();
+            auto x2_list = obj_[i].x2();
+            auto y1_list = obj_[i].y1();
+            auto y2_list = obj_[i].y2();
+            // int size = x1.size();
+            for (int i = 0; i < 1; i++) {
+                const float x1 = x1_list.Get(i);
+                const float x2 = x2_list.Get(i);
+                const float y1 = y1_list.Get(i);
+                const float y2 = y2_list.Get(i);
+                rfid_data[i][0] = x1;
+                rfid_data[i][1] = y1;
+                rfid_data[i][2] = x2;
+                rfid_data[i][3] = y2;
+                rfidInterface(i,2);
+                double x = (x1 + x2) / 2;
+                double y = (y1 + y2) / 2;
+                int p = x * 9 / 100;
+                int q = y * 9 / 100;
+                radarInterface(i,p,q);
+                  //const std::float& description = descs.Get(i);
+                  std::cout << "get success: " << x1 << std::endl;
+            }
+            return;
+
             /*
             float x1 = obj_[i].x1();
             float x2 = obj_[i].x2();
@@ -657,7 +764,17 @@ void Widget::slotTimeout(){
             */
 
         }else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
+            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+}
+
+void Widget::slotTimeout(){
+    getBlood();
+    getBullet();
+    getPosture();
+    getGunposture();
+    getVelocity();
+    getAffected();
+    getObjectDection();
 }

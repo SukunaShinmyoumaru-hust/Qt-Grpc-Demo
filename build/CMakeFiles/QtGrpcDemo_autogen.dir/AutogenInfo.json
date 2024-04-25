@@ -13,6 +13,7 @@
 			"EWIEGA46WW/moc_bloodnewwindows.cpp"
 		],
 		[ "/home/m/QtGrpcDemo/chart.h", "MU", "EWIEGA46WW/moc_chart.cpp" ],
+		[ "/home/m/QtGrpcDemo/loading.h", "MU", "EWIEGA46WW/moc_loading.cpp" ],
 		[ "/home/m/QtGrpcDemo/map.h", "MU", "EWIEGA46WW/moc_map.cpp" ],
 		[
 			"/home/m/QtGrpcDemo/proto/communication.grpc.pb.h",
@@ -41,6 +42,7 @@
 		"QT_CHARTS_LIB",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
 		"QT_WIDGETS_LIB"
 	],
 	"MOC_DEPEND_FILTERS" : 
@@ -60,8 +62,8 @@
 		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
 		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
 		"/usr/include/x86_64-linux-gnu/qt5/QtCharts",
-		"/usr/include",
 		"/usr/local/include",
+		"/usr/include",
 		"/usr/include/c++/9",
 		"/usr/include/x86_64-linux-gnu/c++/9",
 		"/usr/include/c++/9/backward",
@@ -73,7 +75,7 @@
 	"MOC_PATH_PREFIX" : true,
 	"MOC_PREDEFS_CMD" : 
 	[
-		"/usr/bin/g++",
+		"/usr/bin/c++",
 		"-dM",
 		"-E",
 		"-c",
@@ -93,6 +95,7 @@
 	[
 		[ "/home/m/QtGrpcDemo/bloodnewwindows.cpp", "MU" ],
 		[ "/home/m/QtGrpcDemo/chart.cpp", "MU" ],
+		[ "/home/m/QtGrpcDemo/loading.cpp", "MU" ],
 		[ "/home/m/QtGrpcDemo/main.cpp", "MU" ],
 		[ "/home/m/QtGrpcDemo/map.cpp", "MU" ],
 		[ "/home/m/QtGrpcDemo/proto/communication.grpc.pb.cc", "MU" ],

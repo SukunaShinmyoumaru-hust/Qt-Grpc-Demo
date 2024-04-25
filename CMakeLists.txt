@@ -41,6 +41,7 @@ add_executable(QtGrpcDemo
     test.cpp
     velocitynewwindows.cpp
     widget.cpp
+    loading.cpp
     proto/communication.grpc.pb.cc
     proto/communication.pb.cc
     bloodnewwindows.h
@@ -49,6 +50,7 @@ add_executable(QtGrpcDemo
     test.h
     velocitynewwindows.h
     widget.h
+    loading.h
     proto/communication.grpc.pb.h
     proto/communication.pb.h
     bloodnewwindows.ui
@@ -56,7 +58,9 @@ add_executable(QtGrpcDemo
     test.ui
     velocitynewwindows.ui
     widget.ui
+    loading.ui
     map.png
+    ip.txt
   )
 
 

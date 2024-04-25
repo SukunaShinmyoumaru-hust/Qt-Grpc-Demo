@@ -1,21 +1,21 @@
 Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_8674b/fast && /usr/bin/make -f CMakeFiles/cmTC_8674b.dir/build.make CMakeFiles/cmTC_8674b.dir/build
+Run Build Command(s):/usr/bin/make cmTC_b687e/fast && /usr/bin/make -f CMakeFiles/cmTC_b687e.dir/build.make CMakeFiles/cmTC_b687e.dir/build
 make[1]: 进入目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_8674b.dir/src.cxx.o
-/usr/bin/g++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_8674b.dir/src.cxx.o -c /home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_8674b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8674b.dir/link.txt --verbose=1
-/usr/bin/g++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_8674b.dir/src.cxx.o  -o cmTC_8674b 
-/usr/bin/ld: CMakeFiles/cmTC_8674b.dir/src.cxx.o: in function `main':
+Building CXX object CMakeFiles/cmTC_b687e.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_b687e.dir/src.cxx.o -c /home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b687e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b687e.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_b687e.dir/src.cxx.o  -o cmTC_b687e 
+/usr/bin/ld: CMakeFiles/cmTC_b687e.dir/src.cxx.o: in function `main':
 src.cxx:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.cxx:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_8674b.dir/build.make:87：cmTC_8674b] 错误 1
+make[1]: *** [CMakeFiles/cmTC_b687e.dir/build.make:87：cmTC_b687e] 错误 1
 make[1]: 离开目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_8674b/fast] 错误 2
+make: *** [Makefile:121：cmTC_b687e/fast] 错误 2
 
 
 Source file was:
@@ -41,76 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_d7f6f/fast && /usr/bin/make -f CMakeFiles/cmTC_d7f6f.dir/build.make CMakeFiles/cmTC_d7f6f.dir/build
+Run Build Command(s):/usr/bin/make cmTC_226bd/fast && /usr/bin/make -f CMakeFiles/cmTC_226bd.dir/build.make CMakeFiles/cmTC_226bd.dir/build
 make[1]: 进入目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_d7f6f.dir/CheckFunctionExists.cxx.o
-/usr/bin/g++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d7f6f.dir/CheckFunctionExists.cxx.o -c /home/m/QtGrpcDemo/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_d7f6f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7f6f.dir/link.txt --verbose=1
-/usr/bin/g++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_d7f6f.dir/CheckFunctionExists.cxx.o  -o cmTC_d7f6f  -lpthreads 
+Building CXX object CMakeFiles/cmTC_226bd.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_226bd.dir/CheckFunctionExists.cxx.o -c /home/m/QtGrpcDemo/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_226bd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_226bd.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_226bd.dir/CheckFunctionExists.cxx.o  -o cmTC_226bd  -lpthreads 
 /usr/bin/ld: 找不到 -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_d7f6f.dir/build.make:87：cmTC_d7f6f] 错误 1
+make[1]: *** [CMakeFiles/cmTC_226bd.dir/build.make:87：cmTC_226bd] 错误 1
 make[1]: 离开目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_d7f6f/fast] 错误 2
-
-
-
-Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_fae72/fast && /usr/bin/make -f CMakeFiles/cmTC_fae72.dir/build.make CMakeFiles/cmTC_fae72.dir/build
-make[1]: 进入目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_fae72.dir/src.cxx.o
-/usr/bin/g++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_fae72.dir/src.cxx.o -c /home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_fae72
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fae72.dir/link.txt --verbose=1
-/usr/bin/g++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_fae72.dir/src.cxx.o  -o cmTC_fae72 
-/usr/bin/ld: CMakeFiles/cmTC_fae72.dir/src.cxx.o: in function `main':
-src.cxx:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.cxx:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_fae72.dir/build.make:87：cmTC_fae72] 错误 1
-make[1]: 离开目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_fae72/fast] 错误 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_9b482/fast && /usr/bin/make -f CMakeFiles/cmTC_9b482.dir/build.make CMakeFiles/cmTC_9b482.dir/build
-make[1]: 进入目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_9b482.dir/CheckFunctionExists.cxx.o
-/usr/bin/g++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9b482.dir/CheckFunctionExists.cxx.o -c /home/m/QtGrpcDemo/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_9b482
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b482.dir/link.txt --verbose=1
-/usr/bin/g++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9b482.dir/CheckFunctionExists.cxx.o  -o cmTC_9b482  -lpthreads 
-/usr/bin/ld: 找不到 -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_9b482.dir/build.make:87：cmTC_9b482] 错误 1
-make[1]: 离开目录“/home/m/QtGrpcDemo/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_9b482/fast] 错误 2
+make: *** [Makefile:121：cmTC_226bd/fast] 错误 2
 
 
 
