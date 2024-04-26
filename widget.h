@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <QSignalMapper>
 #include <QTextBrowser>
+#include <QComboBox>
 #include <QFrame>
 #include <QPropertyAnimation>
 #include <QStandardItemModel>
@@ -28,6 +29,7 @@
 #include "map.h"
 #include <stdio.h>
 #include <time.h>
+#include <thread>
 
 namespace Ui {
 class Widget;
@@ -54,6 +56,7 @@ private:
     velocityNewWindows* v_list[4];
     QPushButton* button[4];
     QLabel* states[4];
+    QComboBox* com[4];
     int count[16];
     int bul[4];
     int wheel[4];
@@ -61,6 +64,7 @@ private:
     int move[4];
     int start[4];
     double rfid_data[4][20];
+    std::mutex myMutex;
     QTimer* m_timer;
     QSignalMapper* buttonMapper;
     QPropertyAnimation ani;
@@ -109,6 +113,7 @@ private:
     void getAffected();
     void getObjectDection();
     void allControl(int id);
+    void threadFunction();
 
 private slots:
     void slotTimeout();

@@ -159,6 +159,8 @@ QSignalMapper
 -
 QTextBrowser
 -
+QComboBox
+-
 QFrame
 -
 QPropertyAnimation
@@ -190,6 +192,8 @@ map.h
 stdio.h
 -
 time.h
+-
+thread
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCharts/QAbstractAxis
@@ -1600,6 +1604,10 @@ QtGui/qtguiglobal.h
 qapplication.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+qcombobox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommandLinkButton
 qcommandlinkbutton.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommandlinkbutton.h
@@ -1732,6 +1740,20 @@ QtWidgets/qlayout.h
 QtWidgets/qwidget.h
 -
 limits.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+QtWidgets/qabstractitemdelegate.h
+-
+QtCore/qabstractitemmodel.h
+-
+QtCore/qvariant.h
+-
+QtGui/qvalidator.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommandlinkbutton.h
@@ -2056,6 +2078,8 @@ QtGrpcDemo_autogen/include/ui_widget.h
 QtCore/QVariant
 -
 QtWidgets/QApplication
+-
+QtWidgets/QComboBox
 -
 QtWidgets/QCommandLinkButton
 -

@@ -165,6 +165,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/includ
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
+CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsWidget
@@ -178,6 +179,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/includ
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
+CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
@@ -792,6 +794,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qv
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
+CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsWidget
@@ -806,6 +809,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidget
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
+CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
@@ -1445,6 +1449,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
+CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommandLinkButton
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDoubleSpinBox
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
@@ -1467,6 +1472,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidg
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
+CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommandlinkbutton.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h

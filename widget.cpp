@@ -51,6 +51,7 @@ Widget::Widget(QWidget *parent) :
         std::cout << "无法打开文件" << std::endl;
     }
     ui->state->setText("等待命令");
+
     m_timer->start(1000);
 }
 
@@ -610,7 +611,16 @@ void Widget::setShowMap(){
     states[2] = ui->stateLabel_blue_1;
     states[3] = ui->stateLabel_blue_2;
 
+    com[0] = ui->comboBox_red_1;
+    com[1] = ui->comboBox_red_2;
+    com[2] = ui->comboBox_blue_1;
+    com[3] = ui->comboBox_blue_2;
+
     eraseradar();
+
+    QStringList items;
+    items << "1" << "2" << "3" << "4" << "5";
+
 
     for(int i = 0;i < 4;i++){
         b_list[i] = new BloodNewWindows(i);
@@ -620,10 +630,40 @@ void Widget::setShowMap(){
         shoot[i] = 0;
         move[i] = 0;
         start[i] = 0;
+        com[i]->addItems(items);
+        /*
+        QObject::connect(com[i], QOverload<int>::of(&QComboBox::currentIndexChanged),
+            [&](int index){
+                QString info = "当前选中的是：" + com[i]->itemText(index);
+                QMessageBox::information(this,"Hello",info);
+            });
+            */
     }
+
+    QObject::connect(com[0], QOverload<int>::of(&QComboBox::currentIndexChanged),
+        [&](int index){
+            QString info = "当前选中的是：" + com[0]->itemText(index);
+            QMessageBox::information(this,"Hello",info);
+        });
+    QObject::connect(com[1], QOverload<int>::of(&QComboBox::currentIndexChanged),
+        [&](int index){
+            QString info = "当前选中的是：" + com[1]->itemText(index);
+            QMessageBox::information(this,"Hello",info);
+        });
+    QObject::connect(com[2], QOverload<int>::of(&QComboBox::currentIndexChanged),
+        [&](int index){
+            QString info = "当前选中的是：" + com[2]->itemText(index);
+            QMessageBox::information(this,"Hello",info);
+        });
+    QObject::connect(com[3], QOverload<int>::of(&QComboBox::currentIndexChanged),
+        [&](int index){
+            QString info = "当前选中的是：" + com[3]->itemText(index);
+            QMessageBox::information(this,"Hello",info);
+        });
 }
 
 void Widget::getBlood(){
+    std::unique_lock<std::mutex> lock(myMutex);
     grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     // blood
@@ -633,12 +673,14 @@ void Widget::getBlood(){
             b_list[i]->b = b_[i].blood();
             states[i]->setText("在线");
         }else {
-            // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
             states[i]->setText("离线");
         }
     }
+    // delete[] context;
+    lock.unlock();
 }
 void Widget::getBullet(){
+    std::unique_lock<std::mutex> lock(myMutex);
     // bullet
     grpc::ClientContext context[4];
     r_.set_time(time(NULL));
@@ -650,9 +692,12 @@ void Widget::getBullet(){
             // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+    // delete[] context;
+    lock.unlock();
 }
+
 void Widget::getPosture(){
-    // printf("Try to get posture\n");
+    std::unique_lock<std::mutex> lock(myMutex);
     // posture
     grpc::ClientContext context[4];
     r_.set_time(time(NULL));
@@ -668,8 +713,11 @@ void Widget::getPosture(){
             // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+    // delete[] context;
+    lock.unlock();
 }
 void Widget::getGunposture(){
+    std::unique_lock<std::mutex> lock(myMutex);
     // gunposture
     grpc::ClientContext context[4];
     r_.set_time(time(NULL));
@@ -681,8 +729,11 @@ void Widget::getGunposture(){
             // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+    // delete[] context;
+    lock.unlock();
 }
 void Widget::getVelocity(){
+    std::unique_lock<std::mutex> lock(myMutex);
     // velocity
     grpc::ClientContext context[4];
     r_.set_time(time(NULL));
@@ -694,8 +745,11 @@ void Widget::getVelocity(){
             // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+    // delete[] context;
+    lock.unlock();
 }
 void Widget::getAffected(){
+    std::unique_lock<std::mutex> lock(myMutex);
     // affected
     grpc::ClientContext context[4];
     r_.set_time(time(NULL));
@@ -710,17 +764,17 @@ void Widget::getAffected(){
             // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+    // delete[] context;
+    lock.unlock();
 }
 void Widget::getObjectDection(){
+    std::unique_lock<std::mutex> lock(myMutex);
     // object
     grpc::ClientContext context[4];
     r_.set_time(time(NULL));
     for(int i = 0;i < 4;i++){
         status = stub_[i]->GetObjectDection(&context[i], r_, &obj_[i]);
         if (status.ok()) {
-            // TODO:这里需要一个数据：整个摄像机的大小，我这里假设是100了
-            // 暂时没搞清楚repeat的意思
-
             auto x1_list = obj_[i].x1();
             auto x2_list = obj_[i].x2();
             auto y1_list = obj_[i].y1();
@@ -741,35 +795,19 @@ void Widget::getObjectDection(){
                 int p = x * 9 / 100;
                 int q = y * 9 / 100;
                 radarInterface(i,p,q);
-                  //const std::float& description = descs.Get(i);
-                  std::cout << "get success: " << x1 << std::endl;
+                std::cout << "get success: " << x1 << std::endl;
             }
-            return;
-
-            /*
-            float x1 = obj_[i].x1();
-            float x2 = obj_[i].x2();
-            float y1 = obj_[i].y1();
-            float y2 = obj_[i].y2();
-            rfid_data[i][0] = x1;
-            rfid_data[i][1] = y1;
-            rfid_data[i][2] = x2;
-            rfid_data[i][3] = y2;
-            rfidInterface(i,2);
-            double x = (x1 + x2) / 2;
-            double y = (y1 + y2) / 2;
-            int p = x * 9 / 100;
-            int q = y * 9 / 100;
-            radarInterface(i,p,q);
-            */
-
         }else {
             // std::cout << status.error_code() << ": " << status.error_message() << std::endl;
         }
     }
+    // delete[] context;
+    lock.unlock();
+    return;
 }
 
-void Widget::slotTimeout(){
+void Widget::threadFunction(){
+    printf("Thread is doing sth.\n");
     getBlood();
     getBullet();
     getPosture();
@@ -777,4 +815,26 @@ void Widget::slotTimeout(){
     getVelocity();
     getAffected();
     getObjectDection();
+}
+
+void Widget::slotTimeout(){
+//    auto lambda_fun = [&]() -> void {
+//        printf("Thread is doing sth.\n");
+//        getBlood();
+//        printf("Thread is doing sth Step 1.\n");
+//        getBullet();
+//        printf("Thread is doing sth Step 2.\n");
+//        getPosture();
+//        printf("Thread is doing sth Step 3.\n");
+//        getGunposture();
+//        printf("Thread is doing sth Step 4.\n");
+//        getVelocity();
+//        printf("Thread is doing sth Step 5.\n");
+//        getAffected();
+//        printf("Thread is doing sth Step 6.\n");
+//        getObjectDection();
+//        printf("Thread is doing sth Step 7.\n");
+//    };
+    std::thread my_thread(std::bind(&Widget::threadFunction,this));
+    my_thread.detach();
 }

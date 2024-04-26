@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QCommandLinkButton>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
@@ -188,6 +189,10 @@ public:
     QFrame *line;
     QFrame *line_2;
     QLabel *label_41;
+    QComboBox *comboBox_red_1;
+    QComboBox *comboBox_blue_1;
+    QComboBox *comboBox_red_2;
+    QComboBox *comboBox_blue_2;
 
     void setupUi(QWidget *Widget)
     {
@@ -449,7 +454,7 @@ public:
         sendRobotPosition_blue_2->setGeometry(QRect(660, 530, 100, 27));
         testButton = new QPushButton(Widget);
         testButton->setObjectName(QString::fromUtf8("testButton"));
-        testButton->setGeometry(QRect(10, 40, 131, 27));
+        testButton->setGeometry(QRect(10, 40, 121, 27));
         eraseButton = new QPushButton(Widget);
         eraseButton->setObjectName(QString::fromUtf8("eraseButton"));
         eraseButton->setGeometry(QRect(10, 10, 121, 27));
@@ -738,6 +743,18 @@ public:
         label_41 = new QLabel(Widget);
         label_41->setObjectName(QString::fromUtf8("label_41"));
         label_41->setGeometry(QRect(1420, 20, 79, 19));
+        comboBox_red_1 = new QComboBox(Widget);
+        comboBox_red_1->setObjectName(QString::fromUtf8("comboBox_red_1"));
+        comboBox_red_1->setGeometry(QRect(10, 320, 93, 27));
+        comboBox_blue_1 = new QComboBox(Widget);
+        comboBox_blue_1->setObjectName(QString::fromUtf8("comboBox_blue_1"));
+        comboBox_blue_1->setGeometry(QRect(10, 640, 93, 27));
+        comboBox_red_2 = new QComboBox(Widget);
+        comboBox_red_2->setObjectName(QString::fromUtf8("comboBox_red_2"));
+        comboBox_red_2->setGeometry(QRect(670, 320, 93, 27));
+        comboBox_blue_2 = new QComboBox(Widget);
+        comboBox_blue_2->setObjectName(QString::fromUtf8("comboBox_blue_2"));
+        comboBox_blue_2->setGeometry(QRect(670, 640, 93, 27));
 
         retranslateUi(Widget);
 
