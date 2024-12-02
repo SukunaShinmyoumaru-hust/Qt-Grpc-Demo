@@ -60,145 +60,145 @@ include CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: QtGrpcDemo_autogen/mocs_compilation.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o -c /home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/mocs_compilation.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o -c /home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/mocs_compilation.cpp
 
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/mocs_compilation.cpp > CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/mocs_compilation.cpp > CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/mocs_compilation.cpp -o CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/build/QtGrpcDemo_autogen/mocs_compilation.cpp -o CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.o: ../bloodnewwindows.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.o -c /home/m/QtGrpcDemo/bloodnewwindows.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.o -c /home/m/QtGrpcDemo/bloodnewwindows.cpp
 
 CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/bloodnewwindows.cpp > CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/bloodnewwindows.cpp > CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/bloodnewwindows.cpp -o CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/bloodnewwindows.cpp -o CMakeFiles/QtGrpcDemo.dir/bloodnewwindows.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/chart.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/chart.cpp.o: ../chart.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/QtGrpcDemo.dir/chart.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/chart.cpp.o -c /home/m/QtGrpcDemo/chart.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/chart.cpp.o -c /home/m/QtGrpcDemo/chart.cpp
 
 CMakeFiles/QtGrpcDemo.dir/chart.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/chart.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/chart.cpp > CMakeFiles/QtGrpcDemo.dir/chart.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/chart.cpp > CMakeFiles/QtGrpcDemo.dir/chart.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/chart.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/chart.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/chart.cpp -o CMakeFiles/QtGrpcDemo.dir/chart.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/chart.cpp -o CMakeFiles/QtGrpcDemo.dir/chart.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/QtGrpcDemo.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/main.cpp.o -c /home/m/QtGrpcDemo/main.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/main.cpp.o -c /home/m/QtGrpcDemo/main.cpp
 
 CMakeFiles/QtGrpcDemo.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/main.cpp > CMakeFiles/QtGrpcDemo.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/main.cpp > CMakeFiles/QtGrpcDemo.dir/main.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/main.cpp -o CMakeFiles/QtGrpcDemo.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/main.cpp -o CMakeFiles/QtGrpcDemo.dir/main.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: ../map.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/QtGrpcDemo.dir/map.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/map.cpp.o -c /home/m/QtGrpcDemo/map.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/map.cpp.o -c /home/m/QtGrpcDemo/map.cpp
 
 CMakeFiles/QtGrpcDemo.dir/map.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/map.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/map.cpp > CMakeFiles/QtGrpcDemo.dir/map.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/map.cpp > CMakeFiles/QtGrpcDemo.dir/map.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/map.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/map.cpp -o CMakeFiles/QtGrpcDemo.dir/map.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/map.cpp -o CMakeFiles/QtGrpcDemo.dir/map.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/test.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/test.cpp.o: ../test.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/QtGrpcDemo.dir/test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/test.cpp.o -c /home/m/QtGrpcDemo/test.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/test.cpp.o -c /home/m/QtGrpcDemo/test.cpp
 
 CMakeFiles/QtGrpcDemo.dir/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/test.cpp > CMakeFiles/QtGrpcDemo.dir/test.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/test.cpp > CMakeFiles/QtGrpcDemo.dir/test.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/test.cpp -o CMakeFiles/QtGrpcDemo.dir/test.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/test.cpp -o CMakeFiles/QtGrpcDemo.dir/test.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.o: ../velocitynewwindows.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.o -c /home/m/QtGrpcDemo/velocitynewwindows.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.o -c /home/m/QtGrpcDemo/velocitynewwindows.cpp
 
 CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/velocitynewwindows.cpp > CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/velocitynewwindows.cpp > CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/velocitynewwindows.cpp -o CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/velocitynewwindows.cpp -o CMakeFiles/QtGrpcDemo.dir/velocitynewwindows.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: ../widget.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/QtGrpcDemo.dir/widget.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/widget.cpp.o -c /home/m/QtGrpcDemo/widget.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/widget.cpp.o -c /home/m/QtGrpcDemo/widget.cpp
 
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/widget.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/widget.cpp > CMakeFiles/QtGrpcDemo.dir/widget.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/widget.cpp > CMakeFiles/QtGrpcDemo.dir/widget.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/widget.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/widget.cpp -o CMakeFiles/QtGrpcDemo.dir/widget.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/widget.cpp -o CMakeFiles/QtGrpcDemo.dir/widget.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/loading.cpp.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/loading.cpp.o: ../loading.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/QtGrpcDemo.dir/loading.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/loading.cpp.o -c /home/m/QtGrpcDemo/loading.cpp
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/loading.cpp.o -c /home/m/QtGrpcDemo/loading.cpp
 
 CMakeFiles/QtGrpcDemo.dir/loading.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/loading.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/loading.cpp > CMakeFiles/QtGrpcDemo.dir/loading.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/loading.cpp > CMakeFiles/QtGrpcDemo.dir/loading.cpp.i
 
 CMakeFiles/QtGrpcDemo.dir/loading.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/loading.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/loading.cpp -o CMakeFiles/QtGrpcDemo.dir/loading.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/loading.cpp -o CMakeFiles/QtGrpcDemo.dir/loading.cpp.s
 
 CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.o: ../proto/communication.grpc.pb.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.o -c /home/m/QtGrpcDemo/proto/communication.grpc.pb.cc
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.o -c /home/m/QtGrpcDemo/proto/communication.grpc.pb.cc
 
 CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/proto/communication.grpc.pb.cc > CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/proto/communication.grpc.pb.cc > CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.i
 
 CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/proto/communication.grpc.pb.cc -o CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/proto/communication.grpc.pb.cc -o CMakeFiles/QtGrpcDemo.dir/proto/communication.grpc.pb.cc.s
 
 CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.o: CMakeFiles/QtGrpcDemo.dir/flags.make
 CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.o: ../proto/communication.pb.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.o -c /home/m/QtGrpcDemo/proto/communication.pb.cc
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.o -c /home/m/QtGrpcDemo/proto/communication.pb.cc
 
 CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/proto/communication.pb.cc > CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/m/QtGrpcDemo/proto/communication.pb.cc > CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.i
 
 CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/proto/communication.pb.cc -o CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/m/QtGrpcDemo/proto/communication.pb.cc -o CMakeFiles/QtGrpcDemo.dir/proto/communication.pb.cc.s
 
 # Object files for target QtGrpcDemo
 QtGrpcDemo_OBJECTS = \

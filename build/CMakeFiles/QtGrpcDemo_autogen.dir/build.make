@@ -55,7 +55,7 @@ include CMakeFiles/QtGrpcDemo_autogen.dir/progress.make
 
 CMakeFiles/QtGrpcDemo_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/m/QtGrpcDemo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target QtGrpcDemo"
-	/usr/bin/cmake -E cmake_autogen /home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo_autogen.dir/AutogenInfo.json ""
+	/usr/bin/cmake -E cmake_autogen /home/m/QtGrpcDemo/build/CMakeFiles/QtGrpcDemo_autogen.dir/AutogenInfo.json Debug
 
 QtGrpcDemo_autogen: CMakeFiles/QtGrpcDemo_autogen
 QtGrpcDemo_autogen: CMakeFiles/QtGrpcDemo_autogen.dir/build.make

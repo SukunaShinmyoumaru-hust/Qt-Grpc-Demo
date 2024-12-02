@@ -12,6 +12,23 @@ Map::Map(QWidget *parent) :
     // hide();
 }
 
+void Map::mousePressEvent(QMouseEvent *event){
+    //鼠标点下的坐标
+    double xStartPoint = event->pos().x();
+    double yStartPoint = event->pos().y();
+    f1 = xStartPoint / this->height() * 8.08;
+    f2 = yStartPoint / this->width() * 4.48;
+    ui->label1->setText(QString::number(f1));
+    ui->label2->setText(QString::number(f2));
+    w = ui->b->value();
+}
+
+void Map::get(int* place,double* x11,double* y11){
+    *place = w;
+    *x11 = f1;
+    *y11 = f2;
+}
+
 Map::~Map()
 {
     delete ui;
@@ -38,7 +55,7 @@ void Map::paintEvent(QPaintEvent *){
     painter->setRenderHint(QPainter::Antialiasing, true);
     // painter->drawPixmap(rect(),QPixmap("./map.png"));
     // 使用相对路径出错了!
-    QImage image("../map.png");
+    QImage image("/home/m/QtGrpcDemo/map.png");
     if (image.isNull()) {
         std::cout << "无法加载图片";
         return;

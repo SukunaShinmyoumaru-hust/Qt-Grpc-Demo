@@ -43,6 +43,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QtMath
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -82,6 +83,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
@@ -128,6 +130,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPen
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
@@ -167,6 +170,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsWidget
@@ -181,6 +185,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
@@ -667,6 +672,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QtMath
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -708,6 +714,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
@@ -754,6 +761,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPen
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
@@ -796,6 +804,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsWidget
@@ -812,6 +821,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
@@ -838,6 +848,8 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o
  /home/m/QtGrpcDemo/map.cpp
  /home/m/QtGrpcDemo/map.h
+ /home/m/QtGrpcDemo/proto/communication.grpc.pb.h
+ /home/m/QtGrpcDemo/proto/communication.pb.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QPropertyAnimation
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSignalMapper
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
@@ -927,6 +939,7 @@ CMakeFiles/QtGrpcDemo.dir/map.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
@@ -971,6 +984,7 @@ CMakeFiles/QtGrpcDemo.dir/map.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpinBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextBrowser
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
@@ -990,6 +1004,7 @@ CMakeFiles/QtGrpcDemo.dir/map.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qspinbox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h
@@ -1322,6 +1337,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QtMath
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -1363,6 +1379,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
@@ -1409,6 +1426,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPen
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
@@ -1452,6 +1470,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommandLinkButton
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDoubleSpinBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
@@ -1476,6 +1495,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommandlinkbutton.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h

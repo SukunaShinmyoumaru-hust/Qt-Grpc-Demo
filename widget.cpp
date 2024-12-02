@@ -27,10 +27,10 @@ Widget::Widget(QWidget *parent) :
     QObject::connect(ui->eraseButton, SIGNAL(clicked(bool)), this, SLOT(eraseHit()));
     QObject::connect(ui->eraseButton_2, SIGNAL(clicked(bool)), this, SLOT(eraseRFID()));
     QObject::connect(ui->eraseButton_3, SIGNAL(clicked(bool)), this, SLOT(eraseradar()));
+    QObject::connect(ui->p, SIGNAL(clicked(bool)), this, SLOT(pushcommand()));
     QObject::connect(m_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
-    ui->state->setText("地图初始化");
-    m = new Map();
-    ui->horizontalLayout->addWidget(m);
+
+
 
     ui->state->setText("连接机器人中");
     std::ifstream file("../ip.txt");
@@ -50,6 +50,9 @@ Widget::Widget(QWidget *parent) :
     } else {
         std::cout << "无法打开文件" << std::endl;
     }
+    ui->state->setText("地图初始化");
+    m = new Map();
+    ui->horizontalLayout->addWidget(m);
     ui->state->setText("等待命令");
 
     m_timer->start(1000);
@@ -172,6 +175,32 @@ void Widget::sentBloodInformation(int a){
     grpc::Status s_ = stub_[a]->PostBlood(&context,b_set_[a],&re);
     QString info;
     if(s_.ok()) info = QString("Get the information") + QString::number(blood);
+    else info = QString("There's sth Wrong");
+    QMessageBox::information(this,name,info);
+}
+
+void Widget::pushcommand(){
+    grpc::ClientContext context;
+    double x,y;
+    int a;
+    m->get(&a,&x,&y);
+    a--;
+    QString name;
+    switch(a){
+        case 0: name = QString("Red1");  break;
+        case 1: name = QString("Red2");  break;
+        case 2: name = QString("Blue1"); break;
+        case 3: name = QString("Blue2"); break;
+    }
+    d_set_[a].set_x(x);
+    d_set_[a].set_y(y);
+    double degrees = ui->dial->value();
+    double radians = qDegreesToRadians(degrees);
+    // d_set_[a].set_radian(radians);
+    communication::Response re;
+    grpc::Status s_ = stub_[a]->PostDestination(&context,d_set_[a],&re);
+    QString info;
+    if(s_.ok()) info = QString("Get the information: x is ") + QString::number(x,'f',2) + QString(" y is ") + QString::number(y,'f',2);
     else info = QString("There's sth Wrong");
     QMessageBox::information(this,name,info);
 }
@@ -807,7 +836,7 @@ void Widget::getObjectDection(){
 }
 
 void Widget::threadFunction(){
-    printf("Thread is doing sth.\n");
+    // printf("Thread is doing sth.\n");
     getBlood();
     getBullet();
     getPosture();

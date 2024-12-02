@@ -9,9 +9,11 @@
 #include <QValueAxis>
 #include <QLineSeries>
 #include <QMessageBox>
+#include <QtMath>
 #include <QSignalMapper>
 #include <QTextBrowser>
 #include <QComboBox>
+#include <QDial>
 #include <QFrame>
 #include <QPropertyAnimation>
 #include <QStandardItemModel>
@@ -69,6 +71,7 @@ private:
     QSignalMapper* buttonMapper;
     QPropertyAnimation ani;
     Map* m;
+    QDial dial;
     std::unique_ptr<communication::RobotComm::Stub> stub_[4];
     grpc::Status status;
     /* Get */
@@ -124,6 +127,7 @@ private slots:
     void testHit();
     void testRFID();
     void testradar();
+    void pushcommand();
 };
 
 #endif // WIDGET_H

@@ -42,6 +42,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/includ
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
+CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QtMath
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -81,6 +82,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/includ
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
+CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
@@ -127,6 +129,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/includ
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPen
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
@@ -166,6 +169,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/includ
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsWidget
@@ -180,6 +184,7 @@ CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/includ
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
+CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 CMakeFiles/QtGrpcDemo.dir/QtGrpcDemo_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
@@ -666,6 +671,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/Q
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
+CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QtMath
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -707,6 +713,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/q
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
+CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
@@ -753,6 +760,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/q
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPen
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
@@ -795,6 +803,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qw
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsWidget
@@ -811,6 +820,7 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidget
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
@@ -837,6 +847,8 @@ CMakeFiles/QtGrpcDemo.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidget
 
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: ../map.cpp
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: ../map.h
+CMakeFiles/QtGrpcDemo.dir/map.cpp.o: ../proto/communication.grpc.pb.h
+CMakeFiles/QtGrpcDemo.dir/map.cpp.o: ../proto/communication.pb.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QPropertyAnimation
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QSignalMapper
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
@@ -926,6 +938,7 @@ CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qv
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
@@ -970,6 +983,7 @@ CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
+CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpinBox
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextBrowser
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
@@ -989,6 +1003,7 @@ CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h
+CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qspinbox.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h
 CMakeFiles/QtGrpcDemo.dir/map.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h
@@ -1321,6 +1336,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QtGlobal
+CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QtMath
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
@@ -1362,6 +1378,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
+CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
@@ -1408,6 +1425,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
+CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QMouseEvent
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QPen
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
@@ -1451,6 +1469,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommandLinkButton
+CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDoubleSpinBox
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGraphicsView
@@ -1475,6 +1494,7 @@ CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidg
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommandlinkbutton.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 CMakeFiles/QtGrpcDemo.dir/widget.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
